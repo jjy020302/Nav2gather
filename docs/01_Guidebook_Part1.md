@@ -1050,3 +1050,18 @@ ros2 topic echo /odom
 `/scan` Topic에서는 LiDAR 센서 데이터(`sensor_msgs/msg/LaserScan`)가 지속적으로 출력되는 것을 확인할 수 있다.
 
 `/odom` Topic에서는 TurtleBot3의 위치(Position), 자세(Orientation), 속도(Velocity)를 포함한 오도메트리 데이터(`nav_msgs/msg/Odometry`)가 지속적으로 출력되는 것을 확인할 수 있다.
+
+## 실행 결과 확인
+
+다음 항목을 모두 만족하면 Part 1을 정상적으로 완료한 것이다.
+
+- [ ] Remote PC에 Ubuntu 24.04 LTS를 설치하였다.
+- [ ] Remote PC에 ROS 2 Jazzy를 설치하였다.
+- [ ] Navigation2 및 TurtleBot3 패키지를 설치하였다.
+- [ ] Raspberry Pi에 Ubuntu Server를 설치하였다.
+- [ ] SSH를 이용하여 Raspberry Pi에 원격 접속하였다.
+- [ ] Raspberry Pi에 ROS 2 Jazzy 및 TurtleBot3 패키지를 설치하였다.
+- [ ] OpenCR Firmware를 정상적으로 업로드하였다.
+- [ ] TurtleBot3 Bringup을 실행하여 센서와 모터가 정상적으로 동작하는 것을 확인하였다.
+- [ ] Teleoperation을 이용하여 TurtleBot3를 원격으로 제어하였다.
+- [ ] Remote PC와 Raspberry Pi 간의 ROS 2 통신이 정상적으로 이루어지는 것을 확인하였다.
