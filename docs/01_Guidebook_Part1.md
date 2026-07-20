@@ -1,10 +1,32 @@
 # 01_Guidebook_Part1
 
+## Part 1. 개발 환경 구축 및 기본 동작 확인
+
+본 문서에서는 TurtleBot3 Burger를 이용한 자율주행 프로젝트를 수행하기 위한 개발 환경을 구축하고, 기본 동작을 확인하는 과정을 설명한다.
+
+Remote PC와 Raspberry Pi에 필요한 소프트웨어를 설치하고, ROS 2 Jazzy 및 Navigation2 환경을 구성한 후 OpenCR Firmware를 업로드한다. 이후 TurtleBot3 Bringup과 Teleoperation을 실행하여 Remote PC와 Raspberry Pi 간의 ROS 2 통신이 정상적으로 이루어지는지 확인한다.
+
+이 문서를 완료하면 TurtleBot3를 원격으로 제어할 수 있으며, 이후 SLAM 및 Navigation2 기반 자율주행을 수행하기 위한 환경이 준비된다.
+
+## 목차
+
+1. Remote PC 환경 구축
+2. ROS 2 Jazzy 설치
+3. Navigation2 설치
+4. TurtleBot3 패키지 설
+5. Raspberry Pi Imager 설치
+6. Ubuntu Server 24.04 설치
+7. SSH 접속
+8. Raspberry Pi 패키지 설치
+9. OpenCR Firmware 업로드
+10. TurtleBot3 Bringup
+11. TurtleBot3 Teleoperation
+
+---
+
 ## 1. Remote PC 환경 구축
 
 Ubuntu 24.04 LTS를 설치하여 ROS 2 Jazzy와 Navigation2를 실행하기 위한 개발 환경을 구축한다.
-
----
 
 ### 1.1 Ubuntu 24.04 설치
 
@@ -71,8 +93,6 @@ Codename: noble
 
 ROS 2 Jazzy는 TurtleBot3와 Navigation2를 실행하기 위한 ROS 2 LTS 버전이다. Ubuntu 24.04 LTS 환경에서 설치를 진행한다.
 
----
-
 ### 2.1 Locale 설정
 
 ROS 2는 UTF-8 Locale 환경을 사용한다.
@@ -115,8 +135,6 @@ LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 ```
 
----
-
 ### 2.2 Universe Repository 활성화
 
 ROS 2 설치에 필요한 Ubuntu Universe Repository를 활성화한다.
@@ -129,8 +147,6 @@ sudo add-apt-repository universe
 ```
 
 Repository 추가 여부를 묻는 메시지가 나타나면 **Enter**를 눌러 진행한다.
-
----
 
 ### 2.3 ROS 2 Repository 등록
 
@@ -158,8 +174,6 @@ Repository를 설치한다.
 sudo dpkg -i /tmp/ros2-apt-source.deb
 ```
 
----
-
 ### 2.4 ROS 2 Jazzy 설치
 
 새롭게 등록한 ROS Repository의 패키지 목록을 갱신한다.
@@ -177,8 +191,6 @@ Remote PC는 RViz2, Gazebo 등을 사용하므로 Desktop 버전을 설치한다
 sudo apt install ros-jazzy-desktop
 ```
 
----
-
 ### 2.5 ROS 환경 설정
 
 현재 터미널에서 ROS 2 환경을 활성화한다.
@@ -195,8 +207,6 @@ source /opt/ros/jazzy/setup.bash
 echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
-
----
 
 ### 2.6 설치 확인
 
@@ -246,8 +256,6 @@ ros2 run demo_nodes_py listener
 
 Navigation2(Nav2)는 ROS 2 기반 자율주행 프레임워크이다. Remote PC에 Navigation2를 설치하여 경로 계획(Path Planning), 위치 추정(Localization), 자율주행(Navigation) 기능을 사용할 수 있는 환경을 구축한다.
 
----
-
 ### 3.1 Navigation2 설치
 
 Navigation2의 핵심 패키지와 Bringup 패키지를 설치한다.
@@ -262,8 +270,6 @@ sudo apt install ros-jazzy-nav2-bringup
 
 `navigation2`는 Navigation2의 핵심 기능을 제공하며, `nav2_bringup`은 Launch 파일과 기본 설정을 포함한다.
 
----
-
 ### 3.2 TurtleBot3 Gazebo 패키지 설치
 
 Navigation2 예제를 실행하기 위한 TurtleBot3 패키지를 설치한다.
@@ -275,8 +281,6 @@ sudo apt install ros-jazzy-nav2-minimal-tb*
 ```
 
 해당 패키지에는 TurtleBot3 Description, Gazebo Simulation, Navigation2 예제가 포함되어 있다.
-
----
 
 ### 3.3 설치 확인
 
@@ -305,8 +309,6 @@ nav2_controller
 
 Remote PC에 TurtleBot3 관련 ROS 2 패키지를 설치하고 Workspace를 생성하여 TurtleBot3 개발 및 시뮬레이션 환경을 구축한다.
 
----
-
 ### 4.1 Gazebo Harmonic 설치
 
 ROS 2 Jazzy에서는 Gazebo Classic 대신 **Gazebo Harmonic**을 사용한다.
@@ -328,8 +330,6 @@ sudo apt install gz-harmonic
 
 Gazebo Harmonic은 TurtleBot3 시뮬레이션과 Navigation2 실행 환경을 제공한다.
 
----
-
 ### 4.2 Cartographer 설치
 
 Cartographer는 LiDAR를 이용하여 지도를 생성하는 SLAM 패키지이다.
@@ -341,8 +341,6 @@ sudo apt install ros-jazzy-cartographer
 sudo apt install ros-jazzy-cartographer-ros
 ```
 
----
-
 ### 4.3 TurtleBot3 Workspace 생성
 
 TurtleBot3 패키지를 관리하기 위한 ROS 2 Workspace를 생성한다.
@@ -353,8 +351,6 @@ TurtleBot3 패키지를 관리하기 위한 ROS 2 Workspace를 생성한다.
 mkdir -p ~/turtlebot3_ws/src
 cd ~/turtlebot3_ws/src
 ```
-
----
 
 ### 4.4 TurtleBot3 패키지 다운로드
 
@@ -368,8 +364,6 @@ git clone -b jazzy https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
 git clone -b jazzy https://github.com/ROBOTIS-GIT/turtlebot3.git
 ```
 
----
-
 ### 4.5 Colcon 설치
 
 Workspace를 빌드하기 위해 Colcon을 설치한다.
@@ -379,8 +373,6 @@ Workspace를 빌드하기 위해 Colcon을 설치한다.
 ```bash
 sudo apt install python3-colcon-common-extensions
 ```
-
----
 
 ### 4.6 TurtleBot3 Workspace Build
 
@@ -393,8 +385,6 @@ cd ~/turtlebot3_ws
 colcon build --symlink-install
 ```
 
----
-
 ### 4.7 Workspace 환경 등록
 
 새로운 터미널에서도 TurtleBot3 Workspace가 자동으로 적용되도록 `.bashrc`에 등록한다.
@@ -406,8 +396,6 @@ echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
 source ~/.bashrc
 ```
 
----
-
 ### 4.8 ROS Domain ID 설정
 
 Remote PC와 Raspberry Pi가 동일한 ROS 2 네트워크에서 통신할 수 있도록 Domain ID를 설정한다.
@@ -418,8 +406,6 @@ Remote PC와 Raspberry Pi가 동일한 ROS 2 네트워크에서 통신할 수 �
 echo 'export ROS_DOMAIN_ID=30 # TURTLEBOT3' >> ~/.bashrc
 source ~/.bashrc
 ```
-
----
 
 ### 4.9 설치 확인
 
@@ -449,8 +435,6 @@ turtlebot3_teleop
 
 Raspberry Pi에서 사용할 **Ubuntu Server 24.04 LTS** 이미지를 microSD 카드에 설치하기 위해 Raspberry Pi Imager를 설치한다.
 
----
-
 ### 5.1 Raspberry Pi Imager 다운로드
 
 공식 Raspberry Pi 홈페이지에서 **Raspberry Pi Imager**를 다운로드한다.
@@ -462,8 +446,6 @@ Raspberry Pi에서 사용할 **Ubuntu Server 24.04 LTS** 이미지를 microSD �
 3. 운영체제에 맞는 **Download for Linux (x86_64)** 를 선택하여 다운로드한다.
 
 > **Figure 5-1. Raspberry Pi Imager 다운로드**
-
----
 
 ### 5.2 Raspberry Pi Imager 설치
 
@@ -495,8 +477,6 @@ Raspberry Pi Imager는 Raspberry Pi용 운영체제를 microSD 카드에 기록(
 
 Raspberry Pi에서 사용할 **Ubuntu Server 24.04 LTS**를 microSD 카드에 설치하고, SSH 및 네트워크를 미리 설정하여 원격으로 접속할 수 있는 환경을 구성한다.
 
----
-
 ### 6.1 Raspberry Pi Imager 실행
 
 터미널에서 Raspberry Pi Imager를 실행한다.
@@ -506,8 +486,6 @@ Raspberry Pi에서 사용할 **Ubuntu Server 24.04 LTS**를 microSD 카드에 �
 ```bash
 rpi-imager
 ```
-
----
 
 ### 6.2 Ubuntu Server 이미지 선택
 
@@ -527,8 +505,6 @@ Raspberry Pi Imager에서 아래 순서대로 운영체제를 선택한다.
 > **Ubuntu Desktop이 아닌 Ubuntu Server를 선택한다.**
 >
 > TurtleBot3는 SSH를 이용하여 원격으로 제어하므로 GUI가 포함된 Desktop 버전이 필요하지 않다.
-
----
 
 ### 6.3 Raspberry Pi 초기 설정
 
@@ -553,15 +529,11 @@ Raspberry Pi Imager에서 아래 순서대로 운영체제를 선택한다.
 
 설정을 완료한 후 **Save**를 선택한다.
 
----
-
 ### 6.4 Ubuntu Server 이미지 기록
 
 설정을 확인한 후 **YES**를 눌러 microSD 카드에 Ubuntu Server 이미지를 기록한다.
 
 이미지 기록(Write)과 검증(Verify)이 완료될 때까지 기다린다.
-
----
 
 ### 6.5 Raspberry Pi 부팅
 
@@ -581,8 +553,6 @@ Raspberry Pi Imager에서 아래 순서대로 운영체제를 선택한다.
 
 Remote PC에서 SSH를 이용하여 Raspberry Pi에 원격 접속한다.
 
----
-
 ### 7.1 Remote PC에서 SSH 접속
 
 터미널을 실행한 후 다음 명령어를 입력하여 Raspberry Pi에 접속한다.
@@ -600,8 +570,6 @@ ssh csilab@10.8.141.26
 ```
 
 실제 환경에서는 자신의 Raspberry Pi 사용자 계정과 IP 주소를 입력하여 사용한다.
-
----
 
 ### 7.2 최초 접속
 
@@ -621,8 +589,6 @@ yes
 이후 Raspberry Pi의 비밀번호를 입력한다.
 
 Linux에서는 비밀번호를 입력해도 화면에 표시되지 않으며, 입력이 완료되면 **Enter**를 누른다.
-
----
 
 ### 7.3 접속 확인
 
@@ -644,8 +610,6 @@ Ubuntu Server와 ROS 2 Jazzy 설치가 완료된 Raspberry Pi에 TurtleBot3 실�
 
 이 장의 모든 명령어는 **SSH로 Raspberry Pi에 접속한 터미널**에서 실행한다.
 
----
-
 ### 8.1 TurtleBot3 의존성 패키지 설치
 
 TurtleBot3를 실행하고 빌드하기 위해 필요한 ROS 2 패키지와 라이브러리를 설치한다.
@@ -661,8 +625,6 @@ sudo apt install ros-jazzy-xacro
 sudo apt install libudev-dev
 ```
 
----
-
 ### 8.2 TurtleBot3 Workspace 생성
 
 TurtleBot3 관련 패키지를 관리하기 위한 Workspace를 생성한다.
@@ -673,8 +635,6 @@ TurtleBot3 관련 패키지를 관리하기 위한 Workspace를 생성한다.
 mkdir -p ~/turtlebot3_ws/src
 cd ~/turtlebot3_ws/src
 ```
-
----
 
 ### 8.3 TurtleBot3 패키지 다운로드
 
@@ -688,8 +648,6 @@ git clone -b jazzy https://github.com/ROBOTIS-GIT/ld08_driver.git
 git clone -b jazzy https://github.com/ROBOTIS-GIT/coin_d4_driver.git
 ```
 
----
-
 ### 8.4 사용하지 않는 패키지 제거
 
 본 프로젝트에서는 Navigation2와 Cartographer를 Remote PC에서 실행하므로 Raspberry Pi에서는 해당 패키지를 제거하여 빌드 시간을 줄인다.
@@ -701,8 +659,6 @@ cd ~/turtlebot3_ws/src/turtlebot3
 
 rm -r turtlebot3_cartographer turtlebot3_navigation2
 ```
-
----
 
 ### 8.5 TurtleBot3 Workspace 빌드
 
@@ -718,8 +674,6 @@ colcon build --symlink-install --parallel-workers 1
 
 Raspberry Pi는 메모리가 제한적이므로 `--parallel-workers 1` 옵션을 사용하여 하나의 패키지씩 빌드한다.
 
----
-
 ### 8.6 Workspace 환경 등록
 
 새로운 터미널에서도 Workspace가 자동으로 적용되도록 `.bashrc`에 등록한다.
@@ -731,8 +685,6 @@ echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
 
 source ~/.bashrc
 ```
-
----
 
 ### 8.7 OpenCR USB Port 설정
 
@@ -758,8 +710,6 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 
----
-
 ### 8.8 ROS Domain ID 설정
 
 Remote PC와 Raspberry Pi가 동일한 ROS 2 DDS Domain에서 통신할 수 있도록 Domain ID를 설정한다.
@@ -783,8 +733,6 @@ echo $ROS_DOMAIN_ID
 ```text
 30
 ```
-
----
 
 ### 8.9 LiDAR(LDS) 모델 설정
 
@@ -826,8 +774,6 @@ OpenCR Firmware 업로드는 **OpenCR을 USB로 Remote PC에 연결한 상태**�
 
 > **Figure 9-1. OpenCR과 Remote PC 연결**
 
----
-
 ### 9.1 OpenCR 환경 변수 설정
 
 OpenCR이 연결된 포트와 TurtleBot3 모델을 설정한다.
@@ -838,8 +784,6 @@ OpenCR이 연결된 포트와 TurtleBot3 모델을 설정한다.
 export OPENCR_PORT=/dev/ttyACM0
 export OPENCR_MODEL=burger
 ```
-
----
 
 ### 9.2 Firmware 다운로드
 
@@ -855,8 +799,6 @@ rm -rf opencr_update.tar.bz2
 wget https://github.com/ROBOTIS-GIT/OpenCR-Binaries/raw/master/turtlebot3/ROS2/latest/opencr_update.tar.bz2
 ```
 
----
-
 ### 9.3 Firmware 압축 해제
 
 다운로드한 Firmware를 압축 해제한다.
@@ -869,8 +811,6 @@ tar -xvf opencr_update.tar.bz2
 
 압축을 해제하면 `~/opencr_update` 디렉터리가 생성된다.
 
----
-
 ### 9.4 Firmware 업로드
 
 압축을 해제한 디렉터리로 이동하여 Firmware를 업로드한다.
@@ -882,8 +822,6 @@ cd ~/opencr_update
 
 ./update.sh $OPENCR_PORT ~/opencr_update/burger.opencr
 ```
-
----
 
 ### 9.5 업로드 완료 확인
 
@@ -912,8 +850,6 @@ TurtleBot3의 기본 노드를 실행하여 OpenCR, LiDAR, IMU, 모터 및 ROS 2
 
 Bringup이 정상적으로 완료되면 Remote PC와 TurtleBot3 간의 ROS 2 통신이 가능해진다.
 
----
-
 ### 10.1 Raspberry Pi 원격 접속 (SSH)
 
 Remote PC에서 SSH를 이용하여 Raspberry Pi에 접속한다.
@@ -927,8 +863,6 @@ ssh <username>@<Raspberry Pi IP Address>
 비밀번호를 입력하여 Raspberry Pi에 로그인한다.
 
 실제 환경에서는 Raspberry Pi의 IP 주소와 사용자 계정에 맞게 변경하여 사용한다.
-
----
 
 ### 10.2 TurtleBot3 모델 설정
 
@@ -954,8 +888,6 @@ echo $TURTLEBOT3_MODEL
 burger
 ```
 
----
-
 ### 10.3 TurtleBot3 Bringup 실행
 
 TurtleBot3 Bringup을 실행한다.
@@ -967,8 +899,6 @@ ros2 launch turtlebot3_bringup robot.launch.py
 ```
 
 Bringup이 실행되면 Robot State Publisher, OpenCR, LiDAR Driver, IMU, Odometry 등의 노드가 함께 실행된다.
-
----
 
 ### 10.4 Bringup 실행 확인
 
@@ -999,8 +929,6 @@ Run!
 위 로그가 출력되면 OpenCR과의 통신, LiDAR, IMU, 모터 초기화 및 ROS 2 Bringup이 정상적으로 완료된 것이다.
 
 Bringup을 실행한 터미널은 이후 Teleoperation, SLAM 및 Navigation2를 수행할 때까지 종료하지 않고 계속 유지한다.
-
----
 
 ### 10.5 ROS 2 Topic 확인
 
@@ -1046,8 +974,6 @@ ros2 topic list
 - `/cmd_vel` : 이동 명령
 - `/tf` : 좌표계(Transform) 정보
 
----
-
 ### 10.6 ROS 2 Service 확인
 
 Bringup이 정상적으로 실행되면 ROS 2 Service가 생성되었는지 확인한다.
@@ -1083,8 +1009,6 @@ Remote PC에서 키보드 입력을 통해 TurtleBot3를 원격 제어한다.
 
 Bringup(`ros2 launch turtlebot3_bringup robot.launch.py`)이 실행 중인 상태에서 진행한다.
 
----
-
 ### 11.1 Teleoperation 실행
 
 새 터미널을 실행한 후 TurtleBot3 모델을 설정한다.
@@ -1102,8 +1026,6 @@ Teleoperation 노드를 실행한다.
 ```bash
 ros2 run turtlebot3_teleop teleop_keyboard
 ```
-
----
 
 ### 11.2 TurtleBot3 원격 제어
 
@@ -1126,8 +1048,6 @@ CTRL-C to quit
 ```
 
 키보드를 이용하여 TurtleBot3를 전진, 후진, 좌회전, 우회전시키며 정상적으로 주행하는지 확인한다.
-
----
 
 ### 11.3 LiDAR 및 Odometry Topic 확인
 
