@@ -248,8 +248,6 @@ ros2 run demo_nodes_py listener
 
 위와 같이 `talker`에서 전송한 메시지를 `listener`가 정상적으로 수신하면 ROS 2가 올바르게 설치된 것이다.
 
----
-
 ## 3. Navigation2 설치
 
 Navigation2(Nav2)는 ROS 2 기반 자율주행 프레임워크이다. Remote PC에 Navigation2를 설치하여 경로 계획(Path Planning), 위치 추정(Localization), 자율주행(Navigation) 기능을 사용할 수 있는 환경을 구축한다.
@@ -300,8 +298,6 @@ nav2_bt_navigator
 nav2_controller
 ...
 ```
-
----
 
 ## 4. TurtleBot3 패키지 설치 (Remote PC)
 
@@ -427,8 +423,6 @@ turtlebot3_teleop
 ...
 ```
 
----
-
 ## 5. SBC Setup - Raspberry Pi Imager 설치
 
 Raspberry Pi에서 사용할 **Ubuntu Server 24.04 LTS** 이미지를 microSD 카드에 설치하기 위해 Raspberry Pi Imager를 설치한다.
@@ -468,8 +462,6 @@ sudo apt install -f
 ```
 
 Raspberry Pi Imager는 Raspberry Pi용 운영체제를 microSD 카드에 기록(Flash)하는 공식 프로그램이다. 이후 Ubuntu Server 24.04 LTS 이미지를 선택하여 microSD 카드에 기록한다.
-
----
 
 ## 6. Ubuntu Server 24.04 설치 (Raspberry Pi)
 
@@ -545,8 +537,6 @@ Raspberry Pi Imager에서 아래 순서대로 운영체제를 선택한다.
 
 약 1~2분 정도 기다리면 Ubuntu Server가 부팅된다.
 
----
-
 ## 7. SSH 접속
 
 Remote PC에서 SSH를 이용하여 Raspberry Pi에 원격 접속한다.
@@ -599,8 +589,6 @@ csilab@turtle-jeong:~$
 위와 같이 표시되면 Raspberry Pi에 정상적으로 접속된 것이다.
 
 이후부터 입력하는 모든 명령어는 **Raspberry Pi에서 실행되는 명령어**이다.
-
----
 
 ## 8. Raspberry Pi 패키지 설치
 
@@ -760,8 +748,6 @@ echo $LDS_MODEL
 LDS-02
 ```
 
----
-
 ## 9. OpenCR Firmware 업로드
 
 OpenCR은 TurtleBot3의 Dynamixel 모터와 각종 센서를 제어하는 컨트롤러이다.
@@ -839,8 +825,6 @@ OpenCR Update Start..
 ```
 
 업로드가 완료되면 OpenCR이 자동으로 재시작되며, TurtleBot3의 모터와 센서를 정상적으로 사용할 수 있다.
-
----
 
 ## 10. TurtleBot3 Bringup
 
@@ -996,8 +980,6 @@ ros2 service list
 ```
 
 `motor_power`, `reset`, `reset_odometry`, `sound`, `ld08_driver`, `turtlebot3_node` 등의 Service가 생성되면 OpenCR, LiDAR Driver 및 TurtleBot3 Node가 정상적으로 실행되고 있음을 확인할 수 있다.
-
----
 
 ## 11. TurtleBot3 Teleoperation
 
