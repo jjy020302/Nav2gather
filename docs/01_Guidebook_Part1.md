@@ -87,8 +87,6 @@ Release: 24.04
 Codename: noble
 ```
 
----
-
 ## 2. ROS 2 Jazzy 설치
 
 ROS 2 Jazzy는 TurtleBot3와 Navigation2를 실행하기 위한 ROS 2 LTS 버전이다. Ubuntu 24.04 LTS 환경에서 설치를 진행한다.
