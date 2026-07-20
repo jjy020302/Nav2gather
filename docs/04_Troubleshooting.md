@@ -6,7 +6,7 @@
 
 ## 오류 요약
 
-| 번호 | 문제 | 주요 원인 | 해결 방법 |
+| # | 문제 | 주요 원인 | 해결 방법 |
 |:---:|---|---|---|
 | 1 | OpenCR Firmware 업로드 실패 | Firmware 파일 경로 오류 | Firmware 파일의 절대경로 지정 |
 | 2 | OpenCR Firmware 업로더 실행 오류 | 32비트 ARM 라이브러리 미설치 | `armhf` 아키텍처 및 `libc6:armhf` 설치 |
