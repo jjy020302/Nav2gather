@@ -2,25 +2,25 @@
 
 ## Part 1. 개발 환경 구축 및 기본 동작 확인
 
-본 문서에서는 TurtleBot3 Burger를 이용한 자율주행 프로젝트를 수행하기 위한 개발 환경을 구축하고, 기본 동작을 확인하는 과정을 설명한다.
+본 문서에서는 TurtleBot3 Burger를 이용한 자율주행 프로젝트의 개발 환경을 구축하고 기본 동작을 확인하는 과정을 설명한다.
 
-Remote PC와 Raspberry Pi에 필요한 소프트웨어를 설치하고, ROS 2 Jazzy 및 Navigation2 환경을 구성한 후 OpenCR Firmware를 업로드한다. 이후 TurtleBot3 Bringup과 Teleoperation을 실행하여 Remote PC와 Raspberry Pi 간의 ROS 2 통신이 정상적으로 이루어지는지 확인한다.
+Remote PC와 Raspberry Pi에 필요한 소프트웨어를 설치하고 OpenCR Firmware를 업로드한 후 Bringup과 Teleoperation을 수행하여 ROS 2 통신이 정상적으로 이루어지는지 확인한다.
 
-이 문서를 완료하면 TurtleBot3를 원격으로 제어할 수 있으며, 이후 SLAM 및 Navigation2 기반 자율주행을 수행하기 위한 환경이 준비된다.
+이 문서를 완료하면 SLAM 및 Navigation2 기반 자율주행을 수행하기 위한 환경이 준비된다.
 
 ## 목차
 
-1. Remote PC 환경 구축
-2. ROS 2 Jazzy 설치
-3. Navigation2 설치
-4. TurtleBot3 패키지 설
-5. Raspberry Pi Imager 설치
-6. Ubuntu Server 24.04 설치
-7. SSH 접속
-8. Raspberry Pi 패키지 설치
-9. OpenCR Firmware 업로드
-10. TurtleBot3 Bringup
-11. TurtleBot3 Teleoperation
+1. [Remote PC 환경 구축](#1-remote-pc-환경-구축)
+2. [ROS 2 Jazzy 설치](#2-ros-2-jazzy-설치)
+3. [Navigation2 설치](#3-navigation2-설치)
+4. [TurtleBot3 패키지 설치](#4-turtlebot3-패키지-설치)
+5. [Raspberry Pi Imager 설치](#5-raspberry-pi-imager-설치)
+6. [Ubuntu Server 24.04 설치](#6-ubuntu-server-2404-설치)
+7. [SSH 접속](#7-ssh-접속)
+8. [Raspberry Pi 패키지 설치](#8-raspberry-pi-패키지-설치)
+9. [OpenCR Firmware 업로드](#9-opencr-firmware-업로드)
+10. [TurtleBot3 Bringup](#10-turtlebot3-bringup)
+11. [TurtleBot3 Teleoperation](#11-turtlebot3-teleoperation)
 
 ---
 
