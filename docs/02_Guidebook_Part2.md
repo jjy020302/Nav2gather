@@ -137,11 +137,11 @@ RViz 상단 메뉴에서 **2D Pose Estimate**를 선택한다.
 초기 위치가 정상적으로 설정되면 LiDAR Scan과 저장된 지도가 서로 일치하며, 현재 위치가 안정적으로 추정된다.
 
 <p align="center">
-  <img src="../images/part2/2d_pose_estimate.png" width="700">
+  <img src="images/part2/figure2-3.png" width="700">
 </p>
 
 <p align="center">
-그림 2-3. RViz에서 2D Pose Estimate를 이용한 초기 위치 설정
+<b>그림 2-3.</b> RViz의 2D Pose Estimate를 이용한 초기 위치 및 방향 설정
 </p>
 
 ## 4. 목표 지점 설정 및 자율주행
@@ -159,11 +159,11 @@ RViz 상단 메뉴에서 **Nav2 Goal**을 선택한다.
 목표가 설정되면 Navigation2가 자동으로 경로를 생성하며 TurtleBot3가 목표 지점까지 자율주행을 시작한다.
 
 <p align="center">
-  <img src="../images/part2/nav2_goal.png" width="700">
+  <img src="images/part2/figure2-4.png" width="700">
 </p>
 
 <p align="center">
-그림 2-4. Nav2 Goal을 이용한 목표 지점 설정
+<b>그림 2-4.</b> RViz의 Nav2 Goal을 이용한 목표 위치 및 방향 지정
 </p>
 
 ### 4.2 자율주행 확인
