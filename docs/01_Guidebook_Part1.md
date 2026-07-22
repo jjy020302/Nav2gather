@@ -15,7 +15,7 @@ Remote PC와 Raspberry Pi에 필요한 소프트웨어를 설치하고 OpenCR Fi
 3. [Navigation2 설치](#3-navigation2-설치)
 4. [TurtleBot3 패키지 설치](#4-TurtleBot3-패키지-설치)
 5. [Raspberry Pi Imager 설치](#5-Raspberry-Pi-Imager-설치)
-6. [Ubuntu Server 24.04 설치](#6-Ubuntu-Server-24.04-설치)
+6. [Ubuntu Server 24.04 설치](#6-Ubuntu-Server-2404-설치)
 7. [SSH 접속](#7-ssh-접속)
 8. [Raspberry Pi 패키지 설치](#8-raspberry-pi-패키지-설치)
 9. [OpenCR Firmware 업로드](#9-opencr-firmware-업로드)
