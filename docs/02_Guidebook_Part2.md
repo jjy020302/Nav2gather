@@ -70,7 +70,7 @@ ros2 run turtlebot3_teleop teleop_keyboard
 </p>
 
 <p align="center">
-그림 2-1. Cartographer를 이용한 지도 생성
+그림 2-1. RViz에서 Cartographer를 이용하여 환경 지도를 생성한 결과
 </p>
 
 ### 1.4 지도 저장
@@ -114,14 +114,6 @@ ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=$HOME/map.yaml
 
 이 단계에서는 Raspberry Pi에서 Bringup을 종료하지 않고 계속 실행한 상태를 유지해야 한다.
 
-<p align="center">
-  <img src="../images/part2/navigation2_rviz.png" width="700">
-</p>
-
-<p align="center">
-그림 2-2. Navigation2 실행 화면
-</p>
-
 ## 3. Localization
 
 Localization은 저장한 지도와 LiDAR 센서 데이터를 이용하여 TurtleBot3의 현재 위치를 추정하는 과정이다. Navigation2에서는 AMCL(Adaptive Monte Carlo Localization)을 이용하여 로봇의 위치를 지속적으로 추정한다.
@@ -137,11 +129,11 @@ RViz 상단 메뉴에서 **2D Pose Estimate**를 선택한다.
 초기 위치가 정상적으로 설정되면 LiDAR Scan과 저장된 지도가 서로 일치하며, 현재 위치가 안정적으로 추정된다.
 
 <p align="center">
-  <img src="images/part2/figure2-3.png" width="700">
+  <img src="images/part2/figure2-2.png" width="700">
 </p>
 
 <p align="center">
-<b>그림 2-3.</b> RViz의 2D Pose Estimate를 이용한 초기 위치 및 방향 설정
+<b>그림 2-2.</b> RViz의 2D Pose Estimate를 이용한 초기 위치 및 방향 설정
 </p>
 
 ## 4. 목표 지점 설정 및 자율주행
@@ -159,11 +151,11 @@ RViz 상단 메뉴에서 **Nav2 Goal**을 선택한다.
 목표가 설정되면 Navigation2가 자동으로 경로를 생성하며 TurtleBot3가 목표 지점까지 자율주행을 시작한다.
 
 <p align="center">
-  <img src="images/part2/figure2-4.png" width="700">
+  <img src="images/part2/figure2-3.png" width="700">
 </p>
 
 <p align="center">
-<b>그림 2-4.</b> RViz의 Nav2 Goal을 이용한 목표 위치 및 방향 지정
+<b>그림 2-3.</b> RViz의 Nav2 Goal을 이용한 목표 위치 및 방향 지정
 </p>
 
 ### 4.2 자율주행 확인
@@ -180,7 +172,7 @@ RViz 상단 메뉴에서 **Nav2 Goal**을 선택한다.
 </p>
 
 <p align="center">
-그림 2-5. Navigation2를 이용한 자율주행 결과
+그림 2-4. Navigation2를 이용한 자율주행 결과
 </p>
 
 이상으로 Cartographer를 이용한 지도 생성부터 Localization, Navigation2를 이용한 자율주행까지의 전체 과정을 완료하였다. 생성한 지도는 이후 카메라 및 YOLO 기반 객체 인식과 Behavior Tree를 이용한 자율주행에서 활용된다.
