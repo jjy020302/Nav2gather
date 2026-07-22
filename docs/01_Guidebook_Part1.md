@@ -13,9 +13,9 @@ Remote PC와 Raspberry Pi에 필요한 소프트웨어를 설치하고 OpenCR Fi
 1. [Remote PC 환경 구축](#1-remote-pc-환경-구축)
 2. [ROS 2 Jazzy 설치](#2-ros-2-jazzy-설치)
 3. [Navigation2 설치](#3-navigation2-설치)
-4. [TurtleBot3 패키지 설치](#4-turtlebot3-패키지-설치)
-5. [Raspberry Pi Imager 설치](#5-raspberry-pi-imager-설치)
-6. [Ubuntu Server 24.04 설치](#6-ubuntu-server-2404-설치)
+4. [TurtleBot3 패키지 설치](#4-TurtleBot3-패키지-설치)
+5. [Raspberry Pi Imager 설치](#5-Raspberry-Pi-Imager-설치)
+6. [Ubuntu Server 24.04 설치](#6-Ubuntu-Server-24.04-설치)
 7. [SSH 접속](#7-ssh-접속)
 8. [Raspberry Pi 패키지 설치](#8-raspberry-pi-패키지-설치)
 9. [OpenCR Firmware 업로드](#9-opencr-firmware-업로드)
@@ -299,7 +299,7 @@ nav2_controller
 ...
 ```
 
-## 4. TurtleBot3 패키지 설치 (Remote PC)
+## 4. TurtleBot3 패키지 설치
 
 Remote PC에 TurtleBot3 관련 ROS 2 패키지를 설치하고 Workspace를 생성하여 TurtleBot3 개발 및 시뮬레이션 환경을 구축한다.
 
@@ -423,7 +423,7 @@ turtlebot3_teleop
 ...
 ```
 
-## 5. SBC Setup - Raspberry Pi Imager 설치
+## 5. Raspberry Pi Imager 설치
 
 Raspberry Pi에서 사용할 **Ubuntu Server 24.04 LTS** 이미지를 microSD 카드에 설치하기 위해 Raspberry Pi Imager를 설치한다.
 
@@ -463,7 +463,7 @@ sudo apt install -f
 
 Raspberry Pi Imager는 Raspberry Pi용 운영체제를 microSD 카드에 기록(Flash)하는 공식 프로그램이다. 이후 Ubuntu Server 24.04 LTS 이미지를 선택하여 microSD 카드에 기록한다.
 
-## 6. Ubuntu Server 24.04 설치 (Raspberry Pi)
+## 6. Ubuntu Server 24.04 설치
 
 Raspberry Pi에서 사용할 **Ubuntu Server 24.04 LTS**를 microSD 카드에 설치하고, SSH 및 네트워크를 미리 설정하여 원격으로 접속할 수 있는 환경을 구성한다.
 
