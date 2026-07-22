@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+
+import rclpy
+
+from geometry_msgs.msg import PoseStamped
+from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
+
+
+def main():
+    rclpy.init()
+
+    navigator = BasicNavigator()
+
+    goal_pose = PoseStamped()
+    goal_pose.header.frame_id = 'map'
+    goal_pose.header.stamp = navigator.get_clock().now().to_msg()
+
+    goal_pose.pose.position.x = -    goal_pose.pose.position.y = -3.0
+    goal_pose.pose.position.z = 0.0
+
+    goal_pose.pose.orientation.x = 0.0
+    goal_pose.pose.orientation.y = 0.0
+    goal_pose.pose.orientation.z = 0.0
+    goal_pose.pose.orientation.w = 1.0
+
+    navigator.waitUntilNav2Active()
+
+    navigator.get_logger().info('목적지를 전송합니다.')
+    navigator.goToPose(goal_pose)
+
+    while not navigator.isTaskComplete():
+        feedback = navigator.getFeedback()
+
+        if feedback is not None:
+            navigator.get_logger().info(
+                f'남은 거리: {feedback.distance_remaining:.2f} m'
+            )
+
+    result = navigator.getResult()
+
+    if result == TaskResult.SUCCEEDED:
+        navigator.get_logger().info('목적지 도착 성공!')
+
+    elif result == TaskResult.CANCELED:
+        navigator.get_logger().warn('목적지 이동이 취소되었습니다.')
+
+    elif result == TaskResult.FAILED:
+        navigator.get_logger().error('목적지 이동에 실패했습니다.')
+
+    else:
+        navigator.get_logger().error('알 수 없는 결과입니다.')
+
+    navigator.destroyNode()
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
