@@ -15,6 +15,7 @@
 | 5 | Raspberry Pi IP 주소 변경으로 SSH 및 ROS 2 통신 실패 | IP 주소 변경 및 `ROS_STATIC_PEERS` 불일치 | 현재 IP 확인 후 환경 변수 수정 |
 | 6 | GStreamer 영상 수신 실패 | `udpsink host`에 이전 Remote PC IP 주소 사용 | 현재 Remote PC IP 주소로 송출 주소 변경 |
 | 7 | Navigation2에서 Goal이 Abort되는 문제 | TF, Localization 또는 Navigation2 실행 상태 문제 | TF와 초기 위치를 확인한 후 Navigation2 재실행 |
+| 8 | 목표 지점보다 멀리서 도착 판정이 되는 문제 | `xy_goal_tolerance`와 `stop_distance`가 함께 적용됨 | Goal Checker와 Behavior 파라미터를 함께 조정 |
 
 ---
 
@@ -499,3 +500,73 @@ map → odom → base_footprint → base_link → base_scan
 5. Nav2 Goal 지정
 
 TF와 Localization이 정상적으로 적용되면 Goal이 Abort되지 않고 목표 지점까지 자율주행이 수행된다.
+
+## 8. 목표 지점보다 멀리서 도착 판정이 되는 문제
+
+### 증상
+
+Navigation2를 이용하여 자율주행을 수행하면 TurtleBot3가 목표 지점까지 이동하지 않고 약 30~50 cm 떨어진 위치에서 정지하였다.
+
+Behavior 코드에서 다음과 같이 `stop_distance`를 변경하여도 실제 정지 위치가 크게 달라지지 않았다.
+
+```python
+self.stop_distance = 0.20
+```
+
+Navigation2에서는 Goal을 성공으로 판단하지만 실제 TurtleBot3는 목표 지점과 거리가 남아 있었다.
+
+### 원인
+
+최종 정지 위치는 Behavior 코드의 `stop_distance`만으로 결정되지 않는다.
+
+Navigation2의 Goal Checker에서 사용하는 `xy_goal_tolerance`도 함께 적용된다.
+
+기본 설정은 다음과 같다.
+
+```yaml
+goal_checker:
+  xy_goal_tolerance: 0.25
+```
+
+즉, 목표 지점으로부터 **25 cm 이내**에 진입하면 Goal에 도착한 것으로 판단하여 Navigation이 종료된다.
+
+따라서 `stop_distance`만 변경하면 원하는 거리까지 이동하지 않을 수 있다.
+
+### 해결 방법
+
+먼저 현재 Goal Checker의 허용 오차를 확인한다.
+
+**실행 위치:** 💻 Remote PC
+
+```bash
+ros2 param get /controller_server goal_checker.xy_goal_tolerance
+```
+
+다음과 같이 출력되면 기본 설정이 적용된 상태이다.
+
+```text
+Double value is: 0.25
+```
+
+허용 오차를 줄여 보다 정확한 위치까지 이동하도록 변경한다.
+
+```bash
+ros2 param set /controller_server goal_checker.xy_goal_tolerance 0.05
+```
+
+영구적으로 적용하려면 Navigation2 설정 파일(`burger.yaml`)을 수정한다.
+
+```yaml
+goal_checker:
+  xy_goal_tolerance: 0.05
+```
+
+Behavior 코드에서도 원하는 정지 거리를 함께 설정한다.
+
+```python
+self.stop_distance = 0.20
+```
+
+설정을 변경한 후 Navigation2를 다시 실행한다.
+
+`xy_goal_tolerance`와 `stop_distance`를 함께 조정하면 TurtleBot3가 목표 위치까지 더욱 정확하게 접근하는 것을 확인할 수 있다.
