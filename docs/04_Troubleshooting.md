@@ -206,7 +206,41 @@ ssh: connect to host 10.8.141.26 port 22: No route to host
 Connection timed out
 ```
 
-SSH 접속은 가능하지만 Camera 또는 YOLO Topic이 나타나지 않는 경우도 있다.
+SSH 접속은 가능하지만 Remote PC에서 TurtleBot3의 Topic이 나타나지 않을 수도 있다.
+
+**실행 위치:** 💻 Remote PC
+
+```bash
+ros2 topic list
+```
+
+정상적인 경우 Raspberry Pi에서 발행되는 다음과 같은 Topic이 표시되어야 한다.
+
+```text
+/battery_state
+/imu
+/joint_states
+/odom
+/scan
+/sensor_state
+/tf
+/tf_static
+```
+
+하지만 통신에 문제가 있는 경우 다음과 같이 기본 Topic만 표시될 수 있다.
+
+```text
+/parameter_events
+/rosout
+```
+
+또는 다음 명령을 실행해도 아무 결과가 출력되지 않는다.
+
+```bash
+ros2 topic list | grep -E "scan|odom|battery"
+```
+
+카메라와 YOLO를 실행한 상태에서도 관련 Topic이 나타나지 않을 수 있다.
 
 ```bash
 ros2 topic list | grep camera
@@ -216,26 +250,44 @@ ros2 topic list | grep camera
 ros2 topic list | grep yolo
 ```
 
-위 명령을 실행해도 아무 결과가 출력되지 않는다.
+> Camera와 YOLO 노드는 주로 Remote PC에서 실행된다. 따라서 ROS 2 장치 간 통신 문제를 확인할 때는 Camera와 YOLO Topic보다 Raspberry Pi에서 발행되는 `/scan`, `/odom`, `/battery_state` Topic을 먼저 확인하는 것이 정확하다.
+
+---
 
 ### 원인
 
-Raspberry Pi는 DHCP를 통해 IP 주소를 자동으로 할당받는다.
+Raspberry Pi와 Remote PC는 DHCP를 통해 IP 주소를 자동으로 할당받는다.
 
-전원을 다시 켜거나 네트워크에 재연결하면 Raspberry Pi의 IP 주소가 변경될 수 있다.
+장치의 전원을 다시 켜거나 다른 네트워크에 연결하면 IP 주소가 변경될 수 있다.
+
+예를 들어 Raspberry Pi의 IP 주소가 다음과 같이 변경될 수 있다.
 
 ```text
-기존 IP 주소: 10.8.141.26
-변경된 IP 주소: 10.8.141.194
+기존 Raspberry Pi IP: 10.8.141.26
+변경된 Raspberry Pi IP: 10.8.141.194
 ```
 
-Raspberry Pi의 IP 주소가 변경되면 기존 IP 주소를 사용한 SSH 접속이 실패한다.
+Raspberry Pi의 IP 주소가 변경되면 기존 주소를 사용한 SSH 접속이 실패한다.
 
-또한 Remote PC의 `ROS_STATIC_PEERS`에 이전 Raspberry Pi IP 주소가 저장되어 있으면 ROS 2 Discovery가 정상적으로 이루어지지 않아 Camera 및 YOLO Topic이 검색되지 않는다.
+또한 Remote PC의 `ROS_STATIC_PEERS`에 이전 Raspberry Pi IP 주소가 저장되어 있으면 ROS 2 Discovery가 정상적으로 이루어지지 않는다.
+
+반대로 Remote PC의 IP 주소가 변경되었는데 Raspberry Pi의 `ROS_STATIC_PEERS`에 이전 Remote PC IP 주소가 저장되어 있는 경우에도 같은 문제가 발생한다.
+
+이외에도 다음 설정이 서로 다르면 ROS 2 통신이 되지 않을 수 있다.
+
+* Remote PC와 Raspberry Pi의 `ROS_DOMAIN_ID`가 서로 다른 경우
+* `ROS_LOCALHOST_ONLY=1`로 설정된 경우
+* 두 장치가 서로 다른 네트워크에 연결된 경우
+* `.bashrc`를 수정한 후 `source ~/.bashrc`를 실행하지 않은 경우
+* 변경 전 환경을 사용 중인 ROS 2 Daemon이 계속 실행 중인 경우
+
+---
 
 ### 해결 방법
 
-Raspberry Pi에서 현재 IP 주소를 확인한다.
+#### 1. Raspberry Pi의 현재 IP 주소 확인
+
+Raspberry Pi에 모니터와 키보드를 연결할 수 있다면 Raspberry Pi 터미널에서 현재 IP 주소를 확인한다.
 
 **실행 위치:** 🍓 Raspberry Pi
 
@@ -243,13 +295,36 @@ Raspberry Pi에서 현재 IP 주소를 확인한다.
 hostname -I
 ```
 
-또는 다음 명령으로 네트워크 인터페이스 정보를 확인한다.
+출력 예시는 다음과 같다.
+
+```text
+10.8.141.194
+```
+
+여러 주소가 출력된다면 Remote PC와 같은 네트워크 대역에 있는 주소를 사용한다.
+
+예를 들어 Remote PC의 주소가 `10.8.133.xxx` 또는 `10.8.141.xxx`라면 Raspberry Pi에서도 같은 네트워크에서 할당된 주소를 선택한다.
+
+네트워크 인터페이스를 자세히 확인하려면 다음 명령을 사용한다.
 
 ```bash
 ip addr
 ```
 
-확인한 IP 주소를 사용하여 다시 SSH로 접속한다.
+일반적으로 무선 네트워크를 사용하는 경우 `wlan0` 항목의 `inet` 주소를 확인한다.
+
+예시:
+
+```text
+wlan0:
+    inet 10.8.141.194/24
+```
+
+---
+
+#### 2. 변경된 IP 주소로 SSH 접속
+
+확인한 Raspberry Pi IP 주소를 사용하여 Remote PC에서 다시 SSH로 접속한다.
 
 **실행 위치:** 💻 Remote PC
 
@@ -257,10 +332,44 @@ ip addr
 ssh csilab@10.8.141.194
 ```
 
-Remote PC에서 현재 ROS 환경 변수를 확인한다.
+정상적으로 접속되면 프롬프트가 다음과 같이 변경된다.
+
+```text
+csilab@turtle-jeong:~$
+```
+
+SSH 접속 전 네트워크 연결 상태를 먼저 확인하려면 다음 명령을 사용할 수 있다.
+
+```bash
+ping -c 4 10.8.141.194
+```
+
+정상 연결된 경우 다음과 같이 응답이 출력된다.
+
+```text
+64 bytes from 10.8.141.194
+```
+
+`Destination Host Unreachable` 또는 응답 시간 초과가 발생하면 두 장치가 같은 네트워크에 연결되어 있는지 확인한다.
+
+---
+
+#### 3. Remote PC의 ROS 환경 변수 확인
+
+SSH 접속 터미널이 아닌 Remote PC의 새 터미널에서 ROS 관련 환경 변수를 확인한다.
+
+**실행 위치:** 💻 Remote PC
 
 ```bash
 env | grep ROS
+```
+
+다음 항목을 확인한다.
+
+```text
+ROS_DOMAIN_ID=30
+ROS_LOCALHOST_ONLY=0
+ROS_STATIC_PEERS=10.8.141.194
 ```
 
 `ROS_STATIC_PEERS`에 이전 Raspberry Pi IP 주소가 설정되어 있다면 현재 IP 주소로 변경한다.
@@ -269,40 +378,75 @@ env | grep ROS
 export ROS_STATIC_PEERS=10.8.141.194
 ```
 
+ROS 2 통신이 로컬 장치로 제한되지 않도록 다음 값도 확인한다.
+
+```bash
+export ROS_LOCALHOST_ONLY=0
+```
+
 적용 여부를 확인한다.
 
 ```bash
 echo $ROS_STATIC_PEERS
+echo $ROS_DOMAIN_ID
+echo $ROS_LOCALHOST_ONLY
 ```
 
-ROS 2 Daemon을 재시작한다.
+출력 예시는 다음과 같다.
 
-```bash
-ros2 daemon stop
-ros2 daemon start
+```text
+10.8.141.194
+30
+0
 ```
 
-설정을 영구적으로 적용하기 위해 `.bashrc` 파일을 수정한다.
+---
+
+#### 4. Remote PC 설정 영구 적용
+
+터미널을 다시 열어도 설정이 유지되도록 `.bashrc` 파일을 수정한다.
+
+**실행 위치:** 💻 Remote PC
 
 ```bash
 nano ~/.bashrc
 ```
 
-기존 `ROS_STATIC_PEERS` 설정을 현재 Raspberry Pi의 IP 주소로 변경한다.
+파일 하단의 기존 설정을 확인한다.
 
 ```bash
+export ROS_DOMAIN_ID=30
+export ROS_LOCALHOST_ONLY=0
+export ROS_STATIC_PEERS=10.8.141.26
+```
+
+이전 Raspberry Pi IP 주소를 현재 주소로 변경한다.
+
+```bash
+export ROS_DOMAIN_ID=30
+export ROS_LOCALHOST_ONLY=0
 export ROS_STATIC_PEERS=10.8.141.194
 ```
 
-설정을 현재 터미널에 적용한다.
+저장 후 설정을 적용한다.
 
 ```bash
 source ~/.bashrc
 ```
 
-Remote PC의 IP 주소가 변경된 경우에는 Raspberry Pi의 `ROS_STATIC_PEERS`도 현재 Remote PC의 IP 주소로 수정해야 한다.
+적용 결과를 확인한다.
 
-먼저 Remote PC의 IP 주소를 확인한다.
+```bash
+env | grep ROS
+```
+
+---
+
+#### 5. Remote PC의 현재 IP 주소 확인
+
+Raspberry Pi에도 Remote PC의 현재 IP 주소가 등록되어 있어야 한다.
+
+Remote PC에서 현재 IP 주소를 확인한다.
 
 **실행 위치:** 💻 Remote PC
 
@@ -310,43 +454,295 @@ Remote PC의 IP 주소가 변경된 경우에는 Raspberry Pi의 `ROS_STATIC_PEE
 hostname -I
 ```
 
-Remote PC의 IP 주소를 확인한 후 Raspberry Pi의 `.bashrc` 파일을 수정한다.
+출력 예시는 다음과 같다.
 
-**실행 위치:** 🍓 Raspberry Pi (SSH 접속 후)
+```text
+10.8.133.189
+```
+
+여러 주소가 출력된다면 Raspberry Pi와 실제로 연결된 네트워크 인터페이스의 주소를 사용한다.
+
+자세한 네트워크 정보를 확인하려면 다음 명령을 사용한다.
+
+```bash
+ip addr
+```
+
+---
+
+#### 6. Raspberry Pi의 ROS 환경 변수 수정
+
+변경된 주소로 SSH 접속한 후 Raspberry Pi의 ROS 환경 변수를 확인한다.
+
+**실행 위치:** 🍓 Raspberry Pi — SSH 접속 후
+
+```bash
+env | grep ROS
+```
+
+다음과 같이 Remote PC의 이전 IP 주소가 저장되어 있다면 수정해야 한다.
+
+```text
+ROS_STATIC_PEERS=10.8.133.100
+```
+
+우선 현재 터미널에 새로운 Remote PC IP 주소를 적용한다.
+
+```bash
+export ROS_STATIC_PEERS=10.8.133.189
+export ROS_LOCALHOST_ONLY=0
+export ROS_DOMAIN_ID=30
+```
+
+설정 영구 적용을 위해 `.bashrc`를 연다.
 
 ```bash
 nano ~/.bashrc
 ```
 
-`ROS_STATIC_PEERS`를 현재 Remote PC의 IP 주소로 설정한다.
+파일 하단의 ROS 설정을 다음과 같이 수정한다.
 
 ```bash
+export ROS_DOMAIN_ID=30
+export ROS_LOCALHOST_ONLY=0
 export ROS_STATIC_PEERS=10.8.133.189
 ```
 
-설정을 적용한다.
+저장 후 설정을 적용한다.
 
 ```bash
 source ~/.bashrc
 ```
 
-양쪽 장치의 `ROS_DOMAIN_ID`가 동일한지도 확인한다.
+적용 결과를 확인한다.
+
+```bash
+echo $ROS_STATIC_PEERS
+echo $ROS_DOMAIN_ID
+echo $ROS_LOCALHOST_ONLY
+```
+
+정상 출력 예시는 다음과 같다.
+
+```text
+10.8.133.189
+30
+0
+```
+
+> `ROS_STATIC_PEERS`에는 자기 장치의 IP가 아니라 상대 장치의 IP를 입력한다.
+>
+> * Remote PC의 `ROS_STATIC_PEERS`: Raspberry Pi IP
+> * Raspberry Pi의 `ROS_STATIC_PEERS`: Remote PC IP
+
+---
+
+#### 7. 양쪽 장치의 ROS 설정 비교
+
+Remote PC와 Raspberry Pi에서 각각 다음 명령을 실행한다.
 
 ```bash
 echo $ROS_DOMAIN_ID
+echo $ROS_LOCALHOST_ONLY
 ```
 
-Remote PC와 Raspberry Pi 모두 동일한 값이 출력되어야 한다.
+두 장치 모두 다음과 같이 동일하게 출력되어야 한다.
 
 ```text
 30
+0
 ```
 
-이후 Topic 목록을 다시 확인한다.
+`ROS_DOMAIN_ID`가 서로 다르면 같은 ROS 2 네트워크에 참여할 수 없다.
+
+`ROS_LOCALHOST_ONLY`가 `1`이면 외부 장치와 통신하지 않고 현재 장치 내부의 노드만 검색한다.
+
+---
+
+#### 8. ROS 2 Daemon 재시작
+
+이전 IP 주소와 Discovery 정보가 ROS 2 Daemon에 남아 있을 수 있으므로 양쪽 장치에서 Daemon을 재시작한다.
+
+**실행 위치:** 💻 Remote PC
+
+```bash
+ros2 daemon stop
+ros2 daemon start
+```
+
+**실행 위치:** 🍓 Raspberry Pi — SSH 접속 후
+
+```bash
+ros2 daemon stop
+ros2 daemon start
+```
+
+Daemon이 자동으로 다시 실행되므로 `start` 명령에서 별도 출력이 없더라도 문제가 아닐 수 있다.
+
+필요하면 현재 터미널을 모두 닫고 새 터미널을 연 뒤 환경을 다시 적용한다.
+
+**Remote PC**
+
+```bash
+source /opt/ros/jazzy/setup.bash
+source ~/yolo_ws/install/setup.bash
+```
+
+**Raspberry Pi**
+
+```bash
+source /opt/ros/jazzy/setup.bash
+source ~/turtlebot3_ws/install/setup.bash
+```
+
+---
+
+#### 9. TurtleBot3 Bringup 재실행
+
+Raspberry Pi에서 TurtleBot3 Bringup을 다시 실행한다.
+
+**실행 위치:** 🍓 Raspberry Pi — SSH 접속 후
+
+```bash
+export TURTLEBOT3_MODEL=burger
+ros2 launch turtlebot3_bringup robot.launch.py
+```
+
+Bringup 터미널은 종료하지 않고 계속 실행해 둔다.
+
+---
+
+#### 10. Remote PC에서 ROS 2 통신 확인
+
+Remote PC의 새 터미널에서 Topic 목록을 확인한다.
+
+**실행 위치:** 💻 Remote PC
 
 ```bash
 ros2 topic list
 ```
+
+다음 Topic이 표시되면 Raspberry Pi와 Remote PC의 ROS 2 통신이 정상적으로 복구된 것이다.
+
+```text
+/battery_state
+/imu
+/joint_states
+/odom
+/scan
+/sensor_state
+/tf
+/tf_static
+```
+
+주요 Topic만 확인하려면 다음 명령을 사용한다.
+
+```bash
+ros2 topic list | grep -E "scan|odom|battery"
+```
+
+출력 예시는 다음과 같다.
+
+```text
+/battery_state
+/odom
+/scan
+```
+
+실제 데이터가 수신되는지도 확인한다.
+
+```bash
+ros2 topic echo /battery_state --once
+```
+
+```bash
+ros2 topic echo /scan --once
+```
+
+```bash
+ros2 topic echo /odom --once
+```
+
+Topic 이름은 보이지만 데이터가 출력되지 않는다면 Raspberry Pi의 Bringup 실행 상태와 네트워크 연결을 다시 확인한다.
+
+---
+
+#### 11. Camera 및 YOLO Topic 재확인
+
+TurtleBot3 Topic이 정상적으로 검색되는 것을 확인한 후 Camera 수신 노드와 YOLO 노드를 다시 실행한다.
+
+Camera Topic을 확인한다.
+
+```bash
+ros2 topic list | grep camera
+```
+
+정상 출력 예시는 다음과 같다.
+
+```text
+/camera/camera_info
+/camera/image_raw
+```
+
+YOLO Topic을 확인한다.
+
+```bash
+ros2 topic list | grep yolo
+```
+
+정상 출력 예시는 다음과 같다.
+
+```text
+/yolo/detections
+/yolo/dbg_image
+```
+
+YOLO 검출 데이터가 발행되는지 확인한다.
+
+```bash
+ros2 topic echo /yolo/detections --once
+```
+
+Camera와 YOLO Topic이 나타나지 않는 경우에는 ROS 2 장치 간 통신뿐만 아니라 다음 항목도 별도로 확인해야 한다.
+
+* Raspberry Pi의 카메라 송출 명령이 실행 중인지
+* Remote PC의 GStreamer 또는 `gscam` 수신 노드가 실행 중인지
+* YOLO 노드가 실행 중인지
+* `~/yolo_ws/install/setup.bash`가 적용되어 있는지
+* UDP 송수신 포트가 서로 동일한지
+
+---
+
+### 정상 확인 기준
+
+다음 조건을 모두 만족하면 문제가 해결된 것이다.
+
+1. 변경된 Raspberry Pi IP로 SSH 접속이 된다.
+2. Remote PC와 Raspberry Pi의 `ROS_DOMAIN_ID`가 모두 `30`이다.
+3. 양쪽 장치의 `ROS_LOCALHOST_ONLY`가 모두 `0`이다.
+4. 양쪽 장치의 `ROS_STATIC_PEERS`에 상대 장치의 현재 IP 주소가 설정되어 있다.
+5. Remote PC에서 `/scan`, `/odom`, `/battery_state` Topic이 표시된다.
+6. `/scan`, `/odom`, `/battery_state`에서 실제 메시지가 수신된다.
+7. Camera와 YOLO 실행 후 `/camera/image_raw`, `/yolo/detections` Topic이 표시된다.
+
+---
+
+### 주의 사항
+
+Raspberry Pi 또는 Remote PC의 IP 주소가 다시 변경되면 양쪽 장치의 `ROS_STATIC_PEERS` 설정을 모두 확인해야 한다.
+
+```text
+Remote PC ROS_STATIC_PEERS = Raspberry Pi의 현재 IP
+Raspberry Pi ROS_STATIC_PEERS = Remote PC의 현재 IP
+```
+
+`.bashrc` 파일을 수정한 뒤에는 반드시 다음 명령을 실행하거나 새 터미널을 열어야 한다.
+
+```bash
+source ~/.bashrc
+```
+
+또한 SSH 접속에 사용하는 Raspberry Pi IP 주소와 Remote PC의 `ROS_STATIC_PEERS`에 입력하는 Raspberry Pi IP 주소는 동일해야 한다.
 
 ## 6. Remote PC의 IP 주소 변경으로 GStreamer 영상이 수신되지 않는 문제
 
