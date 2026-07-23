@@ -1,177 +1,131 @@
 # TurtleBot3 Navigation2 Offloading with YOLO
 
-> ROS 2 Jazzy 기반 TurtleBot3 자율주행 프로젝트  
-> Navigation2와 YOLO를 이용해 물체를 인식하고 목표 위치까지 자율주행하는 시스템을 구현했다.
+> ROS 2 Jazzy · Navigation2 · TurtleBot3 · YOLO · Autonomous Navigation
 
----
+Navigation2 기반 TurtleBot3 자율주행 프로젝트이다.
 
-## Overview
+TurtleBot3 Burger에서 센서 데이터만 수집하고, Navigation2와 YOLO 연산은 Remote PC에서 수행하는 **Offloading Architecture**를 적용하였다.
 
-이 프로젝트는 DGIST Nav2gather 프로젝트를 기반으로 진행한 Navigation2 실습 프로젝트이다.
+USB Webcam으로 객체를 인식하고, YOLO Detection 결과를 Navigation Goal로 변환하여 로봇이 목표 위치까지 스스로 이동하도록 구현하였다.
 
-기존에는 사용자가 RViz에서 직접 목적지를 지정해야 했지만,
-YOLO 객체 인식을 이용해 로봇이 물체를 인식하고 목표 위치를 생성하여
-Navigation2를 통해 자율주행하도록 구현했다.
+> DGIST Nav2gather Summer Internship Project
 
-모든 Navigation 연산은 Remote PC에서 수행하고,
-TurtleBot3는 LiDAR, Camera, Motor만 담당하는 Offloading 구조를 사용했다.
+## Features
 
----
-
-## Demo
-
-### Navigation2
-
-- SLAM Mapping
-- Map Saving
+- Navigation2 기반 자율주행
+- Cartographer SLAM
 - AMCL Localization
-- Navigation2 Autonomous Navigation
-
-### Vision
-
-- USB Webcam (Logitech C920)
-- ROS2 Camera Driver
+- USB Webcam Streaming
 - YOLO Object Detection
-- Camera TF
-
-### Behavior
-
-- YOLO Detection Subscriber
+- Camera TF Configuration
 - Object Position Estimation
 - Goal Generation
 - Nav2 Simple Commander
-- Automatic Navigation
-
----
+- Autonomous Object Navigation
 
 ## System Architecture
 
 ```text
-           Remote PC
- ┌─────────────────────────────┐
- │ Navigation2                 │
- │ RViz2                       │
- │ YOLO                        │
- │ Behavior                    │
- └──────────────▲──────────────┘
-                │ ROS 2 DDS
-────────────────┼────────────────
-                │
- ┌──────────────┴──────────────┐
- │ TurtleBot3 Burger           │
- │                             │
- │ LiDAR                       │
- │ USB Webcam                  │
- │ OpenCR                      │
- │ Motor Controller            │
- └─────────────────────────────┘
+             Remote PC
+    ┌────────────────────────┐
+    │ Navigation2            │
+    │ Cartographer           │
+    │ RViz2                  │
+    │ YOLO                   │
+    │ Behavior               │
+    └──────────▲─────────────┘
+               │ ROS 2 DDS
+───────────────┼────────────────
+               │
+    ┌──────────┴─────────────┐
+    │ TurtleBot3 Burger      │
+    │                        │
+    │ Raspberry Pi 4         │
+    │ OpenCR                 │
+    │ LDS LiDAR              │
+    │ USB Webcam             │
+    └────────────────────────┘
 ```
 
----
-
-## Project Flow
+## Project Pipeline
 
 ```text
 Bringup
-   ↓
-SLAM
-   ↓
-Map Save
-   ↓
+    │
+    ▼
+SLAM Mapping
+    │
+    ▼
+Map Saving
+    │
+    ▼
 Navigation2
-   ↓
+    │
+    ▼
 USB Webcam
-   ↓
+    │
+    ▼
 YOLO Detection
-   ↓
-Target Position Estimation
-   ↓
+    │
+    ▼
+Object Position Estimation
+    │
+    ▼
 Goal Generation
-   ↓
+    │
+    ▼
 Autonomous Navigation
 ```
 
----
+## Tech Stack
 
-## Development Environment
-
-### Hardware
-
-- TurtleBot3 Burger
-- Raspberry Pi 4
-- OpenCR
-- LDS LiDAR
-- Logitech C920 Webcam
-
-### Software
-
-- Ubuntu 24.04
-- ROS 2 Jazzy
-- Navigation2
-- Cartographer
-- RViz2
-- YOLO ROS
-
----
-
-## Implemented Features
-
-- ✔ TurtleBot3 Bringup
-- ✔ Keyboard Teleoperation
-- ✔ Cartographer SLAM
-- ✔ Map Generation
-- ✔ Navigation2
-- ✔ USB Webcam Integration
-- ✔ YOLO Object Detection
-- ✔ Camera TF Configuration
-- ✔ Object Position Estimation
-- ✔ Automatic Goal Generation
-- ✔ Nav2 Simple Commander
-- ✔ Autonomous Navigation
-
----
+| Category | Stack |
+|----------|-------|
+| OS | Ubuntu 24.04 |
+| Middleware | ROS 2 Jazzy |
+| Robot | TurtleBot3 Burger |
+| Navigation | Navigation2, Cartographer |
+| Vision | USB Webcam, YOLO ROS |
+| Visualization | RViz2 |
+| Language | Python, C++ |
 
 ## Repository
 
+```text
+.
+├── docs
+│   ├── guidebook.md
+│   └── troubleshooting.md
+├── turtlebot3_ws
+├── yolo_ws
+│   └── src
+│       ├── nav2_behavior
+│       ├── cup_localizer.py
+│       └── ...
+└── README.md
 ```
-docs/
- ├── guidebook.md
- └── troubleshooting.md
-
-turtlebot3_ws/
-
-yolo_ws/
- └── src/
-      ├── nav2_behavior
-      └── ...
-```
-
----
 
 ## Results
 
-- Navigation2를 이용한 실내 자율주행
-- YOLO 기반 실시간 객체 인식
-- Webcam 기반 영상 송수신
+- Navigation2 Offloading 성공
+- SLAM Mapping 및 Localization 완료
+- USB Webcam ROS2 연동
+- YOLO 실시간 객체 인식
 - Camera TF 구성
-- 객체 좌표 생성
+- 객체 좌표 추정
 - Navigation Goal 자동 생성
-- 객체 위치까지 자율주행
-
----
+- 목표 위치까지 자율주행
 
 ## Documentation
 
-프로젝트 설치 과정과 Troubleshooting은 아래 문서에 정리했다.
+프로젝트를 처음부터 재현할 수 있도록 설치 과정과 실행 방법을 정리하였다.
 
-- docs/guidebook.md
-- docs/troubleshooting.md
-
----
+- Guidebook
+- Troubleshooting
 
 ## Future Work
 
-- LiDAR + Camera Fusion
-- Multiple Object Navigation
+- Multi Object Navigation
+- LiDAR-Camera Sensor Fusion
 - Behavior Tree 기반 의사결정
-- Multi-Robot Navigation
+- Multi Robot Navigation
