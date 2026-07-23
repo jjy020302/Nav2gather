@@ -316,8 +316,6 @@ wlan0:
     inet 10.8.141.194/24
 ```
 
----
-
 #### 2. 변경된 IP 주소로 SSH 접속
 
 확인한 Raspberry Pi IP 주소를 사용하여 Remote PC에서 다시 SSH로 접속한다.
@@ -592,8 +590,6 @@ ros2 launch turtlebot3_bringup robot.launch.py
 
 Bringup 터미널은 종료하지 않고 계속 실행해 둔다.
 
----
-
 #### 10. Remote PC에서 ROS 2 통신 확인
 
 Remote PC의 새 터미널에서 Topic 목록을 확인한다.
@@ -647,8 +643,6 @@ ros2 topic echo /odom --once
 
 Topic 이름은 보이지만 데이터가 출력되지 않는다면 Raspberry Pi의 Bringup 실행 상태와 네트워크 연결을 다시 확인한다.
 
----
-
 #### 11. Camera 및 YOLO Topic 재확인
 
 TurtleBot3 Topic이 정상적으로 검색되는 것을 확인한 후 Camera 수신 노드와 YOLO 노드를 다시 실행한다.
@@ -693,8 +687,6 @@ Camera와 YOLO Topic이 나타나지 않는 경우에는 ROS 2 장치 간 통신
 * `~/yolo_ws/install/setup.bash`가 적용되어 있는지
 * UDP 송수신 포트가 서로 동일한지
 
----
-
 ### 정상 확인 기준
 
 다음 조건을 모두 만족하면 문제가 해결된 것이다.
@@ -706,8 +698,6 @@ Camera와 YOLO Topic이 나타나지 않는 경우에는 ROS 2 장치 간 통신
 5. Remote PC에서 `/scan`, `/odom`, `/battery_state` Topic이 표시된다.
 6. `/scan`, `/odom`, `/battery_state`에서 실제 메시지가 수신된다.
 7. Camera와 YOLO 실행 후 `/camera/image_raw`, `/yolo/detections` Topic이 표시된다.
-
----
 
 ### 주의 사항
 
