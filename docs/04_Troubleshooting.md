@@ -252,8 +252,6 @@ ros2 topic list | grep yolo
 
 > Camera와 YOLO 노드는 주로 Remote PC에서 실행된다. 따라서 ROS 2 장치 간 통신 문제를 확인할 때는 Camera와 YOLO Topic보다 Raspberry Pi에서 발행되는 `/scan`, `/odom`, `/battery_state` Topic을 먼저 확인하는 것이 정확하다.
 
----
-
 ### 원인
 
 Raspberry Pi와 Remote PC는 DHCP를 통해 IP 주소를 자동으로 할당받는다.
@@ -280,8 +278,6 @@ Raspberry Pi의 IP 주소가 변경되면 기존 주소를 사용한 SSH 접속�
 * 두 장치가 서로 다른 네트워크에 연결된 경우
 * `.bashrc`를 수정한 후 `source ~/.bashrc`를 실행하지 않은 경우
 * 변경 전 환경을 사용 중인 ROS 2 Daemon이 계속 실행 중인 경우
-
----
 
 ### 해결 방법
 
@@ -352,8 +348,6 @@ ping -c 4 10.8.141.194
 
 `Destination Host Unreachable` 또는 응답 시간 초과가 발생하면 두 장치가 같은 네트워크에 연결되어 있는지 확인한다.
 
----
-
 #### 3. Remote PC의 ROS 환경 변수 확인
 
 SSH 접속 터미널이 아닌 Remote PC의 새 터미널에서 ROS 관련 환경 변수를 확인한다.
@@ -400,8 +394,6 @@ echo $ROS_LOCALHOST_ONLY
 0
 ```
 
----
-
 #### 4. Remote PC 설정 영구 적용
 
 터미널을 다시 열어도 설정이 유지되도록 `.bashrc` 파일을 수정한다.
@@ -440,8 +432,6 @@ source ~/.bashrc
 env | grep ROS
 ```
 
----
-
 #### 5. Remote PC의 현재 IP 주소 확인
 
 Raspberry Pi에도 Remote PC의 현재 IP 주소가 등록되어 있어야 한다.
@@ -467,8 +457,6 @@ hostname -I
 ```bash
 ip addr
 ```
-
----
 
 #### 6. Raspberry Pi의 ROS 환경 변수 수정
 
@@ -535,8 +523,6 @@ echo $ROS_LOCALHOST_ONLY
 > * Remote PC의 `ROS_STATIC_PEERS`: Raspberry Pi IP
 > * Raspberry Pi의 `ROS_STATIC_PEERS`: Remote PC IP
 
----
-
 #### 7. 양쪽 장치의 ROS 설정 비교
 
 Remote PC와 Raspberry Pi에서 각각 다음 명령을 실행한다.
@@ -556,8 +542,6 @@ echo $ROS_LOCALHOST_ONLY
 `ROS_DOMAIN_ID`가 서로 다르면 같은 ROS 2 네트워크에 참여할 수 없다.
 
 `ROS_LOCALHOST_ONLY`가 `1`이면 외부 장치와 통신하지 않고 현재 장치 내부의 노드만 검색한다.
-
----
 
 #### 8. ROS 2 Daemon 재시작
 
@@ -594,8 +578,6 @@ source ~/yolo_ws/install/setup.bash
 source /opt/ros/jazzy/setup.bash
 source ~/turtlebot3_ws/install/setup.bash
 ```
-
----
 
 #### 9. TurtleBot3 Bringup 재실행
 
