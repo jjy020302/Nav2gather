@@ -5,16 +5,7 @@
 ### Toward Cooperative Multi-Robot Navigation
 
 Navigation2 기반 객체 인식 자율주행 시스템을 구현하고, 이후 다중 로봇 협력 주행(Multi-Robot Navigation)으로 확장하기 위한 프로젝트이다.
-
-![ROS2](https://img.shields.io/badge/ROS_2-Jazzy-22314E?style=flat-square&logo=ros&logoColor=white)
-![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04_LTS-E95420?style=flat-square&logo=ubuntu&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)
-![Nav2](https://img.shields.io/badge/Navigation2-Simple_Commander-1E88E5?style=flat-square)
-![Platform](https://img.shields.io/badge/Platform-TurtleBot3_Burger-0A7E8C?style=flat-square)
-![Status](https://img.shields.io/badge/status-active_development-yellow?style=flat-square)
-
 </div>
-
 <br>
 
 <div align="center">
