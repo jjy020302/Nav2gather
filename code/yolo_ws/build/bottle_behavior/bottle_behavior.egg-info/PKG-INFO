@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: bottle-behavior
+Version: 0.0.1
+Summary: Simple bottle detection behavior for TurtleBot3
+Maintainer: csilab
+Maintainer-email: csilab@example.com
+License: Apache-2.0

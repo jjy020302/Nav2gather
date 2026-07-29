@@ -1,0 +1,609 @@
+[0.000000] (-) TimerEvent: {}
+[0.000562] (-) JobUnselected: {'identifier': 'bottle_behavior'}
+[0.000615] (-) JobUnselected: {'identifier': 'nav2_behavior'}
+[0.000644] (-) JobUnselected: {'identifier': 'yolo_behavior'}
+[0.000666] (-) JobUnselected: {'identifier': 'yolo_bringup'}
+[0.000687] (-) JobUnselected: {'identifier': 'yolo_msgs'}
+[0.000737] (-) JobUnselected: {'identifier': 'yolo_ros'}
+[0.000777] (frontier_exploration_ros2) JobQueued: {'identifier': 'frontier_exploration_ros2', 'dependencies': OrderedDict()}
+[0.000805] (frontier_exploration_ros2) JobStarted: {'identifier': 'frontier_exploration_ros2'}
+[0.011204] (frontier_exploration_ros2) JobProgress: {'identifier': 'frontier_exploration_ros2', 'progress': 'cmake'}
+[0.011687] (frontier_exploration_ros2) Command: {'cmd': ['/usr/bin/cmake', '/home/csilab/yolo_ws/src/frontier_exploration_ros2', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/csilab/yolo_ws/install/frontier_exploration_ros2'], 'cwd': '/home/csilab/yolo_ws/build/frontier_exploration_ros2', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'ko:en', 'USER': 'csilab', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/csilab/yolo_ws/install/yolo_msgs/lib:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/csilab', 'OLDPWD': '/home/csilab/yolo_ws', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'en_US.UTF-8', 'ROS_STATIC_PEERS': '10.8.141.23', 'SYSTEMD_EXEC_PID': '3547', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/csilab/yolo_ws/install:/home/csilab/turtlebot3_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'csilab', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'csilab', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/csilab/.local/bin:/home/csilab/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/turtle-jeong-pc:@/tmp/.ICE-unix/3517,unix/turtle-jeong-pc:/tmp/.ICE-unix/3517', 'PAPERSIZE': 'letter', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'en_US.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/c6fa980b_5773_46e9_91e7_4b1c244a395b', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'ko_KR.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'en_US.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.EJWET3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.122', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/csilab/yolo_ws/install/yolo_bringup:/home/csilab/yolo_ws/install/yolo_ros:/home/csilab/yolo_ws/install/nav2_behavior:/home/csilab/yolo_ws/install/bottle_behavior:/home/csilab/yolo_ws/install/yolo_msgs:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_examples:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/csilab/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/csilab/yolo_ws/build/frontier_exploration_ros2', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'LDS_MODEL': 'LDS-02', 'PYTHONPATH': '/home/csilab/yolo_ws/build/yolo_ros:/home/csilab/yolo_ws/install/yolo_ros/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/nav2_behavior:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/bottle_behavior:/home/csilab/yolo_ws/install/bottle_behavior/lib/python3.12/site-packages:/home/csilab/yolo_ws/install/yolo_msgs/lib/python3.12/site-packages:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib/python3.12/site-packages:/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/csilab/yolo_ws/install/yolo_bringup:/home/csilab/yolo_ws/install/yolo_msgs:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_examples:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/csilab/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/csilab/yolo_ws/install/yolo_ros:/home/csilab/yolo_ws/install/nav2_behavior:/home/csilab/yolo_ws/install/bottle_behavior:/opt/ros/jazzy'}), 'shell': False}
+[0.100081] (-) TimerEvent: {}
+[0.149815] (frontier_exploration_ros2) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.200203] (-) TimerEvent: {}
+[0.300519] (-) TimerEvent: {}
+[0.370366] (frontier_exploration_ros2) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.400494] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.400718] (-) TimerEvent: {}
+[0.500964] (-) TimerEvent: {}
+[0.502533] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.509787] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.510216] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.511165] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.521394] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.601097] (-) TimerEvent: {}
+[0.623439] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.631149] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.631451] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.631748] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.640999] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.701215] (-) TimerEvent: {}
+[0.793121] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.801287] (-) TimerEvent: {}
+[0.873562] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.901406] (-) TimerEvent: {}
+[0.958905] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found action_msgs: 2.0.4 (/opt/ros/jazzy/share/action_msgs/cmake)\n'}
+[1.001537] (-) TimerEvent: {}
+[1.026794] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[1.048447] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[1.074591] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.101549] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.101755] (-) TimerEvent: {}
+[1.178878] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)\n'}
+[1.201840] (-) TimerEvent: {}
+[1.223178] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found nav2_msgs: 1.3.12 (/opt/ros/jazzy/share/nav2_msgs/cmake)\n'}
+[1.301935] (-) TimerEvent: {}
+[1.348996] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found rclcpp: 28.1.21 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[1.402036] (-) TimerEvent: {}
+[1.417324] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[1.423606] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.502139] (-) TimerEvent: {}
+[1.545835] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[1.566864] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[1.589172] (frontier_exploration_ros2) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.602214] (-) TimerEvent: {}
+[1.686640] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found rclcpp_action: 28.1.21 (/opt/ros/jazzy/share/rclcpp_action/cmake)\n'}
+[1.702323] (-) TimerEvent: {}
+[1.704881] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.1 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[1.738399] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.9 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[1.746620] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found tf2: 0.36.21 (/opt/ros/jazzy/share/tf2/cmake)\n'}
+[1.754735] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found tf2_ros: 0.36.21 (/opt/ros/jazzy/share/tf2_ros/cmake)\n'}
+[1.802459] (-) TimerEvent: {}
+[1.861509] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found visualization_msgs: 5.3.8 (/opt/ros/jazzy/share/visualization_msgs/cmake)\n'}
+[1.902564] (-) TimerEvent: {}
+[2.002831] (-) TimerEvent: {}
+[2.103124] (-) TimerEvent: {}
+[2.203403] (-) TimerEvent: {}
+[2.304303] (-) TimerEvent: {}
+[2.404582] (-) TimerEvent: {}
+[2.467837] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.1 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[2.504700] (-) TimerEvent: {}
+[2.605315] (-) TimerEvent: {}
+[2.705574] (-) TimerEvent: {}
+[2.805862] (-) TimerEvent: {}
+[2.906181] (-) TimerEvent: {}
+[3.006443] (-) TimerEvent: {}
+[3.106657] (-) TimerEvent: {}
+[3.167196] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.206790] (-) TimerEvent: {}
+[3.307091] (-) TimerEvent: {}
+[3.407405] (-) TimerEvent: {}
+[3.436338] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.443839] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[3.507508] (-) TimerEvent: {}
+[3.565556] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found PythonExtra: /usr/bin/python3  \n'}
+[3.607633] (-) TimerEvent: {}
+[3.707921] (-) TimerEvent: {}
+[3.808206] (-) TimerEvent: {}
+[3.908505] (-) TimerEvent: {}
+[4.008790] (-) TimerEvent: {}
+[4.015989] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[4.080879] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[4.099819] (frontier_exploration_ros2) StdoutLine: {'line': b"-- Found gtest sources under '/opt/ros/jazzy/src/gtest_vendor': C++ tests using 'Google Test' will be built\n"}
+[4.105490] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[4.108898] (-) TimerEvent: {}
+[4.209225] (-) TimerEvent: {}
+[4.309686] (-) TimerEvent: {}
+[4.320687] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[4.321442] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[4.354548] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Configuring done (4.3s)\n'}
+[4.409811] (-) TimerEvent: {}
+[4.438732] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Generating done (0.1s)\n'}
+[4.462736] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Build files have been written to: /home/csilab/yolo_ws/build/frontier_exploration_ros2\n'}
+[4.479739] (frontier_exploration_ros2) CommandEnded: {'returncode': 0}
+[4.480255] (frontier_exploration_ros2) JobProgress: {'identifier': 'frontier_exploration_ros2', 'progress': 'build'}
+[4.480970] (frontier_exploration_ros2) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/csilab/yolo_ws/build/frontier_exploration_ros2', '--', '-j12', '-l12'], 'cwd': '/home/csilab/yolo_ws/build/frontier_exploration_ros2', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'ko:en', 'USER': 'csilab', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/csilab/yolo_ws/install/yolo_msgs/lib:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/csilab', 'OLDPWD': '/home/csilab/yolo_ws', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'en_US.UTF-8', 'ROS_STATIC_PEERS': '10.8.141.23', 'SYSTEMD_EXEC_PID': '3547', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/csilab/yolo_ws/install:/home/csilab/turtlebot3_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'csilab', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'csilab', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/csilab/.local/bin:/home/csilab/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/turtle-jeong-pc:@/tmp/.ICE-unix/3517,unix/turtle-jeong-pc:/tmp/.ICE-unix/3517', 'PAPERSIZE': 'letter', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'en_US.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/c6fa980b_5773_46e9_91e7_4b1c244a395b', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'ko_KR.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'en_US.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.EJWET3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.122', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/csilab/yolo_ws/install/yolo_bringup:/home/csilab/yolo_ws/install/yolo_ros:/home/csilab/yolo_ws/install/nav2_behavior:/home/csilab/yolo_ws/install/bottle_behavior:/home/csilab/yolo_ws/install/yolo_msgs:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_examples:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/csilab/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/csilab/yolo_ws/build/frontier_exploration_ros2', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'LDS_MODEL': 'LDS-02', 'PYTHONPATH': '/home/csilab/yolo_ws/build/yolo_ros:/home/csilab/yolo_ws/install/yolo_ros/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/nav2_behavior:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/bottle_behavior:/home/csilab/yolo_ws/install/bottle_behavior/lib/python3.12/site-packages:/home/csilab/yolo_ws/install/yolo_msgs/lib/python3.12/site-packages:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib/python3.12/site-packages:/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/csilab/yolo_ws/install/yolo_bringup:/home/csilab/yolo_ws/install/yolo_msgs:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_examples:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/csilab/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/csilab/yolo_ws/install/yolo_ros:/home/csilab/yolo_ws/install/nav2_behavior:/home/csilab/yolo_ws/install/bottle_behavior:/opt/ros/jazzy'}), 'shell': False}
+[4.509937] (-) TimerEvent: {}
+[4.544308] (frontier_exploration_ros2) StdoutLine: {'line': b'[  1%] \x1b[32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o\x1b[0m\n'}
+[4.544549] (frontier_exploration_ros2) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating Rust code for ROS interfaces\x1b[0m\n'}
+[4.545321] (frontier_exploration_ros2) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating type hashes for ROS interfaces\x1b[0m\n'}
+[4.546320] (frontier_exploration_ros2) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_suppression.cpp.o\x1b[0m\n'}
+[4.546457] (frontier_exploration_ros2) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/decision_map.cpp.o\x1b[0m\n'}
+[4.546774] (frontier_exploration_ros2) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_policy.cpp.o\x1b[0m\n'}
+[4.546869] (frontier_exploration_ros2) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_search.cpp.o\x1b[0m\n'}
+[4.546961] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_explorer_core_maps.cpp.o\x1b[0m\n'}
+[4.547792] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_explorer_core_init.cpp.o\x1b[0m\n'}
+[4.547957] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o\x1b[0m\n'}
+[4.555405] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_explorer_core_frontiers.cpp.o\x1b[0m\n'}
+[4.558294] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 14%] Built target ament_cmake_python_symlink_frontier_exploration_ros2\n'}
+[4.574291] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_explorer_core_suppression.cpp.o\x1b[0m\n'}
+[4.610043] (-) TimerEvent: {}
+[4.710321] (-) TimerEvent: {}
+[4.810586] (-) TimerEvent: {}
+[4.910877] (-) TimerEvent: {}
+[4.951487] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 16%] Built target frontier_exploration_ros2__rosidl_generator_type_description\n'}
+[5.020625] (-) TimerEvent: {}
+[5.121304] (-) TimerEvent: {}
+[5.126195] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 16%] Built target frontier_exploration_ros2__rs\n'}
+[5.157229] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_explorer_core_dispatch.cpp.o\x1b[0m\n'}
+[5.221404] (-) TimerEvent: {}
+[5.321690] (-) TimerEvent: {}
+[5.380333] (frontier_exploration_ros2) StdoutLine: {'line': b'running egg_info\n'}
+[5.381497] (frontier_exploration_ros2) StdoutLine: {'line': b'creating frontier_exploration_ros2.egg-info\n'}
+[5.422310] (-) TimerEvent: {}
+[5.445369] (frontier_exploration_ros2) StdoutLine: {'line': b'writing frontier_exploration_ros2.egg-info/PKG-INFO\n'}
+[5.445965] (frontier_exploration_ros2) StdoutLine: {'line': b'writing dependency_links to frontier_exploration_ros2.egg-info/dependency_links.txt\n'}
+[5.446168] (frontier_exploration_ros2) StdoutLine: {'line': b'writing top-level names to frontier_exploration_ros2.egg-info/top_level.txt\n'}
+[5.446437] (frontier_exploration_ros2) StdoutLine: {'line': b"writing manifest file 'frontier_exploration_ros2.egg-info/SOURCES.txt'\n"}
+[5.523316] (-) TimerEvent: {}
+[5.540561] (frontier_exploration_ros2) StdoutLine: {'line': b"reading manifest file 'frontier_exploration_ros2.egg-info/SOURCES.txt'\n"}
+[5.541338] (frontier_exploration_ros2) StdoutLine: {'line': b"writing manifest file 'frontier_exploration_ros2.egg-info/SOURCES.txt'\n"}
+[5.587003] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 17%] Built target ament_cmake_python_build_frontier_exploration_ros2_egg\n'}
+[5.603350] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/mrtsp_ordering.cpp.o\x1b[0m\n'}
+[5.624326] (-) TimerEvent: {}
+[5.724650] (-) TimerEvent: {}
+[5.824998] (-) TimerEvent: {}
+[5.910777] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 20%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[5.925296] (-) TimerEvent: {}
+[6.025533] (-) TimerEvent: {}
+[6.101299] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/mrtsp_solver.cpp.o\x1b[0m\n'}
+[6.125638] (-) TimerEvent: {}
+[6.134065] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 22%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[6.220849] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 24%] \x1b[32m\x1b[1mLinking CXX static library libgtest_main.a\x1b[0m\n'}
+[6.225784] (-) TimerEvent: {}
+[6.319177] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 24%] Built target gtest_main\n'}
+[6.325887] (-) TimerEvent: {}
+[6.430809] (-) TimerEvent: {}
+[6.531095] (-) TimerEvent: {}
+[6.611166] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding C object CMakeFiles/frontier_exploration_ros2__rosidl_generator_c.dir/rosidl_generator_c/frontier_exploration_ros2/srv/detail/control_exploration__description.c.o\x1b[0m\n'}
+[6.611539] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding C object CMakeFiles/frontier_exploration_ros2__rosidl_generator_c.dir/rosidl_generator_c/frontier_exploration_ros2/srv/detail/control_exploration__functions.c.o\x1b[0m\n'}
+[6.614854] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding C object CMakeFiles/frontier_exploration_ros2__rosidl_generator_c.dir/rosidl_generator_c/frontier_exploration_ros2/srv/detail/control_exploration__type_support.c.o\x1b[0m\n'}
+[6.626630] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 28%] Built target frontier_exploration_ros2__cpp\n'}
+[6.631292] (-) TimerEvent: {}
+[6.713712] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 29%] \x1b[32m\x1b[1mLinking C shared library libfrontier_exploration_ros2__rosidl_generator_c.so\x1b[0m\n'}
+[6.731400] (-) TimerEvent: {}
+[6.760548] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 29%] Built target frontier_exploration_ros2__rosidl_generator_c\n'}
+[6.775890] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 30%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[6.776204] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 32%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[6.776422] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 33%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[6.777736] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 34%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[6.777928] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 36%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[6.778063] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 37%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[6.832306] (-) TimerEvent: {}
+[6.932571] (-) TimerEvent: {}
+[7.034314] (-) TimerEvent: {}
+[7.068394] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/frontier_exploration_ros2/srv/control_exploration__type_support.cpp.o\x1b[0m\n'}
+[7.134425] (-) TimerEvent: {}
+[7.191954] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2__rosidl_typesupport_c.dir/rosidl_typesupport_c/frontier_exploration_ros2/srv/control_exploration__type_support.cpp.o\x1b[0m\n'}
+[7.234542] (-) TimerEvent: {}
+[7.251573] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/frontier_exploration_ros2/srv/detail/dds_fastrtps/control_exploration__type_support.cpp.o\x1b[0m\n'}
+[7.264145] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/frontier_exploration_ros2/srv/detail/control_exploration__type_support.cpp.o\x1b[0m\n'}
+[7.264508] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 44%] \x1b[32m\x1b[1mLinking CXX shared library libfrontier_exploration_ros2__rosidl_typesupport_c.so\x1b[0m\n'}
+[7.279497] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding C object CMakeFiles/frontier_exploration_ros2__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/frontier_exploration_ros2/srv/detail/control_exploration__type_support.c.o\x1b[0m\n'}
+[7.327910] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 45%] Built target frontier_exploration_ros2__rosidl_typesupport_c\n'}
+[7.334660] (-) TimerEvent: {}
+[7.344573] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 46%] \x1b[32m\x1b[1mLinking C shared library libfrontier_exploration_ros2__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[7.350923] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/frontier_exploration_ros2/srv/detail/control_exploration__type_support_c.cpp.o\x1b[0m\n'}
+[7.381776] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 48%] Built target frontier_exploration_ros2__rosidl_typesupport_introspection_c\n'}
+[7.434765] (-) TimerEvent: {}
+[7.478075] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 49%] \x1b[32m\x1b[1mLinking CXX shared library libfrontier_exploration_ros2__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[7.501962] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 50%] \x1b[32m\x1b[1mLinking CXX shared library libfrontier_exploration_ros2_core.so\x1b[0m\n'}
+[7.534879] (-) TimerEvent: {}
+[7.565621] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 50%] Built target frontier_exploration_ros2__rosidl_typesupport_cpp\n'}
+[7.590586] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 52%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ctl.dir/src/frontier_exploration_ctl.cpp.o\x1b[0m\n'}
+[7.634992] (-) TimerEvent: {}
+[7.735284] (-) TimerEvent: {}
+[7.741479] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 53%] \x1b[32m\x1b[1mLinking CXX shared library libfrontier_exploration_ros2__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[7.835397] (-) TimerEvent: {}
+[7.851119] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 53%] Built target frontier_exploration_ros2__rosidl_typesupport_introspection_cpp\n'}
+[7.853060] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 53%] Built target frontier_exploration_ros2_core\n'}
+[7.874407] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 54%] \x1b[32m\x1b[1mLinking CXX shared library libfrontier_exploration_ros2__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[7.878317] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding CXX object CMakeFiles/frontier_debug_observer.dir/src/debug/debug_markers.cpp.o\x1b[0m\n'}
+[7.878584] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/frontier_debug_observer.dir/src/debug/debug_observer_node.cpp.o\x1b[0m\n'}
+[7.880287] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding CXX object CMakeFiles/frontier_debug_observer.dir/src/debug/debug_analyzer.cpp.o\x1b[0m\n'}
+[7.880455] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_node.dir/src/frontier_explorer_node.cpp.o\x1b[0m\n'}
+[7.920365] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 61%] \x1b[32m\x1b[1mLinking CXX shared library libfrontier_exploration_ros2__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[7.935516] (-) TimerEvent: {}
+[7.974588] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 61%] Built target frontier_exploration_ros2__rosidl_typesupport_fastrtps_c\n'}
+[8.012072] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 61%] Built target frontier_exploration_ros2__rosidl_typesupport_fastrtps_cpp\n'}
+[8.035625] (-) TimerEvent: {}
+[8.038987] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 61%] Built target frontier_exploration_ros2\n'}
+[8.070081] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 62%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[8.135727] (-) TimerEvent: {}
+[8.236005] (-) TimerEvent: {}
+[8.336304] (-) TimerEvent: {}
+[8.436589] (-) TimerEvent: {}
+[8.536878] (-) TimerEvent: {}
+[8.637172] (-) TimerEvent: {}
+[8.688318] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 62%] Built target frontier_exploration_ros2__py\n'}
+[8.737756] (-) TimerEvent: {}
+[8.738698] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding C object CMakeFiles/frontier_exploration_ros2__rosidl_generator_py.dir/rosidl_generator_py/frontier_exploration_ros2/srv/_control_exploration_s.c.o\x1b[0m\n'}
+[8.837862] (-) TimerEvent: {}
+[8.938155] (-) TimerEvent: {}
+[8.984496] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 65%] \x1b[32m\x1b[1mLinking C shared library libfrontier_exploration_ros2__rosidl_generator_py.so\x1b[0m\n'}
+[9.038328] (-) TimerEvent: {}
+[9.138672] (-) TimerEvent: {}
+[9.167134] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 65%] Built target frontier_exploration_ros2__rosidl_generator_py\n'}
+[9.200879] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding C object CMakeFiles/frontier_exploration_ros2_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/frontier_exploration_ros2/_frontier_exploration_ros2_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[9.201091] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 69%] \x1b[32mBuilding C object CMakeFiles/frontier_exploration_ros2_s__rosidl_typesupport_c.dir/rosidl_generator_py/frontier_exploration_ros2/_frontier_exploration_ros2_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[9.201177] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 69%] \x1b[32mBuilding C object CMakeFiles/frontier_exploration_ros2_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/frontier_exploration_ros2/_frontier_exploration_ros2_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[9.238783] (-) TimerEvent: {}
+[9.330212] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking CXX static library libgtest.a\x1b[0m\n'}
+[9.333778] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 72%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_c.so\x1b[0m\n'}
+[9.336807] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 73%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[9.338869] (-) TimerEvent: {}
+[9.364069] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 74%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[9.375288] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 74%] Built target frontier_exploration_ros2_s__rosidl_typesupport_fastrtps_c\n'}
+[9.381294] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 74%] Built target frontier_exploration_ros2_s__rosidl_typesupport_c\n'}
+[9.408007] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 74%] Built target frontier_exploration_ros2_s__rosidl_typesupport_introspection_c\n'}
+[9.408407] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 74%] Built target gtest\n'}
+[9.438328] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/test_preemption_flow.dir/test/test_preemption_flow.cpp.o\x1b[0m\n'}
+[9.438950] (-) TimerEvent: {}
+[9.440369] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding CXX object CMakeFiles/test_decision_map_and_mrtsp.dir/test/test_decision_map_and_mrtsp.cpp.o\x1b[0m\n'}
+[9.440636] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding CXX object CMakeFiles/test_frontier_snapshot_and_search.dir/test/test_frontier_snapshot_and_search.cpp.o\x1b[0m\n'}
+[9.440764] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding CXX object CMakeFiles/test_frontier_suppression.dir/test/test_frontier_suppression.cpp.o\x1b[0m\n'}
+[9.440858] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding CXX object CMakeFiles/test_mrtsp_solver.dir/test/test_mrtsp_solver.cpp.o\x1b[0m\n'}
+[9.440949] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding CXX object CMakeFiles/test_qos_utils.dir/test/test_qos_utils.cpp.o\x1b[0m\n'}
+[9.539079] (-) TimerEvent: {}
+[9.640319] (-) TimerEvent: {}
+[9.740634] (-) TimerEvent: {}
+[9.840972] (-) TimerEvent: {}
+[9.941300] (-) TimerEvent: {}
+[10.042322] (-) TimerEvent: {}
+[10.143319] (-) TimerEvent: {}
+[10.262979] (-) TimerEvent: {}
+[10.363306] (-) TimerEvent: {}
+[10.463598] (-) TimerEvent: {}
+[10.563887] (-) TimerEvent: {}
+[10.664170] (-) TimerEvent: {}
+[10.765330] (-) TimerEvent: {}
+[10.865684] (-) TimerEvent: {}
+[10.966323] (-) TimerEvent: {}
+[11.067326] (-) TimerEvent: {}
+[11.168323] (-) TimerEvent: {}
+[11.269324] (-) TimerEvent: {}
+[11.370328] (-) TimerEvent: {}
+[11.471327] (-) TimerEvent: {}
+[11.573330] (-) TimerEvent: {}
+[11.674335] (-) TimerEvent: {}
+[11.700932] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 84%] \x1b[32m\x1b[1mLinking CXX executable test_mrtsp_solver\x1b[0m\n'}
+[11.768560] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 85%] \x1b[32m\x1b[1mLinking CXX executable test_decision_map_and_mrtsp\x1b[0m\n'}
+[11.774452] (-) TimerEvent: {}
+[11.874762] (-) TimerEvent: {}
+[11.975067] (-) TimerEvent: {}
+[11.997099] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 85%] Built target test_decision_map_and_mrtsp\n'}
+[12.009600] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 85%] Built target test_mrtsp_solver\n'}
+[12.075185] (-) TimerEvent: {}
+[12.119191] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 86%] \x1b[32m\x1b[1mLinking CXX executable frontier_exploration_ctl\x1b[0m\n'}
+[12.175311] (-) TimerEvent: {}
+[12.275674] (-) TimerEvent: {}
+[12.376057] (-) TimerEvent: {}
+[12.445860] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 86%] Built target frontier_exploration_ctl\n'}
+[12.476176] (-) TimerEvent: {}
+[12.576473] (-) TimerEvent: {}
+[12.587469] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 88%] \x1b[32m\x1b[1mLinking CXX executable test_frontier_suppression\x1b[0m\n'}
+[12.676596] (-) TimerEvent: {}
+[12.772899] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 88%] Built target test_frontier_suppression\n'}
+[12.776726] (-) TimerEvent: {}
+[12.877027] (-) TimerEvent: {}
+[12.977317] (-) TimerEvent: {}
+[13.077599] (-) TimerEvent: {}
+[13.093208] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 89%] \x1b[32m\x1b[1mLinking CXX executable test_frontier_snapshot_and_search\x1b[0m\n'}
+[13.177714] (-) TimerEvent: {}
+[13.278008] (-) TimerEvent: {}
+[13.301982] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 89%] Built target test_frontier_snapshot_and_search\n'}
+[13.378123] (-) TimerEvent: {}
+[13.478423] (-) TimerEvent: {}
+[13.578704] (-) TimerEvent: {}
+[13.678983] (-) TimerEvent: {}
+[13.779299] (-) TimerEvent: {}
+[13.879587] (-) TimerEvent: {}
+[13.979868] (-) TimerEvent: {}
+[13.991141] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 90%] \x1b[32m\x1b[1mLinking CXX executable test_qos_utils\x1b[0m\n'}
+[14.009724] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 92%] \x1b[32m\x1b[1mLinking CXX executable test_preemption_flow\x1b[0m\n'}
+[14.079983] (-) TimerEvent: {}
+[14.180284] (-) TimerEvent: {}
+[14.197579] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 92%] Built target test_qos_utils\n'}
+[14.207503] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 92%] Built target test_preemption_flow\n'}
+[14.280415] (-) TimerEvent: {}
+[14.380694] (-) TimerEvent: {}
+[14.480930] (-) TimerEvent: {}
+[14.581173] (-) TimerEvent: {}
+[14.681442] (-) TimerEvent: {}
+[14.781766] (-) TimerEvent: {}
+[14.882049] (-) TimerEvent: {}
+[14.982350] (-) TimerEvent: {}
+[15.082658] (-) TimerEvent: {}
+[15.182983] (-) TimerEvent: {}
+[15.283293] (-) TimerEvent: {}
+[15.383568] (-) TimerEvent: {}
+[15.483859] (-) TimerEvent: {}
+[15.584186] (-) TimerEvent: {}
+[15.684512] (-) TimerEvent: {}
+[15.784760] (-) TimerEvent: {}
+[15.885045] (-) TimerEvent: {}
+[15.985361] (-) TimerEvent: {}
+[16.085700] (-) TimerEvent: {}
+[16.186019] (-) TimerEvent: {}
+[16.286344] (-) TimerEvent: {}
+[16.386660] (-) TimerEvent: {}
+[16.486990] (-) TimerEvent: {}
+[16.587268] (-) TimerEvent: {}
+[16.687514] (-) TimerEvent: {}
+[16.787779] (-) TimerEvent: {}
+[16.888045] (-) TimerEvent: {}
+[16.988359] (-) TimerEvent: {}
+[17.088642] (-) TimerEvent: {}
+[17.188925] (-) TimerEvent: {}
+[17.289182] (-) TimerEvent: {}
+[17.389501] (-) TimerEvent: {}
+[17.489835] (-) TimerEvent: {}
+[17.590161] (-) TimerEvent: {}
+[17.690506] (-) TimerEvent: {}
+[17.790796] (-) TimerEvent: {}
+[17.833244] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 93%] \x1b[32m\x1b[1mLinking CXX executable frontier_debug_observer\x1b[0m\n'}
+[17.890941] (-) TimerEvent: {}
+[17.991345] (-) TimerEvent: {}
+[18.091621] (-) TimerEvent: {}
+[18.191958] (-) TimerEvent: {}
+[18.292314] (-) TimerEvent: {}
+[18.307536] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 93%] Built target frontier_debug_observer\n'}
+[18.392451] (-) TimerEvent: {}
+[18.492773] (-) TimerEvent: {}
+[18.593101] (-) TimerEvent: {}
+[18.693423] (-) TimerEvent: {}
+[18.793896] (-) TimerEvent: {}
+[18.894219] (-) TimerEvent: {}
+[18.995322] (-) TimerEvent: {}
+[19.095592] (-) TimerEvent: {}
+[19.195848] (-) TimerEvent: {}
+[19.296117] (-) TimerEvent: {}
+[19.396526] (-) TimerEvent: {}
+[19.496837] (-) TimerEvent: {}
+[19.597158] (-) TimerEvent: {}
+[19.697499] (-) TimerEvent: {}
+[19.797819] (-) TimerEvent: {}
+[19.898133] (-) TimerEvent: {}
+[19.998432] (-) TimerEvent: {}
+[20.098689] (-) TimerEvent: {}
+[20.199014] (-) TimerEvent: {}
+[20.299319] (-) TimerEvent: {}
+[20.399639] (-) TimerEvent: {}
+[20.499992] (-) TimerEvent: {}
+[20.600282] (-) TimerEvent: {}
+[20.700602] (-) TimerEvent: {}
+[20.800914] (-) TimerEvent: {}
+[20.901226] (-) TimerEvent: {}
+[21.001558] (-) TimerEvent: {}
+[21.101948] (-) TimerEvent: {}
+[21.202282] (-) TimerEvent: {}
+[21.302587] (-) TimerEvent: {}
+[21.402871] (-) TimerEvent: {}
+[21.503203] (-) TimerEvent: {}
+[21.603626] (-) TimerEvent: {}
+[21.704096] (-) TimerEvent: {}
+[21.739698] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 94%] \x1b[32m\x1b[1mLinking CXX shared library libfrontier_exploration_ros2_node.so\x1b[0m\n'}
+[21.804240] (-) TimerEvent: {}
+[21.904592] (-) TimerEvent: {}
+[22.004915] (-) TimerEvent: {}
+[22.105260] (-) TimerEvent: {}
+[22.205643] (-) TimerEvent: {}
+[22.277130] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 94%] Built target frontier_exploration_ros2_node\n'}
+[22.299830] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 97%] \x1b[32mBuilding CXX object CMakeFiles/test_control_service_and_idle.dir/test/test_control_service_and_idle.cpp.o\x1b[0m\n'}
+[22.300030] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 97%] \x1b[32mBuilding CXX object CMakeFiles/frontier_explorer.dir/src/main.cpp.o\x1b[0m\n'}
+[22.305769] (-) TimerEvent: {}
+[22.406084] (-) TimerEvent: {}
+[22.507319] (-) TimerEvent: {}
+[22.607631] (-) TimerEvent: {}
+[22.707948] (-) TimerEvent: {}
+[22.808283] (-) TimerEvent: {}
+[22.908608] (-) TimerEvent: {}
+[23.008925] (-) TimerEvent: {}
+[23.109257] (-) TimerEvent: {}
+[23.209592] (-) TimerEvent: {}
+[23.309892] (-) TimerEvent: {}
+[23.410165] (-) TimerEvent: {}
+[23.510510] (-) TimerEvent: {}
+[23.610846] (-) TimerEvent: {}
+[23.711187] (-) TimerEvent: {}
+[23.811541] (-) TimerEvent: {}
+[23.911881] (-) TimerEvent: {}
+[24.012240] (-) TimerEvent: {}
+[24.112585] (-) TimerEvent: {}
+[24.212961] (-) TimerEvent: {}
+[24.313318] (-) TimerEvent: {}
+[24.413629] (-) TimerEvent: {}
+[24.513958] (-) TimerEvent: {}
+[24.614294] (-) TimerEvent: {}
+[24.714576] (-) TimerEvent: {}
+[24.814862] (-) TimerEvent: {}
+[24.915189] (-) TimerEvent: {}
+[25.015506] (-) TimerEvent: {}
+[25.115749] (-) TimerEvent: {}
+[25.216025] (-) TimerEvent: {}
+[25.316348] (-) TimerEvent: {}
+[25.416660] (-) TimerEvent: {}
+[25.516948] (-) TimerEvent: {}
+[25.617308] (-) TimerEvent: {}
+[25.717641] (-) TimerEvent: {}
+[25.817976] (-) TimerEvent: {}
+[25.902296] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 98%] \x1b[32m\x1b[1mLinking CXX executable frontier_explorer\x1b[0m\n'}
+[25.918119] (-) TimerEvent: {}
+[26.018454] (-) TimerEvent: {}
+[26.118785] (-) TimerEvent: {}
+[26.219188] (-) TimerEvent: {}
+[26.219893] (frontier_exploration_ros2) StdoutLine: {'line': b'[ 98%] Built target frontier_explorer\n'}
+[26.319313] (-) TimerEvent: {}
+[26.419812] (-) TimerEvent: {}
+[26.520174] (-) TimerEvent: {}
+[26.620515] (-) TimerEvent: {}
+[26.723961] (-) TimerEvent: {}
+[26.824408] (-) TimerEvent: {}
+[26.924690] (-) TimerEvent: {}
+[27.025000] (-) TimerEvent: {}
+[27.125318] (-) TimerEvent: {}
+[27.225628] (-) TimerEvent: {}
+[27.325949] (-) TimerEvent: {}
+[27.426277] (-) TimerEvent: {}
+[27.498437] (frontier_exploration_ros2) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable test_control_service_and_idle\x1b[0m\n'}
+[27.526325] (-) TimerEvent: {}
+[27.626594] (-) TimerEvent: {}
+[27.726917] (-) TimerEvent: {}
+[27.827237] (-) TimerEvent: {}
+[27.927589] (-) TimerEvent: {}
+[27.970208] (frontier_exploration_ros2) StdoutLine: {'line': b'[100%] Built target test_control_service_and_idle\n'}
+[27.985057] (frontier_exploration_ros2) CommandEnded: {'returncode': 0}
+[27.985928] (frontier_exploration_ros2) JobProgress: {'identifier': 'frontier_exploration_ros2', 'progress': 'install'}
+[27.996764] (frontier_exploration_ros2) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/csilab/yolo_ws/build/frontier_exploration_ros2'], 'cwd': '/home/csilab/yolo_ws/build/frontier_exploration_ros2', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'ko:en', 'USER': 'csilab', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/csilab/yolo_ws/install/yolo_msgs/lib:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/csilab', 'OLDPWD': '/home/csilab/yolo_ws', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'en_US.UTF-8', 'ROS_STATIC_PEERS': '10.8.141.23', 'SYSTEMD_EXEC_PID': '3547', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/csilab/yolo_ws/install:/home/csilab/turtlebot3_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'csilab', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'csilab', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/csilab/.local/bin:/home/csilab/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/turtle-jeong-pc:@/tmp/.ICE-unix/3517,unix/turtle-jeong-pc:/tmp/.ICE-unix/3517', 'PAPERSIZE': 'letter', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'en_US.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/c6fa980b_5773_46e9_91e7_4b1c244a395b', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'ko_KR.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'en_US.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.EJWET3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.122', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/csilab/yolo_ws/install/yolo_bringup:/home/csilab/yolo_ws/install/yolo_ros:/home/csilab/yolo_ws/install/nav2_behavior:/home/csilab/yolo_ws/install/bottle_behavior:/home/csilab/yolo_ws/install/yolo_msgs:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_examples:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/csilab/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/csilab/yolo_ws/build/frontier_exploration_ros2', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'LDS_MODEL': 'LDS-02', 'PYTHONPATH': '/home/csilab/yolo_ws/build/yolo_ros:/home/csilab/yolo_ws/install/yolo_ros/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/nav2_behavior:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/bottle_behavior:/home/csilab/yolo_ws/install/bottle_behavior/lib/python3.12/site-packages:/home/csilab/yolo_ws/install/yolo_msgs/lib/python3.12/site-packages:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib/python3.12/site-packages:/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/csilab/yolo_ws/install/yolo_bringup:/home/csilab/yolo_ws/install/yolo_msgs:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_examples:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/csilab/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/csilab/yolo_ws/install/yolo_ros:/home/csilab/yolo_ws/install/nav2_behavior:/home/csilab/yolo_ws/install/bottle_behavior:/opt/ros/jazzy'}), 'shell': False}
+[28.005851] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[28.006336] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[28.006633] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/ament_index/resource_index/rosidl_interfaces/frontier_exploration_ros2\n'}
+[28.018102] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/srv/ControlExploration.json\n'}
+[28.027724] (-) TimerEvent: {}
+[28.029306] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/msg/rosidl_generator_c__visibility_control.h\n'}
+[28.040038] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/control_exploration.h\n'}
+[28.050753] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__functions.h\n'}
+[28.061495] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__struct.h\n'}
+[28.071993] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__type_support.h\n'}
+[28.082111] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/library_path.sh\n'}
+[28.092082] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/library_path.dsv\n'}
+[28.101990] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[28.112882] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__rosidl_typesupport_fastrtps_c.h\n'}
+[28.123946] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[28.127827] (-) TimerEvent: {}
+[28.134590] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/control_exploration.hpp\n'}
+[28.146239] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__builder.hpp\n'}
+[28.157209] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__struct.hpp\n'}
+[28.166940] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__traits.hpp\n'}
+[28.177399] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__type_support.hpp\n'}
+[28.187411] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[28.196695] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[28.206414] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[28.215884] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__rosidl_typesupport_introspection_c.h\n'}
+[28.225931] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__rosidl_typesupport_introspection_cpp.hpp\n'}
+[28.227925] (-) TimerEvent: {}
+[28.236028] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/pythonpath.sh\n'}
+[28.246089] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/pythonpath.dsv\n'}
+[28.255971] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2-1.6.1-py3.12.egg-info/PKG-INFO\n'}
+[28.266004] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2-1.6.1-py3.12.egg-info/SOURCES.txt\n'}
+[28.275790] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2-1.6.1-py3.12.egg-info/dependency_links.txt\n'}
+[28.285619] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2-1.6.1-py3.12.egg-info/top_level.txt\n'}
+[28.296688] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/__init__.py\n'}
+[28.305822] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/_frontier_exploration_ros2_s.ep.rosidl_typesupport_c.c\n'}
+[28.315614] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/_frontier_exploration_ros2_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[28.325496] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/_frontier_exploration_ros2_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[28.328033] (-) TimerEvent: {}
+[28.336290] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_c.so\n'}
+[28.346722] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_fastrtps_c.so\n'}
+[28.356413] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_introspection_c.so\n'}
+[28.367034] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/srv/__init__.py\n'}
+[28.376329] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/srv/_control_exploration.py\n'}
+[28.385687] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/srv/_control_exploration_s.c\n'}
+[28.395765] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Up-to-date symlink: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_fastrtps_c.so\n'}
+[28.396160] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Up-to-date symlink: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_introspection_c.so\n'}
+[28.396437] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Up-to-date symlink: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_c.so\n'}
+[28.396666] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/ament_index/resource_index/rust_packages/frontier_exploration_ros2\n'}
+[28.406690] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/rust/Cargo.toml\n'}
+[28.416317] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/rust/build.rs\n'}
+[28.426552] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/rust/src/lib.rs\n'}
+[28.428118] (-) TimerEvent: {}
+[28.436706] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/rust/src/srv.rs\n'}
+[28.446393] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/rust/src/srv/rmw.rs\n'}
+[28.455563] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/srv/ControlExploration.idl\n'}
+[28.465231] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/srv/ControlExploration.srv\n'}
+[28.474847] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/frontier_exploration_ros2/frontier_explorer\n'}
+[28.486710] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/frontier_exploration_ros2/frontier_exploration_ctl\n'}
+[28.496786] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/frontier_exploration_ros2/frontier_debug_observer\n'}
+[28.506753] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/debug/debug_analyzer.hpp\n'}
+[28.517602] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/debug/debug_markers.hpp\n'}
+[28.527878] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/decision_map.hpp\n'}
+[28.528207] (-) TimerEvent: {}
+[28.537479] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_explorer_core.hpp\n'}
+[28.547860] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_explorer_node.hpp\n'}
+[28.557337] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_policy.hpp\n'}
+[28.566698] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_search.hpp\n'}
+[28.577211] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_suppression.hpp\n'}
+[28.586693] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_types.hpp\n'}
+[28.596350] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/mrtsp_ordering.hpp\n'}
+[28.605351] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/mrtsp_solver.hpp\n'}
+[28.616112] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/nav2_compat.hpp\n'}
+[28.626318] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/qos_utils.hpp\n'}
+[28.628290] (-) TimerEvent: {}
+[28.636636] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/launch/frontier_debug.launch.py\n'}
+[28.646817] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/launch/frontier_explorer.launch.py\n'}
+[28.656970] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/config/params.yaml\n'}
+[28.666841] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Up-to-date symlink: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/srv/ControlExploration.srv\n'}
+[28.667190] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/ament_index/resource_index/package_run_dependencies/frontier_exploration_ros2\n'}
+[28.677405] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/ament_index/resource_index/parent_prefix_path/frontier_exploration_ros2\n'}
+[28.687374] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/ament_prefix_path.sh\n'}
+[28.696742] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/ament_prefix_path.dsv\n'}
+[28.706697] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/path.sh\n'}
+[28.717335] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/path.dsv\n'}
+[28.728463] (-) TimerEvent: {}
+[28.729351] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/local_setup.bash\n'}
+[28.740421] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/local_setup.sh\n'}
+[28.755430] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/local_setup.zsh\n'}
+[28.767040] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/local_setup.dsv\n'}
+[28.776776] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/package.dsv\n'}
+[28.788246] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/ament_index/resource_index/packages/frontier_exploration_ros2\n'}
+[28.799010] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/rosidl_cmake-extras.cmake\n'}
+[28.810094] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[28.820676] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[28.828593] (-) TimerEvent: {}
+[28.831373] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[28.842509] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[28.853086] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[28.866578] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[28.879348] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/rosidl_cmake_aggregate_target-extras.cmake\n'}
+[28.890010] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2Config.cmake\n'}
+[28.903614] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2Config-version.cmake\n'}
+[28.914568] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/package.xml\n'}
+[28.928722] (-) TimerEvent: {}
+[28.928909] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_generator_c.so\n'}
+[28.929423] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_generator_c.so" to ""\n'}
+[28.929574] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_fastrtps_c.so\n'}
+[28.930038] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[28.930232] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_fastrtps_cpp.so\n'}
+[28.930662] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[28.930796] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_introspection_c.so\n'}
+[28.931124] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_introspection_c.so" to ""\n'}
+[28.931273] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_c.so\n'}
+[28.931535] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_c.so" to ""\n'}
+[28.931654] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_introspection_cpp.so\n'}
+[28.932019] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[28.932137] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_cpp.so\n'}
+[28.932490] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_cpp.so" to ""\n'}
+[28.972319] (frontier_exploration_ros2) StdoutLine: {'line': b"Listing '/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2'...\n"}
+[28.972549] (frontier_exploration_ros2) StdoutLine: {'line': b"Compiling '/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/__init__.py'...\n"}
+[28.972670] (frontier_exploration_ros2) StdoutLine: {'line': b"Listing '/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/srv'...\n"}
+[28.972776] (frontier_exploration_ros2) StdoutLine: {'line': b"Compiling '/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/srv/__init__.py'...\n"}
+[28.972877] (frontier_exploration_ros2) StdoutLine: {'line': b"Compiling '/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/srv/_control_exploration.py'...\n"}
+[28.977281] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_generator_py.so\n'}
+[28.977687] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_generator_py.so" to ""\n'}
+[28.977817] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2_core.so\n'}
+[28.979481] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2_core.so" to ""\n'}
+[28.979598] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2_node.so\n'}
+[28.986985] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2_node.so" to ""\n'}
+[28.987264] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_generator_cExport.cmake\n'}
+[28.987424] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_generator_cExport-noconfig.cmake\n'}
+[28.987597] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[28.987701] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[28.987784] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_generator_cppExport.cmake\n'}
+[28.987885] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[28.987988] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[28.988094] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_introspection_cExport.cmake\n'}
+[28.988199] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[28.988331] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_cExport.cmake\n'}
+[28.988487] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[28.988633] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[28.988755] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[28.988908] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_cppExport.cmake\n'}
+[28.989027] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[28.989184] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_generator_pyExport.cmake\n'}
+[28.989344] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_generator_pyExport-noconfig.cmake\n'}
+[28.989452] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2Export.cmake\n'}
+[28.989624] (frontier_exploration_ros2) StdoutLine: {'line': b'-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2Export-noconfig.cmake\n'}
+[28.992424] (frontier_exploration_ros2) CommandEnded: {'returncode': 0}
+[29.019023] (frontier_exploration_ros2) JobEnded: {'identifier': 'frontier_exploration_ros2', 'rc': 0}
+[29.019946] (-) EventReactorShutdown: {}

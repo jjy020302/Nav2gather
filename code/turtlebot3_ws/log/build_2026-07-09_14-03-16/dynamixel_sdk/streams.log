@@ -1,0 +1,245 @@
+[0.010s] Invoking command in '/home/csilab/turtlebot3_ws/build/dynamixel_sdk': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/csilab/turtlebot3_ws/src/DynamixelSDK/ros/dynamixel_sdk -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/csilab/turtlebot3_ws/install/dynamixel_sdk
+[0.133s] -- The C compiler identification is GNU 13.3.0
+[0.227s] -- The CXX compiler identification is GNU 13.3.0
+[0.246s] -- Detecting C compiler ABI info
+[0.347s] -- Detecting C compiler ABI info - done
+[0.354s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.354s] -- Detecting C compile features
+[0.355s] -- Detecting C compile features - done
+[0.364s] -- Detecting CXX compiler ABI info
+[0.465s] -- Detecting CXX compiler ABI info - done
+[0.472s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.472s] -- Detecting CXX compile features
+[0.473s] -- Detecting CXX compile features - done
+[0.490s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.636s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.708s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.010s] -- Configuring done (1.0s)
+[1.017s] -- Generating done (0.0s)
+[1.021s] -- Build files have been written to: /home/csilab/turtlebot3_ws/build/dynamixel_sdk
+[1.026s] Invoked command in '/home/csilab/turtlebot3_ws/build/dynamixel_sdk' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/csilab/turtlebot3_ws/src/DynamixelSDK/ros/dynamixel_sdk -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/csilab/turtlebot3_ws/install/dynamixel_sdk
+[1.027s] Invoking command in '/home/csilab/turtlebot3_ws/build/dynamixel_sdk': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/csilab/turtlebot3_ws/build/dynamixel_sdk -- -j12 -l12
+[1.103s] [ 16%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/protocol2_packet_handler.cpp.o[0m
+[1.103s] [ 16%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_sync_write.cpp.o[0m
+[1.103s] [ 22%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_sync_read.cpp.o[0m
+[1.104s] [ 22%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_bulk_read.cpp.o[0m
+[1.104s] [ 27%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_fast_bulk_read.cpp.o[0m
+[1.104s] [ 33%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_fast_sync_read.cpp.o[0m
+[1.104s] [ 38%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/packet_handler.cpp.o[0m
+[1.104s] [ 44%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/protocol1_packet_handler.cpp.o[0m
+[1.104s] [ 50%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_bulk_write.cpp.o[0m
+[1.104s] [ 55%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/group_handler.cpp.o[0m
+[1.104s] [ 55%] Built target ament_cmake_python_symlink_dynamixel_easy_sdk
+[1.104s] [ 55%] Built target ament_cmake_python_symlink_dynamixel_sdk
+[1.113s] [ 61%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/port_handler.cpp.o[0m
+[1.169s] [ 66%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_easy_sdk/connector.cpp.o[0m
+[1.310s] [ 72%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_easy_sdk/control_table.cpp.o[0m
+[1.356s] [ 77%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_easy_sdk/dynamixel_error.cpp.o[0m
+[1.404s] [ 83%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_easy_sdk/group_executor.cpp.o[0m
+[1.413s] [ 88%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_easy_sdk/motor.cpp.o[0m
+[1.482s] running egg_info
+[1.485s] creating dynamixel_sdk.egg-info
+[1.529s] writing dynamixel_sdk.egg-info/PKG-INFO
+[1.530s] writing dependency_links to dynamixel_sdk.egg-info/dependency_links.txt
+[1.530s] writing top-level names to dynamixel_sdk.egg-info/top_level.txt
+[1.530s] writing manifest file 'dynamixel_sdk.egg-info/SOURCES.txt'
+[1.549s] [ 94%] [32mBuilding CXX object CMakeFiles/dynamixel_sdk.dir/src/dynamixel_sdk/port_handler_linux.cpp.o[0m
+[1.644s] reading manifest file 'dynamixel_sdk.egg-info/SOURCES.txt'
+[1.645s] writing manifest file 'dynamixel_sdk.egg-info/SOURCES.txt'
+[1.691s] [ 94%] Built target ament_cmake_python_build_dynamixel_sdk_egg
+[1.776s] running egg_info
+[1.777s] creating dynamixel_easy_sdk.egg-info
+[1.796s] writing dynamixel_easy_sdk.egg-info/PKG-INFO
+[1.797s] writing dependency_links to dynamixel_easy_sdk.egg-info/dependency_links.txt
+[1.797s] writing top-level names to dynamixel_easy_sdk.egg-info/top_level.txt
+[1.797s] writing manifest file 'dynamixel_easy_sdk.egg-info/SOURCES.txt'
+[1.856s] reading manifest file 'dynamixel_easy_sdk.egg-info/SOURCES.txt'
+[1.857s] writing manifest file 'dynamixel_easy_sdk.egg-info/SOURCES.txt'
+[1.889s] [ 94%] Built target ament_cmake_python_build_dynamixel_easy_sdk_egg
+[2.299s] [100%] [32m[1mLinking CXX shared library libdynamixel_sdk.so[0m
+[2.398s] [100%] Built target dynamixel_sdk
+[2.412s] Invoked command in '/home/csilab/turtlebot3_ws/build/dynamixel_sdk' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/csilab/turtlebot3_ws/build/dynamixel_sdk -- -j12 -l12
+[2.423s] Invoking command in '/home/csilab/turtlebot3_ws/build/dynamixel_sdk': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/csilab/turtlebot3_ws/build/dynamixel_sdk
+[2.431s] -- Install configuration: ""
+[2.431s] -- Execute custom install script
+[2.432s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_easy_sdk/connector.hpp
+[2.441s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_easy_sdk/control_table.hpp
+[2.450s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_easy_sdk/data_types.hpp
+[2.459s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_easy_sdk/dynamixel_easy_sdk.hpp
+[2.468s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_easy_sdk/dynamixel_error.hpp
+[2.477s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_easy_sdk/group_executor.hpp
+[2.487s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_easy_sdk/motor.hpp
+[2.496s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/dynamixel_sdk.h
+[2.505s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/group_bulk_read.h
+[2.514s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/group_bulk_write.h
+[2.525s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/group_fast_bulk_read.h
+[2.534s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/group_fast_sync_read.h
+[2.543s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/group_handler.h
+[2.552s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/group_sync_read.h
+[2.560s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/group_sync_write.h
+[2.570s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/packet_handler.h
+[2.578s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/port_handler.h
+[2.587s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/port_handler_arduino.h
+[2.596s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/port_handler_linux.h
+[2.606s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/port_handler_mac.h
+[2.614s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/port_handler_windows.h
+[2.624s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/protocol1_packet_handler.h
+[2.633s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/include//dynamixel_sdk/protocol2_packet_handler.h
+[2.644s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/2xc430_w250.model
+[2.653s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/2xl430_w250.model
+[2.662s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/dynamixel.model
+[2.672s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/h42_20_s300_ra.model
+[2.681s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/h54_100_s500_ra.model
+[2.690s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/h54_200_s500_ra.model
+[2.700s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/m42_10_s260_ra.model
+[2.710s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/m54_40_s250_ra.model
+[2.721s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/m54_60_s250_ra.model
+[2.730s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/mx_106.model
+[2.741s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/mx_28.model
+[2.751s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/mx_64.model
+[2.761s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ph42_020_s300.model
+[2.770s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ph54_100_s500.model
+[2.779s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ph54_200_s500.model
+[2.788s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/pm42_010_s260.model
+[2.798s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/pm54_040_s250.model
+[2.807s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/pm54_060_s250.model
+[2.818s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/rh_p12_rn.model
+[2.827s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xc330_m181.model
+[2.837s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xc330_m181_fw52.model
+[2.846s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xc330_m288.model
+[2.856s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xc330_m288_fw52.model
+[2.865s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xc330_t181.model
+[2.875s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xc330_t181_fw52.model
+[2.885s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xc330_t288.model
+[2.893s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xc330_t288_fw52.model
+[2.902s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xc430_w150.model
+[2.912s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xc430_w240.model
+[2.922s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xd430_t210.model
+[2.931s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xd430_t350.model
+[2.940s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xd540_t150.model
+[2.949s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xd540_t270.model
+[2.959s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xh430_v210.model
+[2.967s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xh430_v350.model
+[2.977s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xh430_w210.model
+[2.985s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xh430_w350.model
+[2.995s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xh540_v150.model
+[3.005s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xh540_v270.model
+[3.016s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xh540_w150.model
+[3.026s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xh540_w270.model
+[3.035s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xl320.model
+[3.044s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xl330_m077.model
+[3.054s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xl330_m077_fw52.model
+[3.063s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xl330_m288.model
+[3.073s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xl330_m288_fw52.model
+[3.083s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xl430_w250.model
+[3.093s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xm430_w210.model
+[3.103s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xm430_w350.model
+[3.114s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xm540_w150.model
+[3.123s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xm540_w270.model
+[3.132s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xw430_t200.model
+[3.142s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xw430_t333.model
+[3.152s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xw540_h260.model
+[3.160s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xw540_t140.model
+[3.170s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/xw540_t260.model
+[3.180s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ym070_210_a051.model
+[3.189s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ym070_210_a099.model
+[3.197s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ym070_210_b001.model
+[3.206s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ym070_210_m001.model
+[3.215s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ym070_210_r051.model
+[3.225s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ym070_210_r099.model
+[3.234s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ym080_230_a051.model
+[3.243s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ym080_230_a099.model
+[3.252s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ym080_230_b001.model
+[3.260s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ym080_230_m001.model
+[3.270s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ym080_230_r051.model
+[3.280s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/control_table/ym080_230_r099.model
+[3.289s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/environment/pythonpath.sh
+[3.299s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/environment/pythonpath.dsv
+[3.308s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk-4.0.5-py3.12.egg-info/PKG-INFO
+[3.318s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk-4.0.5-py3.12.egg-info/SOURCES.txt
+[3.328s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk-4.0.5-py3.12.egg-info/dependency_links.txt
+[3.337s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk-4.0.5-py3.12.egg-info/top_level.txt
+[3.348s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/__init__.py
+[3.359s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_bulk_read.cpp
+[3.368s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_bulk_read.py
+[3.377s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_bulk_write.cpp
+[3.387s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_bulk_write.py
+[3.395s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_fast_bulk_read.cpp
+[3.405s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_fast_sync_read.cpp
+[3.415s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_handler.cpp
+[3.426s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_sync_read.cpp
+[3.434s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_sync_read.py
+[3.443s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_sync_write.cpp
+[3.452s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_sync_write.py
+[3.461s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/packet_handler.cpp
+[3.470s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/packet_handler.py
+[3.481s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/port_handler.cpp
+[3.490s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/port_handler.py
+[3.500s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/port_handler_arduino.cpp
+[3.510s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/port_handler_linux.cpp
+[3.519s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/port_handler_mac.cpp
+[3.529s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/port_handler_windows.cpp
+[3.539s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/protocol1_packet_handler.cpp
+[3.549s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/protocol1_packet_handler.py
+[3.560s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/protocol2_packet_handler.cpp
+[3.569s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/protocol2_packet_handler.py
+[3.578s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/robotis_def.py
+[3.587s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk-4.0.5-py3.12.egg-info/PKG-INFO
+[3.597s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk-4.0.5-py3.12.egg-info/SOURCES.txt
+[3.605s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk-4.0.5-py3.12.egg-info/dependency_links.txt
+[3.616s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk-4.0.5-py3.12.egg-info/top_level.txt
+[3.626s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/__init__.py
+[3.636s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/connector.cpp
+[3.645s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/connector.py
+[3.655s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/control_table.cpp
+[3.664s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/control_table.py
+[3.673s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/data_types.py
+[3.681s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/dynamixel_error.cpp
+[3.690s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/dynamixel_error.py
+[3.699s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/group_executor.cpp
+[3.709s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/group_executor.py
+[3.718s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/motor.cpp
+[3.728s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/motor.py
+[3.737s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/environment/library_path.sh
+[3.747s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/environment/library_path.dsv
+[3.757s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/ament_index/resource_index/package_run_dependencies/dynamixel_sdk
+[3.766s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/ament_index/resource_index/parent_prefix_path/dynamixel_sdk
+[3.774s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/environment/ament_prefix_path.sh
+[3.783s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/environment/ament_prefix_path.dsv
+[3.792s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/environment/path.sh
+[3.802s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/environment/path.dsv
+[3.812s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/local_setup.bash
+[3.822s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/local_setup.sh
+[3.832s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/local_setup.zsh
+[3.842s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/local_setup.dsv
+[3.852s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/package.dsv
+[3.862s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/ament_index/resource_index/packages/dynamixel_sdk
+[3.871s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/cmake/ament_cmake_export_targets-extras.cmake
+[3.882s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/cmake/ament_cmake_export_include_directories-extras.cmake
+[3.892s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/cmake/ament_cmake_export_libraries-extras.cmake
+[3.902s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/cmake/dynamixel_sdkConfig.cmake
+[3.912s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/cmake/dynamixel_sdkConfig-version.cmake
+[3.922s] -- Symlinking: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/package.xml
+[3.931s] -- Installing: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/libdynamixel_sdk.so
+[3.979s] Listing '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk'...
+[3.979s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/__init__.py'...
+[3.979s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_bulk_read.py'...
+[3.979s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_bulk_write.py'...
+[3.980s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_sync_read.py'...
+[3.980s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/group_sync_write.py'...
+[3.980s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/packet_handler.py'...
+[3.980s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/port_handler.py'...
+[3.980s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/protocol1_packet_handler.py'...
+[3.980s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/protocol2_packet_handler.py'...
+[3.980s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_sdk/robotis_def.py'...
+[4.022s] Listing '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk'...
+[4.022s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/__init__.py'...
+[4.022s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/connector.py'...
+[4.022s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/control_table.py'...
+[4.023s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/data_types.py'...
+[4.023s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/dynamixel_error.py'...
+[4.023s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/group_executor.py'...
+[4.023s] Compiling '/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages/dynamixel_easy_sdk/motor.py'...
+[4.027s] -- Installing: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/cmake/dynamixel_sdkExport.cmake
+[4.027s] -- Installing: /home/csilab/turtlebot3_ws/install/dynamixel_sdk/share/dynamixel_sdk/cmake/dynamixel_sdkExport-noconfig.cmake
+[4.029s] Invoked command in '/home/csilab/turtlebot3_ws/build/dynamixel_sdk' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/csilab/turtlebot3_ws/build/dynamixel_sdk

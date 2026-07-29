@@ -33,6 +33,9 @@ setup(
             'yolo_reaction = nav2_behavior.yolo_reaction:main',
             'bottle_nav = nav2_behavior.bottle_nav:main',
             'cup_localizer = nav2_behavior.cup_localizer:main',
+            'cup_go_once = nav2_behavior.cup_go_once:main',
+            'cup_go_multi = nav2_behavior.cup_go_multi:main',
+            'bottle_behavior = nav2_behavior.bottle_behavior:main',
         ],
     },
 )

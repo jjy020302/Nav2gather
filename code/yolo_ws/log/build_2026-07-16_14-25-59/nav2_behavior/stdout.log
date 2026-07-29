@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing nav2_behavior.egg-info/PKG-INFO
+writing dependency_links to nav2_behavior.egg-info/dependency_links.txt
+writing entry points to nav2_behavior.egg-info/entry_points.txt
+writing requirements to nav2_behavior.egg-info/requires.txt
+writing top-level names to nav2_behavior.egg-info/top_level.txt
+reading manifest file 'nav2_behavior.egg-info/SOURCES.txt'
+writing manifest file 'nav2_behavior.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages/nav2-behavior.egg-link (link to .)
+Installing go_to_pose script to /home/csilab/yolo_ws/install/nav2_behavior/lib/nav2_behavior
+
+Installed /home/csilab/yolo_ws/build/nav2_behavior
+running symlink_data

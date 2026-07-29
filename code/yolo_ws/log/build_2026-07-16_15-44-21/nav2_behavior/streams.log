@@ -1,0 +1,18 @@
+[1.212s] Invoking command in '/home/csilab/yolo_ws/build/nav2_behavior': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/csilab/yolo_ws/build/nav2_behavior/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/csilab/yolo_ws/build/nav2_behavior/build --no-deps symlink_data
+[1.534s] running develop
+[1.749s] running egg_info
+[1.769s] writing nav2_behavior.egg-info/PKG-INFO
+[1.769s] writing dependency_links to nav2_behavior.egg-info/dependency_links.txt
+[1.770s] writing entry points to nav2_behavior.egg-info/entry_points.txt
+[1.770s] writing requirements to nav2_behavior.egg-info/requires.txt
+[1.770s] writing top-level names to nav2_behavior.egg-info/top_level.txt
+[1.810s] reading manifest file 'nav2_behavior.egg-info/SOURCES.txt'
+[1.810s] writing manifest file 'nav2_behavior.egg-info/SOURCES.txt'
+[1.831s] running build_ext
+[1.831s] Creating /home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages/nav2-behavior.egg-link (link to .)
+[1.832s] Installing follow_waypoints script to /home/csilab/yolo_ws/install/nav2_behavior/lib/nav2_behavior
+[1.832s] Installing go_to_pose script to /home/csilab/yolo_ws/install/nav2_behavior/lib/nav2_behavior
+[1.832s] 
+[1.832s] Installed /home/csilab/yolo_ws/build/nav2_behavior
+[1.832s] running symlink_data
+[1.867s] Invoked command in '/home/csilab/yolo_ws/build/nav2_behavior' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/csilab/yolo_ws/build/nav2_behavior/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/csilab/yolo_ws/build/nav2_behavior/build --no-deps symlink_data

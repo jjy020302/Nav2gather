@@ -1,0 +1,301 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found action_msgs: 2.0.4 (/opt/ros/jazzy/share/action_msgs/cmake)
+-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+-- Found nav2_msgs: 1.3.12 (/opt/ros/jazzy/share/nav2_msgs/cmake)
+-- Found rclcpp: 28.1.21 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found rclcpp_action: 28.1.21 (/opt/ros/jazzy/share/rclcpp_action/cmake)
+-- Found rosidl_default_generators: 1.6.1 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+-- Found rosidl_adapter: 4.6.9 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+-- Found tf2: 0.36.21 (/opt/ros/jazzy/share/tf2/cmake)
+-- Found tf2_ros: 0.36.21 (/opt/ros/jazzy/share/tf2_ros/cmake)
+-- Found visualization_msgs: 5.3.8 (/opt/ros/jazzy/share/visualization_msgs/cmake)
+-- Found ament_cmake_ros: 0.12.1 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+-- Found PythonExtra: /usr/bin/python3  
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found gtest sources under '/opt/ros/jazzy/src/gtest_vendor': C++ tests using 'Google Test' will be built
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Configuring done (4.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/csilab/yolo_ws/build/frontier_exploration_ros2
+[  1%] [32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o[0m
+[  2%] [34m[1mGenerating Rust code for ROS interfaces[0m
+[  4%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[  5%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_suppression.cpp.o[0m
+[  6%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/decision_map.cpp.o[0m
+[  8%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_policy.cpp.o[0m
+[  9%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_search.cpp.o[0m
+[ 10%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_explorer_core_maps.cpp.o[0m
+[ 12%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_explorer_core_init.cpp.o[0m
+[ 13%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+[ 14%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_explorer_core_frontiers.cpp.o[0m
+[ 14%] Built target ament_cmake_python_symlink_frontier_exploration_ros2
+[ 16%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_explorer_core_suppression.cpp.o[0m
+[ 16%] Built target frontier_exploration_ros2__rosidl_generator_type_description
+[ 16%] Built target frontier_exploration_ros2__rs
+[ 17%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/frontier_explorer_core_dispatch.cpp.o[0m
+running egg_info
+creating frontier_exploration_ros2.egg-info
+writing frontier_exploration_ros2.egg-info/PKG-INFO
+writing dependency_links to frontier_exploration_ros2.egg-info/dependency_links.txt
+writing top-level names to frontier_exploration_ros2.egg-info/top_level.txt
+writing manifest file 'frontier_exploration_ros2.egg-info/SOURCES.txt'
+reading manifest file 'frontier_exploration_ros2.egg-info/SOURCES.txt'
+writing manifest file 'frontier_exploration_ros2.egg-info/SOURCES.txt'
+[ 17%] Built target ament_cmake_python_build_frontier_exploration_ros2_egg
+[ 18%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/mrtsp_ordering.cpp.o[0m
+[ 20%] [34m[1mGenerating C code for ROS interfaces[0m
+[ 21%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_core.dir/src/mrtsp_solver.cpp.o[0m
+[ 22%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[ 24%] [32m[1mLinking CXX static library libgtest_main.a[0m
+[ 24%] Built target gtest_main
+[ 25%] [32mBuilding C object CMakeFiles/frontier_exploration_ros2__rosidl_generator_c.dir/rosidl_generator_c/frontier_exploration_ros2/srv/detail/control_exploration__description.c.o[0m
+[ 26%] [32mBuilding C object CMakeFiles/frontier_exploration_ros2__rosidl_generator_c.dir/rosidl_generator_c/frontier_exploration_ros2/srv/detail/control_exploration__functions.c.o[0m
+[ 28%] [32mBuilding C object CMakeFiles/frontier_exploration_ros2__rosidl_generator_c.dir/rosidl_generator_c/frontier_exploration_ros2/srv/detail/control_exploration__type_support.c.o[0m
+[ 28%] Built target frontier_exploration_ros2__cpp
+[ 29%] [32m[1mLinking C shared library libfrontier_exploration_ros2__rosidl_generator_c.so[0m
+[ 29%] Built target frontier_exploration_ros2__rosidl_generator_c
+[ 30%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[ 32%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[ 33%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[ 34%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[ 36%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[ 37%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[ 38%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/frontier_exploration_ros2/srv/control_exploration__type_support.cpp.o[0m
+[ 40%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2__rosidl_typesupport_c.dir/rosidl_typesupport_c/frontier_exploration_ros2/srv/control_exploration__type_support.cpp.o[0m
+[ 41%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/frontier_exploration_ros2/srv/detail/dds_fastrtps/control_exploration__type_support.cpp.o[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/frontier_exploration_ros2/srv/detail/control_exploration__type_support.cpp.o[0m
+[ 44%] [32m[1mLinking CXX shared library libfrontier_exploration_ros2__rosidl_typesupport_c.so[0m
+[ 45%] [32mBuilding C object CMakeFiles/frontier_exploration_ros2__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/frontier_exploration_ros2/srv/detail/control_exploration__type_support.c.o[0m
+[ 45%] Built target frontier_exploration_ros2__rosidl_typesupport_c
+[ 46%] [32m[1mLinking C shared library libfrontier_exploration_ros2__rosidl_typesupport_introspection_c.so[0m
+[ 48%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/frontier_exploration_ros2/srv/detail/control_exploration__type_support_c.cpp.o[0m
+[ 48%] Built target frontier_exploration_ros2__rosidl_typesupport_introspection_c
+[ 49%] [32m[1mLinking CXX shared library libfrontier_exploration_ros2__rosidl_typesupport_cpp.so[0m
+[ 50%] [32m[1mLinking CXX shared library libfrontier_exploration_ros2_core.so[0m
+[ 50%] Built target frontier_exploration_ros2__rosidl_typesupport_cpp
+[ 52%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ctl.dir/src/frontier_exploration_ctl.cpp.o[0m
+[ 53%] [32m[1mLinking CXX shared library libfrontier_exploration_ros2__rosidl_typesupport_introspection_cpp.so[0m
+[ 53%] Built target frontier_exploration_ros2__rosidl_typesupport_introspection_cpp
+[ 53%] Built target frontier_exploration_ros2_core
+[ 54%] [32m[1mLinking CXX shared library libfrontier_exploration_ros2__rosidl_typesupport_fastrtps_c.so[0m
+[ 56%] [32mBuilding CXX object CMakeFiles/frontier_debug_observer.dir/src/debug/debug_markers.cpp.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/frontier_debug_observer.dir/src/debug/debug_observer_node.cpp.o[0m
+[ 60%] [32mBuilding CXX object CMakeFiles/frontier_debug_observer.dir/src/debug/debug_analyzer.cpp.o[0m
+[ 60%] [32mBuilding CXX object CMakeFiles/frontier_exploration_ros2_node.dir/src/frontier_explorer_node.cpp.o[0m
+[ 61%] [32m[1mLinking CXX shared library libfrontier_exploration_ros2__rosidl_typesupport_fastrtps_cpp.so[0m
+[ 61%] Built target frontier_exploration_ros2__rosidl_typesupport_fastrtps_c
+[ 61%] Built target frontier_exploration_ros2__rosidl_typesupport_fastrtps_cpp
+[ 61%] Built target frontier_exploration_ros2
+[ 62%] [34m[1mGenerating Python code for ROS interfaces[0m
+[ 62%] Built target frontier_exploration_ros2__py
+[ 64%] [32mBuilding C object CMakeFiles/frontier_exploration_ros2__rosidl_generator_py.dir/rosidl_generator_py/frontier_exploration_ros2/srv/_control_exploration_s.c.o[0m
+[ 65%] [32m[1mLinking C shared library libfrontier_exploration_ros2__rosidl_generator_py.so[0m
+[ 65%] Built target frontier_exploration_ros2__rosidl_generator_py
+[ 68%] [32mBuilding C object CMakeFiles/frontier_exploration_ros2_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/frontier_exploration_ros2/_frontier_exploration_ros2_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[ 69%] [32mBuilding C object CMakeFiles/frontier_exploration_ros2_s__rosidl_typesupport_c.dir/rosidl_generator_py/frontier_exploration_ros2/_frontier_exploration_ros2_s.ep.rosidl_typesupport_c.c.o[0m
+[ 69%] [32mBuilding C object CMakeFiles/frontier_exploration_ros2_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/frontier_exploration_ros2/_frontier_exploration_ros2_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[ 70%] [32m[1mLinking CXX static library libgtest.a[0m
+[ 72%] [32m[1mLinking C shared module rosidl_generator_py/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_c.so[0m
+[ 73%] [32m[1mLinking C shared module rosidl_generator_py/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_fastrtps_c.so[0m
+[ 74%] [32m[1mLinking C shared module rosidl_generator_py/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_introspection_c.so[0m
+[ 74%] Built target frontier_exploration_ros2_s__rosidl_typesupport_fastrtps_c
+[ 74%] Built target frontier_exploration_ros2_s__rosidl_typesupport_c
+[ 74%] Built target frontier_exploration_ros2_s__rosidl_typesupport_introspection_c
+[ 74%] Built target gtest
+[ 76%] [32mBuilding CXX object CMakeFiles/test_preemption_flow.dir/test/test_preemption_flow.cpp.o[0m
+[ 81%] [32mBuilding CXX object CMakeFiles/test_decision_map_and_mrtsp.dir/test/test_decision_map_and_mrtsp.cpp.o[0m
+[ 81%] [32mBuilding CXX object CMakeFiles/test_frontier_snapshot_and_search.dir/test/test_frontier_snapshot_and_search.cpp.o[0m
+[ 81%] [32mBuilding CXX object CMakeFiles/test_frontier_suppression.dir/test/test_frontier_suppression.cpp.o[0m
+[ 81%] [32mBuilding CXX object CMakeFiles/test_mrtsp_solver.dir/test/test_mrtsp_solver.cpp.o[0m
+[ 82%] [32mBuilding CXX object CMakeFiles/test_qos_utils.dir/test/test_qos_utils.cpp.o[0m
+[ 84%] [32m[1mLinking CXX executable test_mrtsp_solver[0m
+[ 85%] [32m[1mLinking CXX executable test_decision_map_and_mrtsp[0m
+[ 85%] Built target test_decision_map_and_mrtsp
+[ 85%] Built target test_mrtsp_solver
+[ 86%] [32m[1mLinking CXX executable frontier_exploration_ctl[0m
+[ 86%] Built target frontier_exploration_ctl
+[ 88%] [32m[1mLinking CXX executable test_frontier_suppression[0m
+[ 88%] Built target test_frontier_suppression
+[ 89%] [32m[1mLinking CXX executable test_frontier_snapshot_and_search[0m
+[ 89%] Built target test_frontier_snapshot_and_search
+[ 90%] [32m[1mLinking CXX executable test_qos_utils[0m
+[ 92%] [32m[1mLinking CXX executable test_preemption_flow[0m
+[ 92%] Built target test_qos_utils
+[ 92%] Built target test_preemption_flow
+[ 93%] [32m[1mLinking CXX executable frontier_debug_observer[0m
+[ 93%] Built target frontier_debug_observer
+[ 94%] [32m[1mLinking CXX shared library libfrontier_exploration_ros2_node.so[0m
+[ 94%] Built target frontier_exploration_ros2_node
+[ 97%] [32mBuilding CXX object CMakeFiles/test_control_service_and_idle.dir/test/test_control_service_and_idle.cpp.o[0m
+[ 97%] [32mBuilding CXX object CMakeFiles/frontier_explorer.dir/src/main.cpp.o[0m
+[ 98%] [32m[1mLinking CXX executable frontier_explorer[0m
+[ 98%] Built target frontier_explorer
+[100%] [32m[1mLinking CXX executable test_control_service_and_idle[0m
+[100%] Built target test_control_service_and_idle
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/ament_index/resource_index/rosidl_interfaces/frontier_exploration_ros2
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/srv/ControlExploration.json
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/msg/rosidl_generator_c__visibility_control.h
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/control_exploration.h
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__functions.h
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__struct.h
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__type_support.h
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/library_path.sh
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/library_path.dsv
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/control_exploration.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__builder.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__struct.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__traits.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__type_support.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_exploration_ros2/srv/detail/control_exploration__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/pythonpath.sh
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/pythonpath.dsv
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2-1.6.1-py3.12.egg-info/PKG-INFO
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2-1.6.1-py3.12.egg-info/SOURCES.txt
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2-1.6.1-py3.12.egg-info/dependency_links.txt
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2-1.6.1-py3.12.egg-info/top_level.txt
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/__init__.py
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/_frontier_exploration_ros2_s.ep.rosidl_typesupport_c.c
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/_frontier_exploration_ros2_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/_frontier_exploration_ros2_s.ep.rosidl_typesupport_introspection_c.c
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_c.so
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_fastrtps_c.so
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_introspection_c.so
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/srv/__init__.py
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/srv/_control_exploration.py
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/srv/_control_exploration_s.c
+-- Up-to-date symlink: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_fastrtps_c.so
+-- Up-to-date symlink: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_introspection_c.so
+-- Up-to-date symlink: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/frontier_exploration_ros2_s__rosidl_typesupport_c.so
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/ament_index/resource_index/rust_packages/frontier_exploration_ros2
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/rust/Cargo.toml
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/rust/build.rs
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/rust/src/lib.rs
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/rust/src/srv.rs
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/rust/src/srv/rmw.rs
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/srv/ControlExploration.idl
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/srv/ControlExploration.srv
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/frontier_exploration_ros2/frontier_explorer
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/frontier_exploration_ros2/frontier_exploration_ctl
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/frontier_exploration_ros2/frontier_debug_observer
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/debug/debug_analyzer.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/debug/debug_markers.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/decision_map.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_explorer_core.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_explorer_node.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_policy.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_search.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_suppression.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/frontier_types.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/mrtsp_ordering.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/mrtsp_solver.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/nav2_compat.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/include/frontier_exploration_ros2/qos_utils.hpp
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/launch/frontier_debug.launch.py
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/launch/frontier_explorer.launch.py
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/config/params.yaml
+-- Up-to-date symlink: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/srv/ControlExploration.srv
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/ament_index/resource_index/package_run_dependencies/frontier_exploration_ros2
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/ament_index/resource_index/parent_prefix_path/frontier_exploration_ros2
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/ament_prefix_path.sh
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/ament_prefix_path.dsv
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/path.sh
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/environment/path.dsv
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/local_setup.bash
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/local_setup.sh
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/local_setup.zsh
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/local_setup.dsv
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/package.dsv
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/ament_index/resource_index/packages/frontier_exploration_ros2
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/rosidl_cmake-extras.cmake
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/ament_cmake_export_libraries-extras.cmake
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/ament_cmake_export_targets-extras.cmake
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/rosidl_cmake_aggregate_target-extras.cmake
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2Config.cmake
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2Config-version.cmake
+-- Symlinking: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/package.xml
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_generator_c.so
+-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_generator_c.so" to ""
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_fastrtps_c.so
+-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_fastrtps_c.so" to ""
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_fastrtps_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_introspection_c.so
+-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_c.so
+-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_c.so" to ""
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_introspection_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_typesupport_cpp.so" to ""
+Listing '/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2'...
+Compiling '/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/__init__.py'...
+Listing '/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/srv'...
+Compiling '/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/srv/__init__.py'...
+Compiling '/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/python3.12/site-packages/frontier_exploration_ros2/srv/_control_exploration.py'...
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_generator_py.so
+-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2__rosidl_generator_py.so" to ""
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2_core.so
+-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2_core.so" to ""
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2_node.so
+-- Set non-toolchain portion of runtime path of "/home/csilab/yolo_ws/install/frontier_exploration_ros2/lib/libfrontier_exploration_ros2_node.so" to ""
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_generator_cExport.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_generator_cExport-noconfig.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_typesupport_fastrtps_cExport.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_generator_cppExport.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_introspection_cExport.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_cExport.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_cExport-noconfig.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_introspection_cppExport.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_cppExport.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/frontier_exploration_ros2__rosidl_typesupport_cppExport-noconfig.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_generator_pyExport.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2__rosidl_generator_pyExport-noconfig.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2Export.cmake
+-- Installing: /home/csilab/yolo_ws/install/frontier_exploration_ros2/share/frontier_exploration_ros2/cmake/export_frontier_exploration_ros2Export-noconfig.cmake

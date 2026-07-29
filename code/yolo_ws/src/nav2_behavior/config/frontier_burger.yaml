@@ -1,0 +1,147 @@
+frontier_explorer:
+  ros__parameters:
+
+    # =====================================================
+    # Topic 및 TF 설정
+    # =====================================================
+
+    map_topic: /map
+
+    costmap_topic: /global_costmap/costmap
+    local_costmap_topic: /local_costmap/costmap
+
+    navigate_to_pose_action_name: /navigate_to_pose
+
+    global_frame: map
+    robot_base_frame: base_footprint
+
+    frontier_marker_topic: /explore/frontiers
+    selected_frontier_topic: /explore/selected_frontier
+    optimized_map_topic: /explore/optimized_map
+
+    # =====================================================
+    # 실행 설정
+    # =====================================================
+
+    # 노드 실행 직후 바로 출발하지 않도록 설정
+    autostart: false
+
+    # 터미널 명령으로 탐색 시작/정지 가능
+    control_service_enabled: true
+
+    # 실제 로봇이므로 false
+    use_sim_time: false
+
+    # 탐색 종료 이벤트
+    completion_event_enabled: true
+    completion_event_topic: /exploration_complete
+
+    # 탐색 완료 후 시작 위치로 돌아오지 않음
+    return_to_start_on_complete: false
+
+    # =====================================================
+    # QoS 설정
+    # =====================================================
+
+    map_qos_durability: transient_local
+    map_qos_reliability: reliable
+    map_qos_depth: 1
+
+    map_qos_autodetect_on_startup: true
+    map_qos_autodetect_timeout_s: 3.0
+
+    costmap_qos_reliability: reliable
+    costmap_qos_depth: 10
+
+    local_costmap_qos_reliability: inherit
+    local_costmap_qos_depth: -1
+
+    # =====================================================
+    # 탐색 알고리즘
+    # =====================================================
+
+    # 노트북에서 실행하므로 DP 사용 가능
+    mrtsp_solver: dp
+
+    # 최초 테스트에서는 계산량을 조금 줄임
+    dp_solver_candidate_limit: 10
+    dp_planning_horizon: 6
+
+    # 지도 처리 주기
+    map_processing_rate_hz: 1.0
+
+    # 지도 전처리
+    frontier_map_optimization_enabled: true
+
+    # 새로운 프론티어가 더 유리하면 목표 변경
+    goal_preemption_enabled: true
+    goal_preemption_min_interval_s: 3.0
+
+    # 목적지가 장애물로 바뀌면 건너뜀
+    goal_skip_on_blocked_goal: true
+
+    # 목표 도착 후 지도 갱신 대기
+    post_goal_settle_enabled: true
+    post_goal_min_settle: 2.0
+
+    # =====================================================
+    # TurtleBot3 Burger 기준 설정
+    # =====================================================
+
+    # 너무 가까운 프론티어를 목표로 보내지 않음
+    frontier_selection_min_distance: 0.55
+    frontier_candidate_min_goal_distance_m: 0.55
+
+    # 이미 방문한 것으로 판단하는 거리
+    frontier_visit_tolerance: 0.35
+
+    # 작은 지도 노이즈 제거
+    min_frontier_size_cells: 5
+
+    # 장애물 판단 기준
+    occ_threshold: 65
+
+    # Burger LDS 센서의 실사용 탐색 범위를 보수적으로 적용
+    sensor_effective_range_m: 1.5
+
+    # 목표 선택 시 거리와 정보량 가중치
+    weight_distance_wd: 1.0
+    weight_gain_ws: 1.0
+
+    # 실제 최대 속도를 명령하는 값은 아니며,
+    # 프론티어 점수 계산에만 사용됨
+    max_linear_speed_vmax: 0.22
+    max_angular_speed_wmax: 1.0
+
+    # =====================================================
+    # 반복 실패 방지
+    # =====================================================
+
+    frontier_suppression_enabled: true
+
+    # 같은 영역에서 2번 실패하면 잠시 제외
+    frontier_suppression_attempt_threshold: 2
+
+    frontier_suppression_base_size_m: 0.8
+    frontier_suppression_expansion_size_m: 0.4
+    frontier_suppression_timeout_s: 60.0
+
+    # 20초 동안 의미 있는 이동이 없으면 해당 목표 취소
+    frontier_suppression_no_progress_timeout_s: 20.0
+    frontier_suppression_progress_epsilon_m: 0.10
+
+    # Nav2가 안정화되기 전에는 실패로 기록하지 않음
+    frontier_suppression_startup_grace_period_s: 15.0
+
+    # 모든 프론티어가 일시적으로 제외되면 제자리 대기
+    all_frontiers_suppressed_behavior: stay
+
+    # =====================================================
+    # 지도 최적화
+    # =====================================================
+
+    sigma_s: 2.0
+    sigma_r: 30.0
+    dilation_kernel_radius_cells: 1
+
+    frontier_marker_scale: 0.15

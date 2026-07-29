@@ -1,0 +1,24 @@
+[1.081s] Invoking command in '/home/csilab/yolo_ws/build/nav2_behavior': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/csilab/yolo_ws/build/nav2_behavior/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/csilab/yolo_ws/build/nav2_behavior/build --no-deps symlink_data
+[1.373s] running develop
+[1.574s] running egg_info
+[1.574s] creating nav2_behavior.egg-info
+[1.593s] writing nav2_behavior.egg-info/PKG-INFO
+[1.593s] writing dependency_links to nav2_behavior.egg-info/dependency_links.txt
+[1.593s] writing entry points to nav2_behavior.egg-info/entry_points.txt
+[1.593s] writing requirements to nav2_behavior.egg-info/requires.txt
+[1.593s] writing top-level names to nav2_behavior.egg-info/top_level.txt
+[1.594s] writing manifest file 'nav2_behavior.egg-info/SOURCES.txt'
+[1.630s] reading manifest file 'nav2_behavior.egg-info/SOURCES.txt'
+[1.630s] writing manifest file 'nav2_behavior.egg-info/SOURCES.txt'
+[1.650s] running build_ext
+[1.650s] Creating /home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages/nav2-behavior.egg-link (link to .)
+[1.651s] Installing go_to_pose script to /home/csilab/yolo_ws/install/nav2_behavior/lib/nav2_behavior
+[1.651s] 
+[1.651s] Installed /home/csilab/yolo_ws/build/nav2_behavior
+[1.651s] running symlink_data
+[1.651s] creating /home/csilab/yolo_ws/install/nav2_behavior/share/ament_index
+[1.651s] creating /home/csilab/yolo_ws/install/nav2_behavior/share/ament_index/resource_index
+[1.651s] creating /home/csilab/yolo_ws/install/nav2_behavior/share/ament_index/resource_index/packages
+[1.652s] symbolically linking /home/csilab/yolo_ws/build/nav2_behavior/resource/nav2_behavior -> /home/csilab/yolo_ws/install/nav2_behavior/share/ament_index/resource_index/packages
+[1.652s] symbolically linking /home/csilab/yolo_ws/build/nav2_behavior/package.xml -> /home/csilab/yolo_ws/install/nav2_behavior/share/nav2_behavior
+[1.686s] Invoked command in '/home/csilab/yolo_ws/build/nav2_behavior' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/csilab/yolo_ws/build/nav2_behavior/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/csilab/yolo_ws/build/nav2_behavior/build --no-deps symlink_data

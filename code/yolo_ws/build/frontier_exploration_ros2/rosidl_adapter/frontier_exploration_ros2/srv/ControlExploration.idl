@@ -1,0 +1,35 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from frontier_exploration_ros2/srv/ControlExploration.srv
+// generated code does not contain a copyright notice
+
+
+module frontier_exploration_ros2 {
+  module srv {
+    module ControlExploration_Request_Constants {
+      const uint8 ACTION_START = 1;
+      const uint8 ACTION_STOP = 2;
+      const uint8 STATE_IDLE = 0;
+      const uint8 STATE_RUNNING = 1;
+      const uint8 STATE_START_SCHEDULED = 2;
+      const uint8 STATE_STOP_SCHEDULED = 3;
+      const uint8 STATE_STOPPING = 4;
+      const uint8 STATE_SHUTDOWN_PENDING = 5;
+    };
+    struct ControlExploration_Request {
+      uint8 action;
+
+      float delay_seconds;
+
+      boolean quit_after_stop;
+    };
+    struct ControlExploration_Response {
+      boolean accepted;
+
+      boolean scheduled;
+
+      uint8 state;
+
+      string message;
+    };
+  };
+};

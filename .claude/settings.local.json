@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /home/csilab/Nav2gather/presentation && echo \"slide count:\"; grep -c '<section class=\"slide\"' index.html; echo \"video tags:\"; grep -o 'src=\"[^\"]*\\\\.mp4\\\\|src=\"[^\"]*\\\\.MP4' index.html; echo \"checking video files exist relative to presentation dir:\"; ls -la ../videos/)",
+      "Read(//home/csilab/**)",
+      "Bash(python3 -)",
+      "Bash(google-chrome --headless --disable-gpu --no-sandbox --window-size=1920,1080 --screenshot=/tmp/claude-1000/-home-csilab-Nav2gather/c68c1a75-3033-4ee0-83fb-4e2782f41103/scratchpad/slide1.png \"file://$\\(pwd\\)/index.html\")",
+      "Bash(google-chrome --headless --disable-gpu --no-sandbox --window-size=1920,1080 --virtual-time-budget=4000 --run-all-compositor-stages-before-draw --screenshot=/tmp/claude-1000/-home-csilab-Nav2gather/c68c1a75-3033-4ee0-83fb-4e2782f41103/scratchpad/slide1b.png \"file://$\\(pwd\\)/index.html\")"
+    ]
+  }
+}

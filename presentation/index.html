@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ROS 2 Navigation2 기반 객체 인식 자율주행 시스템 구현 · NAV2GATHER</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- 아이콘 심볼 정의 (재사용) -->
+<svg style="display:none">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 6L9 17l-5-5"/>
+  </symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/>
+  </symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 21V4"/><path d="M5 4h11l-2.5 3.5L16 11H5"/>
+  </symbol>
+  <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5.5-5.5L5 21"/>
+  </symbol>
+</svg>
+
+<div class="viewport">
+  <div class="stage" id="stage">
+
+    <!-- ============================================================
+         01. 프로젝트 소개
+    ============================================================ -->
+    <section class="slide" data-title="프로젝트 소개">
+      <div class="slide-head">
+        <span class="eyebrow"><span class="idx">01</span> · 프로젝트 소개</span>
+        <span class="brandmark"><span class="dot"></span>NAV2GATHER</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="cover">
+          <div class="cover-left">
+            <span class="kicker reveal r1">NAV2GATHER · DGIST CSI LAB · 2026 하계 인턴십</span>
+            <h1 class="reveal r2">ROS 2 Navigation2 기반<br/>객체 인식 자율주행 시스템 구현</h1>
+            <p class="lead reveal r3">
+              TurtleBot3 기반 <b style="color:var(--text)">Navigation2 자율주행</b>과
+              <b style="color:var(--text)">YOLO 객체 인식</b>을 결합하여,
+              카메라가 찾은 물체 위치로 로봇이 스스로 이동하도록 만드는 프로젝트입니다.
+            </p>
+            <div class="meta-row reveal r4">
+              <span class="chip">ROS 2 Jazzy</span>
+              <span class="chip">Navigation2</span>
+              <span class="chip">Cartographer SLAM</span>
+              <span class="chip">YOLO</span>
+              <span class="chip">TurtleBot3 Burger</span>
+            </div>
+            <div class="foot-line reveal r5">TurtleBot3 Navigation2 Offloading with YOLO</div>
+            <div class="foot-line reveal r6" style="margin-top:6px;color:var(--text-dim);font-weight:600;">발표자 · 국립부경대학교 전기공학과 정지연</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-foot">
+        <span>TurtleBot3 · Raspberry Pi 4 · Remote PC Offloading Architecture</span>
+        <span>NAV2GATHER</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         02. 프로젝트 목표
+    ============================================================ -->
+    <section class="slide" data-title="프로젝트 목표">
+      <div class="slide-head">
+        <span class="eyebrow"><span class="idx">02</span> · 프로젝트 목표</span>
+        <span class="brandmark"><span class="dot"></span>NAV2GATHER</span>
+      </div>
+      <h2 class="slide-title reveal r1">저사양 로봇에서도 인식하고, 스스로 찾아가게 하기</h2>
+      <p class="slide-sub reveal r2">
+        TurtleBot3는 센서 데이터 수집만 담당하고, Navigation2와 YOLO 같은 무거운 연산은
+        Remote PC가 대신 수행하는 <b style="color:var(--text)">Offloading 구조</b>를 통해
+        저사양 로봇으로도 자율주행과 실시간 객체 인식을 함께 구현하는 것이 목표입니다.
+      </p>
+
+      <div class="slide-body">
+        <div class="grid g3" style="align-items:start;">
+          <div class="pillar reveal r3">
+            <span class="tag">01 · MAPPING &amp; DRIVING</span>
+            <h3>지도 기반 자율주행</h3>
+            <p>Cartographer로 지도를 만들고, AMCL로 위치를 추정하며, Navigation2로 목표 지점까지 스스로 이동합니다.</p>
+          </div>
+          <div class="pillar reveal r4">
+            <span class="tag">02 · PERCEPTION</span>
+            <h3>카메라 기반 객체 인식</h3>
+            <p>USB Webcam 영상을 YOLO로 실시간 분석하여 컵과 같은 목표 물체를 인식하고 3차원 위치를 추정합니다.</p>
+          </div>
+          <div class="pillar reveal r5">
+            <span class="tag">03 · AUTONOMOUS BEHAVIOR</span>
+            <h3>자율 탐색 후 순차적으로 접근</h3>
+            <p>인식한 물체를 향해 로봇이 스스로 목표를 생성하고, 여러 물체를 순차적으로 탐색·접근하는 Behavior Loop를 수행합니다.</p>
+          </div>
+        </div>
+
+        <div class="panel reveal r6" style="margin-top:24px;">
+          <div class="row" style="justify-content:space-between;">
+            <div class="row">
+              <span class="pill done"><svg><use href="#i-check"/></svg>이번 발표 범위</span>
+              <span style="color:var(--text-dim);font-size:15px;">물병을 자율 탐색하여 순차적으로 접근하는 Behavior Loop까지 구현 완료</span>
+            </div>
+            <div class="row">
+              <span class="pill future"><svg><use href="#i-flag"/></svg>다음 단계</span>
+              <span style="color:var(--text-dim);font-size:15px;">Frontier Exploration 자율 탐색과 Multi Robot Navigation으로 확장</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-foot">
+        <span>Navigation2 + YOLO Offloading Architecture</span>
+        <span>NAV2GATHER</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         03. 시스템 구성도
+    ============================================================ -->
+    <section class="slide" data-title="시스템 구성도">
+      <div class="slide-head">
+        <span class="eyebrow"><span class="idx">03</span> · 시스템 구성도</span>
+        <span class="brandmark"><span class="dot"></span>NAV2GATHER</span>
+      </div>
+      <h2 class="slide-title reveal r1">Remote PC ↔ TurtleBot3, ROS 2 DDS 통신</h2>
+      <p class="slide-sub reveal r2">
+        무거운 연산은 Remote PC가, 센서·구동은 TurtleBot3가 맡는 Offloading 구조이며
+        두 장치는 같은 <span class="chip" style="vertical-align:middle;">ROS_DOMAIN_ID=30</span> 네트워크에서 토픽을 주고받습니다.
+      </p>
+
+      <div class="slide-body reveal r3">
+        <div class="arch">
+          <div class="arch-box">
+            <h4>💻 Remote PC</h4>
+            <span class="role">Ubuntu 24.04 · ROS 2 Jazzy Desktop</span>
+            <ul class="arch-list">
+              <li>Navigation2 <span class="pill done" style="padding:2px 9px;font-size:11.5px;"><svg style="width:10px;height:10px"><use href="#i-check"/></svg>완료</span></li>
+              <li>Cartographer (SLAM) <span class="pill done" style="padding:2px 9px;font-size:11.5px;"><svg style="width:10px;height:10px"><use href="#i-check"/></svg>완료</span></li>
+              <li>RViz2 <span class="pill done" style="padding:2px 9px;font-size:11.5px;"><svg style="width:10px;height:10px"><use href="#i-check"/></svg>완료</span></li>
+              <li>YOLO (yolo_ros) <span class="pill done" style="padding:2px 9px;font-size:11.5px;"><svg style="width:10px;height:10px"><use href="#i-check"/></svg>완료</span></li>
+              <li>Behavior (nav2_behavior) <span class="pill done" style="padding:2px 9px;font-size:11.5px;"><svg style="width:10px;height:10px"><use href="#i-check"/></svg>완료</span></li>
+            </ul>
+          </div>
+
+          <div class="arch-mid">
+            <div class="dds">ROS 2 DDS</div>
+            <div class="link-line"></div>
+            <div class="topics">
+              <span class="chip">/scan</span><span class="chip">/odom</span><span class="chip">/imu</span>
+              <span class="chip">/tf</span><span class="chip">/cmd_vel</span>
+              <span class="chip b">/camera/image_raw</span><span class="chip b">/yolo/detections</span>
+            </div>
+          </div>
+
+          <div class="arch-box">
+            <h4>🐢 TurtleBot3 Burger</h4>
+            <span class="role">Raspberry Pi 4 · Ubuntu Server 24.04</span>
+            <ul class="arch-list">
+              <li>OpenCR (모터/센서 제어) <span class="pill done" style="padding:2px 9px;font-size:11.5px;"><svg style="width:10px;height:10px"><use href="#i-check"/></svg>완료</span></li>
+              <li>LDS LiDAR (LDS-02) <span class="pill done" style="padding:2px 9px;font-size:11.5px;"><svg style="width:10px;height:10px"><use href="#i-check"/></svg>완료</span></li>
+              <li>IMU / Odometry <span class="pill done" style="padding:2px 9px;font-size:11.5px;"><svg style="width:10px;height:10px"><use href="#i-check"/></svg>완료</span></li>
+              <li>USB Webcam (GStreamer 송출) <span class="pill done" style="padding:2px 9px;font-size:11.5px;"><svg style="width:10px;height:10px"><use href="#i-check"/></svg>완료</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-foot">
+        <span>Navigation2 · Cartographer · YOLO는 Remote PC에서, 센서/구동은 TurtleBot3에서 처리</span>
+        <span>NAV2GATHER</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         04. Software Architecture
+    ============================================================ -->
+    <section class="slide" data-title="Software Architecture">
+      <div class="slide-head">
+        <span class="eyebrow"><span class="idx">04</span> · Software Architecture</span>
+        <span class="brandmark"><span class="dot"></span>NAV2GATHER</span>
+      </div>
+      <h2 class="slide-title reveal r1">두 개의 ROS 2 워크스페이스로 역할 분리</h2>
+      <p class="slide-sub reveal r2">Raspberry Pi의 <span class="chip">turtlebot3_ws</span>와 Remote PC의 <span class="chip">yolo_ws</span>로 나누어 개발하고 있으며, 각 패키지는 다음 역할을 맡습니다.</p>
+
+      <div class="slide-body">
+        <div class="grid g2" style="flex:1 1 auto;">
+          <div class="col reveal r3">
+            <div class="panel-soft" style="padding:16px 22px;">
+              <div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center;"><b style="font-family:var(--font-mono);color:var(--accent);">Navigation2</b><span class="panel-desc" style="margin:0;">경로 생성 및 자율주행</span></div>
+            </div>
+            <div class="panel-soft" style="padding:16px 22px;">
+              <div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center;"><b style="font-family:var(--font-mono);color:var(--accent);">Cartographer</b><span class="panel-desc" style="margin:0;">SLAM 및 지도 생성</span></div>
+            </div>
+            <div class="panel-soft" style="padding:16px 22px;">
+              <div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center;"><b style="font-family:var(--font-mono);color:var(--accent);">YOLO</b><span class="panel-desc" style="margin:0;">카메라 영상 객체 인식</span></div>
+            </div>
+            <div class="panel-soft" style="padding:16px 22px;">
+              <div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center;"><b style="font-family:var(--font-mono);color:var(--accent);">Cup Localizer</b><span class="panel-desc" style="margin:0;">객체 위치 추정</span></div>
+            </div>
+          </div>
+
+          <div class="col reveal r4">
+            <div class="panel-soft" style="padding:16px 22px;">
+              <div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center;"><b style="font-family:var(--font-mono);color:var(--accent);">TF</b><span class="panel-desc" style="margin:0;">좌표계 변환</span></div>
+            </div>
+            <div class="panel-soft" style="padding:16px 22px;">
+              <div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center;"><b style="font-family:var(--font-mono);color:var(--accent);">Behavior</b><span class="panel-desc" style="margin:0;">자율 행동 결정 (상태 머신)</span></div>
+            </div>
+            <div class="panel-soft" style="padding:16px 22px;">
+              <div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center;"><b style="font-family:var(--font-mono);color:var(--accent);">GStreamer · gscam</b><span class="panel-desc" style="margin:0;">카메라 영상 스트리밍</span></div>
+            </div>
+            <div class="panel-soft" style="padding:16px 22px;">
+              <span class="panel-title" style="font-size:14px;">Tech Stack</span>
+              <div class="meta-row" style="margin-top:8px;">
+                <span class="chip">Python</span><span class="chip">rclpy</span><span class="chip">tf2_ros</span>
+                <span class="chip">nav2_simple_commander</span><span class="chip">colcon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-foot">
+        <span>Behavior(bottle_behavior)가 자율 탐색 Behavior Loop를 구현합니다</span>
+        <span>NAV2GATHER</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         05. SLAM
+    ============================================================ -->
+    <section class="slide" data-title="SLAM">
+      <div class="slide-head">
+        <span class="eyebrow"><span class="idx">05</span> · SLAM</span>
+        <span class="brandmark"><span class="dot"></span>NAV2GATHER</span>
+      </div>
+      <h2 class="slide-title reveal r1">Cartographer 기반 지도 생성 <span class="pill done lg" style="vertical-align:middle;"><svg><use href="#i-check"/></svg>완료</span></h2>
+      <p class="slide-sub reveal r2">LiDAR 데이터를 기반으로 주변 환경 지도를 생성하고, Navigation2에서 사용할 수 있도록 저장했습니다.</p>
+
+      <div class="slide-body" style="min-height:0;">
+        <div class="chain reveal r3" style="flex-wrap:wrap;justify-content:center;margin-bottom:14px;">
+          <div class="chain-step"><div class="chain-box done"><span class="t">Bringup</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">Cartographer 매핑</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">Teleop 탐색</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">지도 저장</span><span class="s">map.pgm · map.yaml</span></div></div>
+        </div>
+
+        <div class="video-frame reveal r4">
+          <video src="../videos/slam.MP4" controls preload="metadata"></video>
+          <span class="video-cap">실제 SLAM 지도 생성 시연</span>
+        </div>
+      </div>
+
+      <div class="slide-foot">
+        <span>Cartographer + Teleoperation으로 실내 환경 지도 생성 완료</span>
+        <span>NAV2GATHER</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         06. Navigation2
+    ============================================================ -->
+    <section class="slide" data-title="Navigation2">
+      <div class="slide-head">
+        <span class="eyebrow"><span class="idx">06</span> · Navigation2</span>
+        <span class="brandmark"><span class="dot"></span>NAV2GATHER</span>
+      </div>
+      <h2 class="slide-title reveal r1">지도 기반 자율주행 <span class="pill done lg" style="vertical-align:middle;"><svg><use href="#i-check"/></svg>완료</span></h2>
+      <p class="slide-sub reveal r2">저장된 지도를 불러와 AMCL로 위치를 추정하고, RViz의 Goal 지정만으로 목표 지점까지 자율주행합니다.</p>
+
+      <div class="slide-body" style="min-height:0;">
+        <div class="chain reveal r3" style="flex-wrap:wrap;justify-content:center;margin-bottom:14px;">
+          <div class="chain-step"><div class="chain-box done"><span class="t">위치 추정</span><span class="s">AMCL</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">Goal 지정</span><span class="s">RViz Nav2 Goal</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">전역 경로 계획</span><span class="s">Global Planner</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">장애물 회피</span><span class="s">Costmap · Local Planner</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">로봇 이동</span><span class="s">cmd_vel</span></div></div>
+        </div>
+
+        <div class="video-frame reveal r4">
+          <video src="../videos/navigation.mp4" controls preload="metadata"></video>
+          <span class="video-cap">Nav2 Goal 지정 이동 시연</span>
+        </div>
+      </div>
+
+      <div class="slide-foot">
+        <span>AMCL Localization · Global/Local Planner · Costmap 기반 장애물 회피</span>
+        <span>NAV2GATHER</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         08. Webcam & YOLO
+    ============================================================ -->
+    <section class="slide" data-title="Webcam &amp; YOLO">
+      <div class="slide-head">
+        <span class="eyebrow"><span class="idx">07</span> · Webcam &amp; YOLO</span>
+        <span class="brandmark"><span class="dot"></span>NAV2GATHER</span>
+      </div>
+      <h2 class="slide-title reveal r1">영상 송출부터 실시간 객체 인식까지 <span class="pill done lg" style="vertical-align:middle;"><svg><use href="#i-check"/></svg>완료</span></h2>
+      <p class="slide-sub reveal r2">YOLO는 영상 한 장에서 물체의 위치(Bounding Box)와 종류(Class)를 한 번에 예측하는 실시간 객체 인식 모델이며,
+      본 프로젝트에서는 webcam 영상 속 bottle을 실시간으로 검출하는 데 사용했습니다.</p>
+
+      <div class="slide-body" style="min-height:0;">
+        <div class="chain reveal r3" style="flex-wrap:wrap;justify-content:center;margin-bottom:14px;">
+          <div class="chain-step"><div class="chain-box done"><span class="t">USB Webcam</span><span class="s">🍓 Raspberry Pi</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">GStreamer 송출</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">gscam 수신</span><span class="s">💻 Remote PC</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">YOLO 추론</span><span class="s">위치·클래스 예측</span></div></div>
+        </div>
+
+        <div class="video-frame reveal r4">
+          <video src="../videos/yolo_detection.mp4" controls preload="metadata"></video>
+          <span class="video-cap">실시간 YOLO 객체 인식</span>
+        </div>
+      </div>
+
+      <div class="slide-foot">
+        <span>yolov8n.pt · CPU 추론 · Bounding Box + Class + 신뢰도 실시간 예측</span>
+        <span>NAV2GATHER</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         09. Cup Localizer
+    ============================================================ -->
+    <section class="slide" data-title="Cup Localizer">
+      <div class="slide-head">
+        <span class="eyebrow"><span class="idx">08</span> · Cup Localizer</span>
+        <span class="brandmark"><span class="dot"></span>NAV2GATHER</span>
+      </div>
+      <h2 class="slide-title reveal r1">USB Webcam 기반 컵 3D 위치 추정 <span class="pill done lg" style="vertical-align:middle;"><svg><use href="#i-check"/></svg>완료</span></h2>
+      <p class="slide-sub reveal r2">실제 컵 너비(6&nbsp;cm)와 YOLO Bounding Box 픽셀 너비의 비례 관계로 USB Webcam 기준 3차원 좌표를 계산합니다.</p>
+
+      <div class="slide-body">
+        <div class="grid g2" style="flex:1 1 auto;min-height:0;">
+          <div class="col reveal r3">
+            <div class="formula">fx = reference_width_px × reference_distance_m / cup_width_m</div>
+            <div class="formula">z = fx × cup_width_m / bbox_width_px</div>
+            <div class="formula">x = (center_x − cx) × z / fx , &nbsp; y = (center_y − cy) × z / fy</div>
+          </div>
+
+          <div class="col reveal r4">
+            <div class="panel-soft" style="padding:16px 20px;">
+              <span class="panel-title" style="font-size:14px;">보정 (Calibration)</span>
+              <p class="panel-desc" style="margin-top:6px;">
+                실제 너비 6&nbsp;cm 컵을 USB Webcam 정면 1&nbsp;m 위치에 두고
+                30프레임의 Bounding Box 너비를 측정 → 중앙값으로 초점거리(fx)를 확정합니다.
+              </p>
+            </div>
+            <div class="panel-soft" style="padding:16px 20px;">
+              <span class="panel-title" style="font-size:14px;">좌표 발행 흐름</span>
+              <div class="row" style="margin-top:10px;flex-wrap:wrap;">
+                <span class="chip b">/yolo/detections</span>
+                <span style="color:var(--text-faint)">→</span>
+                <span class="chip b">/cup/point_camera</span>
+              </div>
+              <p class="panel-desc" style="margin-top:8px;font-size:13px;">camera_optical_frame 기준 3차원 좌표</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-foot">
+        <span>score ≥ 0.50 인 검출 중 최고 신뢰도 컵 1개를 선택하여 좌표 발행</span>
+        <span>NAV2GATHER</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         10. TF Coordinate Transform
+    ============================================================ -->
+    <section class="slide" data-title="TF Coordinate Transform">
+      <div class="slide-head">
+        <span class="eyebrow"><span class="idx">09</span> · TF Coordinate Transform</span>
+        <span class="brandmark"><span class="dot"></span>NAV2GATHER</span>
+      </div>
+      <h2 class="slide-title reveal r1">카메라 좌표 → map 좌표 변환 <span class="pill done lg" style="vertical-align:middle;"><svg><use href="#i-check"/></svg>완료</span></h2>
+      <p class="slide-sub reveal r2">정적 TF로 로봇 본체와 카메라의 위치 관계를 정의하고, tf2를 이용해 컵 좌표를 map 기준으로 변환합니다.</p>
+
+      <div class="slide-body">
+        <div class="col" style="flex:1 1 auto;">
+          <div class="panel reveal r3">
+            <div class="panel-title"><span class="n">TF</span>전체 좌표계 체인</div>
+            <div class="chain" style="margin-top:16px;flex-wrap:wrap;">
+              <div class="chain-step"><div class="chain-box done"><span class="t">map</span></div></div>
+              <div class="chain-arrow"></div>
+              <div class="chain-step"><div class="chain-box done"><span class="t">odom</span></div></div>
+              <div class="chain-arrow"></div>
+              <div class="chain-step"><div class="chain-box done"><span class="t">base_footprint</span></div></div>
+              <div class="chain-arrow"></div>
+              <div class="chain-step"><div class="chain-box done"><span class="t">base_link</span></div></div>
+              <div class="chain-arrow"></div>
+              <div class="chain-step"><div class="chain-box done"><span class="t">camera_link</span><span class="s">x+0.10 z+0.12</span></div></div>
+              <div class="chain-arrow"></div>
+              <div class="chain-step"><div class="chain-box done"><span class="t">camera_optical_frame</span></div></div>
+            </div>
+          </div>
+
+          <div class="grid g2 reveal r4" style="margin-top:20px;">
+            <div class="panel-soft" style="padding:16px 20px;">
+              <span class="panel-title" style="font-size:14px;">camera_optical_frame 좌표축</span>
+              <p class="panel-desc" style="margin-top:6px;">x: 화면 오른쪽 &nbsp;·&nbsp; y: 화면 아래 &nbsp;·&nbsp; z: 카메라 정면</p>
+              <p class="panel-desc" style="margin-top:10px;">카메라 장착 위치: base_link 기준 전방 10&nbsp;cm · 높이 12&nbsp;cm (정적 TF)</p>
+            </div>
+            <div class="panel-soft" style="padding:16px 20px;">
+              <span class="panel-title" style="font-size:14px;">최종 변환 결과</span>
+              <p class="panel-desc" style="margin-top:6px;">
+                tf2 <span class="chip">lookup_transform('map', ...)</span> 으로
+                <span class="chip b">/cup/point_camera</span> → <span class="chip b">/cup/point_map</span> 변환,
+                이 좌표를 Behavior 노드가 Nav2 목표로 사용합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-foot">
+        <span>base_link 기준 카메라 장착 위치: 전방 10cm · 높이 12cm</span>
+        <span>NAV2GATHER</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         11. Behavior (현재 구현 범위)
+    ============================================================ -->
+    <section class="slide" data-title="Behavior">
+      <div class="slide-head">
+        <span class="eyebrow"><span class="idx">10</span> · Behavior</span>
+        <span class="brandmark"><span class="dot"></span>NAV2GATHER</span>
+      </div>
+      <h2 class="slide-title reveal r1">RViz 수동 Goal → YOLO 기반 자율 목표 생성 <span class="pill done lg" style="vertical-align:middle;"><svg><use href="#i-check"/></svg>완료</span></h2>
+      <p class="slide-sub reveal r2">사람이 RViz에서 목적지를 찍던 방식에서, 로봇이 스스로 물병을 탐색하고 목표를 생성해 Navigation2로 이동하는
+      <b style="color:var(--text)">상태 머신 기반 자율 Behavior</b>로 확장했습니다.</p>
+
+      <div class="slide-body">
+        <div class="grid g2" style="flex:1 1 auto;min-height:0;">
+          <div class="col reveal r3">
+            <div class="banner done">
+              <svg class="pill" style="width:20px;height:20px;padding:0;background:none;border:none;color:var(--good);flex:none;"><use href="#i-check"/></svg>
+              <span style="flex:1 1 auto;">
+                기존에는 사람이 RViz에서 목적지를 직접 지정했지만, 이제는
+                <b>YOLO 인식 결과를 기반으로 로봇이 스스로 목적지를 생성</b>하고 Navigation2로 이동합니다.
+              </span>
+            </div>
+            <div class="panel-soft" style="padding:18px 20px;">
+              <span class="panel-title" style="font-size:14px;">5단계 상태 머신 (State Machine)</span>
+              <ul class="checklist done" style="margin-top:12px;">
+                <li><span class="ico"><svg><use href="#i-check"/></svg></span><b style="font-family:var(--font-mono);color:var(--good);">SEARCHING</b>&nbsp;— 제자리 회전하며 bottle 탐색</li>
+                <li><span class="ico"><svg><use href="#i-check"/></svg></span><b style="font-family:var(--font-mono);color:var(--good);">ALIGNING</b>&nbsp;— 화면 중앙으로 각도 정렬</li>
+                <li><span class="ico"><svg><use href="#i-check"/></svg></span><b style="font-family:var(--font-mono);color:var(--good);">COLLECTING</b>&nbsp;— map 좌표 다중 수집·평균화</li>
+                <li><span class="ico"><svg><use href="#i-check"/></svg></span><b style="font-family:var(--font-mono);color:var(--good);">NAVIGATING</b>&nbsp;— goToPose()로 Nav2 자율 이동</li>
+                <li><span class="ico"><svg><use href="#i-check"/></svg></span><b style="font-family:var(--font-mono);color:var(--good);">COOLDOWN</b>&nbsp;— 결과 확인 후 다음 물병 탐색</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col reveal r4" style="align-items:center;">
+            <div class="state-diagram" id="stateDiagram">
+              <svg id="smSvg">
+                <defs>
+                  <marker id="sm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+                    <path d="M0,0 L10,5 L0,10 Z" style="fill:var(--good)"/>
+                  </marker>
+                </defs>
+                <line id="edge-1" data-from="sn-1" data-to="sn-2" style="stroke:var(--good);stroke-width:2.5" marker-end="url(#sm-arrow)"/>
+                <line id="edge-2" data-from="sn-2" data-to="sn-3" style="stroke:var(--good);stroke-width:2.5" marker-end="url(#sm-arrow)"/>
+                <line id="edge-3" data-from="sn-3" data-to="sn-4" style="stroke:var(--good);stroke-width:2.5" marker-end="url(#sm-arrow)"/>
+                <line id="edge-4" data-from="sn-4" data-to="sn-5" style="stroke:var(--good);stroke-width:2.5" marker-end="url(#sm-arrow)"/>
+                <line id="edge-5" data-from="sn-5" data-to="sn-1" style="stroke:var(--good);stroke-width:2.5" marker-end="url(#sm-arrow)"/>
+              </svg>
+              <div class="center-label">SEARCHING부터<br/>다시 SEARCHING까지<br/>순환 반복</div>
+              <div class="state-node" id="sn-1" style="left:50.0%;top:12.12%;">
+                <span class="num">1</span>
+                <div class="name">SEARCHING</div>
+                <div class="desc">제자리 회전하며 YOLO가 bottle을 검출할 때까지 탐색</div>
+              </div>
+              <div class="state-node" id="sn-2" style="left:77.48%;top:39.35%;">
+                <span class="num">2</span>
+                <div class="name">ALIGNING</div>
+                <div class="desc">각도 오차를 계산해 물병이 화면 중앙에 오도록 정렬</div>
+              </div>
+              <div class="state-node" id="sn-3" style="left:67.0%;top:83.38%;">
+                <span class="num">3</span>
+                <div class="name">COLLECTING</div>
+                <div class="desc">여러 프레임의 map 좌표를 모아 평균으로 안정화</div>
+              </div>
+              <div class="state-node" id="sn-4" style="left:33.01%;top:83.38%;">
+                <span class="num">4</span>
+                <div class="name">NAVIGATING</div>
+                <div class="desc">접근 목표를 생성해 goToPose()로 Nav2 자율 이동</div>
+              </div>
+              <div class="state-node" id="sn-5" style="left:22.52%;top:39.35%;">
+                <span class="num">5</span>
+                <div class="name">COOLDOWN</div>
+                <div class="desc">결과 확인 후 방문 저장, 다음 물병 탐색 대기</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-foot">
+        <span>bottle_behavior.py · cup_go_multi.py 의 상태 머신 구조로 동작합니다</span>
+        <span>NAV2GATHER</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         12. 전체 동작 흐름
+    ============================================================ -->
+    <section class="slide" data-title="전체 동작 흐름">
+      <div class="slide-head">
+        <span class="eyebrow"><span class="idx">11</span> · 전체 동작 흐름</span>
+        <span class="brandmark"><span class="dot"></span>NAV2GATHER</span>
+      </div>
+      <h2 class="slide-title reveal r1">탐색 → 정렬 → 좌표 계산 → 이동 → 다음 물체</h2>
+      <p class="slide-sub reveal r2">하나의 물병에 도착하면 다음 물병을 자동으로 탐색하는 순환 구조로 동작합니다.</p>
+
+      <div class="slide-body">
+        <div class="chain reveal r3" style="flex-wrap:wrap;justify-content:center;">
+          <div class="chain-step"><div class="chain-box done"><span class="t">물병 탐색</span><span class="s">제자리 회전</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">중앙 정렬</span><span class="s">각도 오차 보정</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">좌표 계산</span><span class="s">다중 수집·평균화</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">이동</span><span class="s">Navigation2 goToPose</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">다음 물체 탐색</span><span class="s">방문 목록 제외</span></div></div>
+        </div>
+        <div class="panel-soft reveal r4" style="padding:14px 20px;margin-top:8px;max-width:820px;margin-left:auto;margin-right:auto;text-align:center;">
+          <p class="panel-desc">↻ 도착 후 위 과정을 반복하며, 지정된 횟수만큼 탐색해도 새 물병이 없으면 종료합니다.</p>
+        </div>
+
+        <div class="grid g2 reveal r5" style="margin-top:22px;">
+          <div class="panel">
+            <div class="panel-title"><span class="pill done"><svg><use href="#i-check"/></svg>현재 가능한 기능</span></div>
+            <ul class="checklist done" style="margin-top:12px;">
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>YOLO 자동 탐지</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>자동 탐색</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>중앙 정렬</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>TF 좌표 변환</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>좌표 평균화</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>접근 목표 생성</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>Navigation2 자율주행</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <div class="panel-title" style="opacity:0;">.</div>
+            <ul class="checklist done" style="margin-top:-30px;">
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>장애물 회피</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>성공/실패 판단</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>방문한 물병 저장</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>동일 물병 재방문 방지</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>다음 물병 자동 탐색</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>탐색 종료 조건</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-foot">
+        <span>13개 세부 기능이 하나의 Behavior Loop로 통합되어 동작합니다</span>
+        <span>NAV2GATHER</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         13. 실제 동작 과정
+    ============================================================ -->
+    <section class="slide" data-title="실제 동작 과정">
+      <div class="slide-head">
+        <span class="eyebrow"><span class="idx">12</span> · 실제 동작 과정</span>
+        <span class="brandmark"><span class="dot"></span>NAV2GATHER</span>
+      </div>
+      <h2 class="slide-title reveal r1">Behavior Demonstration <span class="pill done lg" style="vertical-align:middle;"><svg><use href="#i-check"/></svg>완료</span></h2>
+      <p class="slide-sub reveal r2">물병을 자율 탐색하여 접근하는 Behavior Loop의 실제 동작 영상입니다.</p>
+
+      <div class="slide-body" style="min-height:0;">
+        <div class="video-frame reveal r3">
+          <video src="../videos/Behavior%20Demo.mp4" controls preload="metadata"></video>
+          <span class="video-cap">Behavior Demonstration</span>
+        </div>
+
+        <div class="meta-row reveal r4" style="justify-content:center;margin-top:14px;">
+          <span class="chip">YOLO 기반 물병 탐색</span>
+          <span class="chip">자동 정렬</span>
+          <span class="chip">좌표 변환</span>
+          <span class="chip">Navigation2 자율주행</span>
+          <span class="chip">다음 물병 탐색</span>
+        </div>
+      </div>
+
+      <div class="slide-foot">
+        <span>Behavior Demo.mp4 · 물병 자율 탐색·접근 실제 동작 시연</span>
+        <span>NAV2GATHER</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         13. 현재 진행 상황
+    ============================================================ -->
+    <section class="slide" data-title="현재 진행 상황">
+      <div class="slide-head">
+        <span class="eyebrow"><span class="idx">13</span> · 현재 진행 상황</span>
+        <span class="brandmark"><span class="dot"></span>NAV2GATHER</span>
+      </div>
+      <h2 class="slide-title reveal r1">전체 파이프라인 완료 · Behavior Loop 자율 동작까지 구현</h2>
+
+      <div class="slide-body">
+        <div class="chain reveal r2" style="flex-wrap:wrap;">
+          <div class="chain-step"><div class="chain-box done"><span class="t">Bringup</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">SLAM</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">지도 저장</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">Navigation2</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">Webcam·YOLO</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">좌표 변환</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">단일 이동</span></div></div>
+          <div class="chain-arrow"></div>
+          <div class="chain-step"><div class="chain-box done"><span class="t">Behavior Loop</span><span class="s">자율 탐색·접근</span></div></div>
+        </div>
+
+        <div class="grid g2 reveal r3" style="margin-top:26px;align-content:start;align-items:start;">
+          <div class="panel">
+            <div class="panel-title"><span class="pill done"><svg><use href="#i-check"/></svg>파이프라인 기반 완료 (13)</span></div>
+            <ul class="checklist done" style="margin-top:12px;column-count:1;">
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>TurtleBot3 Bringup</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>Cartographer SLAM</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>지도 저장</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>Navigation2 자율주행</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>RViz Goal Navigation</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>USB Webcam 연결</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>GStreamer 영상 송출</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <div class="panel-title" style="opacity:0;">.</div>
+            <ul class="checklist done" style="margin-top:-30px;">
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>YOLO 객체 인식</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>Cup Localizer</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>TF 변환</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>카메라 좌표 → map 좌표 변환</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>nav2_simple_commander goToPose</li>
+              <li><span class="ico"><svg><use href="#i-check"/></svg></span>YOLO 검출 컵 위치로 자동 이동</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-foot">
+        <span>Behavior의 13개 세부 기능은 11번 슬라이드, 향후 계획은 14번 슬라이드 참고</span>
+        <span>NAV2GATHER</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         14. 향후 계획
+    ============================================================ -->
+    <section class="slide" data-title="향후 계획">
+      <div class="slide-head">
+        <span class="eyebrow"><span class="idx">14</span> · 향후 계획</span>
+        <span class="brandmark"><span class="dot"></span>NAV2GATHER</span>
+      </div>
+      <h2 class="slide-title reveal r1">다음 단계: 자율 탐색과 다중 로봇 협업으로</h2>
+      <p class="slide-sub reveal r2">물병 자율 탐색·접근 Behavior Loop 완성 이후, 자율 탐색과 다중 로봇 협업으로 연구 범위를 넓힐 예정입니다.</p>
+
+      <div class="slide-body">
+        <div class="grid g3" style="align-items:start;">
+          <div class="pillar reveal r3">
+            <span class="tag" style="color:var(--future)">예정 · 01</span>
+            <h3>Autonomous Exploration</h3>
+            <ul class="sub">
+              <li>Frontier Exploration 기반 자율 탐색</li>
+              <li>m-explore-ros2 / explore_lite 활용</li>
+              <li>사람이 목적지를 지정하지 않아도 스스로 탐색</li>
+            </ul>
+          </div>
+          <div class="pillar reveal r4">
+            <span class="tag" style="color:var(--future)">예정 · 02</span>
+            <h3>Navigation Behavior 개선</h3>
+            <ul class="sub">
+              <li>Navigation 실패 시 재시도</li>
+              <li>반복 실패 시 후진 및 Recovery Behavior 적용</li>
+              <li>Navigation2 Behavior Tree 분석 및 활용</li>
+            </ul>
+          </div>
+          <div class="pillar reveal r5">
+            <span class="tag" style="color:var(--future)">예정 · 03</span>
+            <h3>Multi Robot Navigation</h3>
+            <ul class="sub">
+              <li>Burger와 Waffle 동시 자율주행</li>
+              <li>Namespace 적용</li>
+              <li>서로를 장애물로 인식하는 환경 구성·실험</li>
+            </ul>
+          </div>
+          <div class="pillar reveal r6">
+            <span class="tag" style="color:var(--future)">예정 · 04</span>
+            <h3>Costmap 기반 Robot Avoidance</h3>
+            <ul class="sub">
+              <li>다른 로봇을 Costmap 장애물로 추가</li>
+              <li>별도 회피 알고리즘 없이 자연스러운 회피</li>
+            </ul>
+          </div>
+          <div class="pillar reveal r7">
+            <span class="tag" style="color:var(--future)">예정 · 05</span>
+            <h3>MAPF</h3>
+            <ul class="sub">
+              <li>다중 로봇 경로 계획(Multi-Agent Path Finding) 적용</li>
+              <li>좁은 공간을 충돌 없이 통과하는 알고리즘 적용</li>
+            </ul>
+          </div>
+          <div class="pillar goal reveal r7">
+            <span class="tag">GOAL</span>
+            <h3>최종 목표</h3>
+            <ul class="sub">
+              <li>관찰 결과와 실험 과정 자체를 프로젝트 결과물로 정리</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-foot">
+        <span>관찰 결과와 실험 과정을 프로젝트 결과물로 정리하는 것이 최종 목표입니다</span>
+        <span>NAV2GATHER</span>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- 내비게이션 UI -->
+<button class="nav-arrow left" id="arrowLeft" aria-label="이전 슬라이드">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+</button>
+<button class="nav-arrow right" id="arrowRight" aria-label="다음 슬라이드">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+</button>
+
+<div class="nav-progress"><i id="navProgressBar"></i></div>
+<div class="nav-counter"><b id="navCounterNum">01</b> / 14</div>
+<div class="nav-hint">방향키 <kbd>←</kbd><kbd>→</kbd> 로 이동</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+[0.102s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'nav2_behavior', '--symlink-install']
+[0.102s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=12, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['nav2_behavior'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x76add2f76b70>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x76add2f76d20>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x76add2f76d20>>, mixin_verb=('build',))
+[0.136s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.136s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.136s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.136s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.136s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.136s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.136s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/csilab/yolo_ws'
+[0.136s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/bottle_behavior) by extensions ['ignore', 'ignore_ament_install']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/bottle_behavior) by extension 'ignore'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/bottle_behavior) by extension 'ignore_ament_install'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/bottle_behavior) by extensions ['colcon_pkg']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/bottle_behavior) by extension 'colcon_pkg'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/bottle_behavior) by extensions ['colcon_meta']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/bottle_behavior) by extension 'colcon_meta'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/bottle_behavior) by extensions ['ros']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/bottle_behavior) by extension 'ros'
+[0.163s] DEBUG:colcon.colcon_core.package_identification:Package 'src/bottle_behavior' with type 'ros.ament_python' and name 'bottle_behavior'
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_behavior) by extensions ['ignore', 'ignore_ament_install']
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_behavior) by extension 'ignore'
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_behavior) by extension 'ignore_ament_install'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_behavior) by extensions ['colcon_pkg']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_behavior) by extension 'colcon_pkg'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_behavior) by extensions ['colcon_meta']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_behavior) by extension 'colcon_meta'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_behavior) by extensions ['ros']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_behavior) by extension 'ros'
+[0.164s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nav2_behavior' with type 'ros.ament_python' and name 'nav2_behavior'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_behavior) by extensions ['ignore', 'ignore_ament_install']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_behavior) by extension 'ignore'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_behavior) by extension 'ignore_ament_install'
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_behavior) by extensions ['colcon_pkg']
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_behavior) by extension 'colcon_pkg'
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_behavior) by extensions ['colcon_meta']
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_behavior) by extension 'colcon_meta'
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_behavior) by extensions ['ros']
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_behavior) by extension 'ros'
+[0.165s] DEBUG:colcon.colcon_core.package_identification:Package 'src/yolo_behavior' with type 'ros.ament_python' and name 'yolo_behavior'
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros) by extensions ['ignore', 'ignore_ament_install']
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros) by extension 'ignore'
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros) by extension 'ignore_ament_install'
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros) by extensions ['colcon_pkg']
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros) by extension 'colcon_pkg'
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros) by extensions ['colcon_meta']
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros) by extension 'colcon_meta'
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros) by extensions ['ros']
+[0.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros) by extension 'ros'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros) by extensions ['cmake', 'python']
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros) by extension 'cmake'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros) by extension 'python'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros) by extensions ['python_setup_py']
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros) by extension 'python_setup_py'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/docs) by extensions ['ignore', 'ignore_ament_install']
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/docs) by extension 'ignore'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/docs) by extension 'ignore_ament_install'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/docs) by extensions ['colcon_pkg']
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/docs) by extension 'colcon_pkg'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/docs) by extensions ['colcon_meta']
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/docs) by extension 'colcon_meta'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/docs) by extensions ['ros']
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/docs) by extension 'ros'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/docs) by extensions ['cmake', 'python']
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/docs) by extension 'cmake'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/docs) by extension 'python'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/docs) by extensions ['python_setup_py']
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/docs) by extension 'python_setup_py'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_bringup) by extension 'ignore'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_bringup) by extension 'ignore_ament_install'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_bringup) by extensions ['colcon_pkg']
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_bringup) by extension 'colcon_pkg'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_bringup) by extensions ['colcon_meta']
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_bringup) by extension 'colcon_meta'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_bringup) by extensions ['ros']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_bringup) by extension 'ros'
+[0.167s] DEBUG:colcon.colcon_core.package_identification:Package 'src/yolo_ros/yolo_bringup' with type 'ros.ament_cmake' and name 'yolo_bringup'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_msgs) by extension 'ignore'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_msgs) by extension 'ignore_ament_install'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_msgs) by extensions ['colcon_pkg']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_msgs) by extension 'colcon_pkg'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_msgs) by extensions ['colcon_meta']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_msgs) by extension 'colcon_meta'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_msgs) by extensions ['ros']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_msgs) by extension 'ros'
+[0.168s] DEBUG:colcon.colcon_core.package_identification:Package 'src/yolo_ros/yolo_msgs' with type 'ros.ament_cmake' and name 'yolo_msgs'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_ros) by extensions ['ignore', 'ignore_ament_install']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_ros) by extension 'ignore'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_ros) by extension 'ignore_ament_install'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_ros) by extensions ['colcon_pkg']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_ros) by extension 'colcon_pkg'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_ros) by extensions ['colcon_meta']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_ros) by extension 'colcon_meta'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_ros) by extensions ['ros']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolo_ros/yolo_ros) by extension 'ros'
+[0.169s] DEBUG:colcon.colcon_core.package_identification:Package 'src/yolo_ros/yolo_ros' with type 'ros.ament_python' and name 'yolo_ros'
+[0.169s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.169s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.169s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.169s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.169s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.185s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'yolo_behavior' in 'src/yolo_behavior'
+[0.185s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'yolo_msgs' in 'src/yolo_ros/yolo_msgs'
+[0.185s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'bottle_behavior' in 'src/bottle_behavior'
+[0.185s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'yolo_ros' in 'src/yolo_ros/yolo_ros'
+[0.185s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'yolo_bringup' in 'src/yolo_ros/yolo_bringup'
+[0.185s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.185s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.188s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 5 installed packages in /home/csilab/yolo_ws/install
+[0.188s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/csilab/turtlebot3_ws/install
+[0.190s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 492 installed packages in /opt/ros/jazzy
+[0.191s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.262s] Level 5:colcon.colcon_core.verb:set package 'nav2_behavior' build argument 'cmake_args' from command line to 'None'
+[0.262s] Level 5:colcon.colcon_core.verb:set package 'nav2_behavior' build argument 'cmake_target' from command line to 'None'
+[0.262s] Level 5:colcon.colcon_core.verb:set package 'nav2_behavior' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.262s] Level 5:colcon.colcon_core.verb:set package 'nav2_behavior' build argument 'cmake_clean_cache' from command line to 'False'
+[0.262s] Level 5:colcon.colcon_core.verb:set package 'nav2_behavior' build argument 'cmake_clean_first' from command line to 'False'
+[0.262s] Level 5:colcon.colcon_core.verb:set package 'nav2_behavior' build argument 'cmake_force_configure' from command line to 'False'
+[0.262s] Level 5:colcon.colcon_core.verb:set package 'nav2_behavior' build argument 'ament_cmake_args' from command line to 'None'
+[0.262s] Level 5:colcon.colcon_core.verb:set package 'nav2_behavior' build argument 'catkin_cmake_args' from command line to 'None'
+[0.263s] Level 5:colcon.colcon_core.verb:set package 'nav2_behavior' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.263s] DEBUG:colcon.colcon_core.verb:Building package 'nav2_behavior' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/csilab/yolo_ws/build/nav2_behavior', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/csilab/yolo_ws/install/nav2_behavior', 'merge_install': False, 'path': '/home/csilab/yolo_ws/src/nav2_behavior', 'symlink_install': True, 'test_result_base': None}
+[0.263s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.264s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.264s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/csilab/yolo_ws/src/nav2_behavior' with build type 'ament_python'
+[0.264s] Level 1:colcon.colcon_core.shell:create_environment_hook('nav2_behavior', 'ament_prefix_path')
+[0.266s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.266s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/csilab/yolo_ws/install/nav2_behavior/share/nav2_behavior/hook/ament_prefix_path.ps1'
+[0.267s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/csilab/yolo_ws/install/nav2_behavior/share/nav2_behavior/hook/ament_prefix_path.dsv'
+[0.267s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/csilab/yolo_ws/install/nav2_behavior/share/nav2_behavior/hook/ament_prefix_path.sh'
+[0.268s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.268s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.478s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/csilab/yolo_ws/src/nav2_behavior'
+[0.478s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.478s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.069s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: clean, install, symlink_data, setopt, upload, bdist_egg, test, rotate, install_scripts, extract_messages, bdist, editable_wheel, build_py, develop, install_egg_info, alias, egg_info, build_scripts, install_headers, build, build_ext, compile_catalog, install_lib, bdist_rpm, saveopts, update_catalog, check, sdist, upload_docs, install_data, build_clib, easy_install, init_catalog, dist_info, bdist_dumb, register
+[1.404s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools 'develop' options: --zip-ok, --force-installation-into-system-dir, --dry-run, --verbose, --exclude-scripts, --prefix, --user, --install-layout, --no-find-links, --egg-path, --always-unzip, --optimize, --find-links, --editable, --no-deps, --install-dir, --no-user-cfg, --version, --script-dir, --local-snapshots-ok, --upgrade, --index-url, --site-dirs, --help, --record, --build-directory, --quiet, --always-copy, --uninstall, --allow-hosts, --multi-version
+[1.407s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/csilab/yolo_ws/build/nav2_behavior': CMAKE_PREFIX_PATH=/home/csilab/yolo_ws/install/yolo_msgs:/home/csilab/yolo_ws/install/yolo_bringup:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_examples:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/csilab/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/csilab/yolo_ws/build/nav2_behavior/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:/home/csilab/yolo_ws/install/yolo_msgs/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/yolo_ros:/home/csilab/yolo_ws/install/yolo_ros/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/nav2_behavior:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/bottle_behavior:/home/csilab/yolo_ws/install/bottle_behavior/lib/python3.12/site-packages:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib/python3.12/site-packages:/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/csilab/yolo_ws/build/nav2_behavior/build --no-deps symlink_data
+[2.075s] Level 1:colcon.colcon_core.shell:create_environment_hook('nav2_behavior', 'pythonpath_develop')
+[2.075s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/csilab/yolo_ws/build/nav2_behavior/share/nav2_behavior/hook/pythonpath_develop.ps1'
+[2.076s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/csilab/yolo_ws/build/nav2_behavior' returned '0': CMAKE_PREFIX_PATH=/home/csilab/yolo_ws/install/yolo_msgs:/home/csilab/yolo_ws/install/yolo_bringup:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_examples:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/csilab/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/csilab/yolo_ws/build/nav2_behavior/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:/home/csilab/yolo_ws/install/yolo_msgs/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/yolo_ros:/home/csilab/yolo_ws/install/yolo_ros/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/nav2_behavior:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/bottle_behavior:/home/csilab/yolo_ws/install/bottle_behavior/lib/python3.12/site-packages:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib/python3.12/site-packages:/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/csilab/yolo_ws/build/nav2_behavior/build --no-deps symlink_data
+[2.076s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/csilab/yolo_ws/build/nav2_behavior/share/nav2_behavior/hook/pythonpath_develop.dsv'
+[2.077s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/csilab/yolo_ws/build/nav2_behavior/share/nav2_behavior/hook/pythonpath_develop.sh'
+[2.079s] Level 1:colcon.colcon_core.environment:checking '/home/csilab/yolo_ws/install/nav2_behavior' for CMake module files
+[2.080s] Level 1:colcon.colcon_core.environment:checking '/home/csilab/yolo_ws/install/nav2_behavior' for CMake config files
+[2.080s] Level 1:colcon.colcon_core.environment:checking '/home/csilab/yolo_ws/install/nav2_behavior/lib'
+[2.080s] Level 1:colcon.colcon_core.environment:checking '/home/csilab/yolo_ws/install/nav2_behavior/bin'
+[2.080s] Level 1:colcon.colcon_core.environment:checking '/home/csilab/yolo_ws/install/nav2_behavior/lib/pkgconfig/nav2_behavior.pc'
+[2.080s] Level 1:colcon.colcon_core.environment:checking '/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages'
+[2.080s] Level 1:colcon.colcon_core.shell:create_environment_hook('nav2_behavior', 'pythonpath')
+[2.081s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/csilab/yolo_ws/install/nav2_behavior/share/nav2_behavior/hook/pythonpath.ps1'
+[2.081s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/csilab/yolo_ws/install/nav2_behavior/share/nav2_behavior/hook/pythonpath.dsv'
+[2.081s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/csilab/yolo_ws/install/nav2_behavior/share/nav2_behavior/hook/pythonpath.sh'
+[2.082s] Level 1:colcon.colcon_core.environment:checking '/home/csilab/yolo_ws/install/nav2_behavior/bin'
+[2.082s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(nav2_behavior)
+[2.082s] INFO:colcon.colcon_core.shell:Creating package script '/home/csilab/yolo_ws/install/nav2_behavior/share/nav2_behavior/package.ps1'
+[2.083s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/csilab/yolo_ws/install/nav2_behavior/share/nav2_behavior/package.dsv'
+[2.083s] INFO:colcon.colcon_core.shell:Creating package script '/home/csilab/yolo_ws/install/nav2_behavior/share/nav2_behavior/package.sh'
+[2.084s] INFO:colcon.colcon_core.shell:Creating package script '/home/csilab/yolo_ws/install/nav2_behavior/share/nav2_behavior/package.bash'
+[2.084s] INFO:colcon.colcon_core.shell:Creating package script '/home/csilab/yolo_ws/install/nav2_behavior/share/nav2_behavior/package.zsh'
+[2.085s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/csilab/yolo_ws/install/nav2_behavior/share/colcon-core/packages/nav2_behavior)
+[2.085s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[2.085s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[2.085s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[2.085s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[2.090s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[2.090s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[2.090s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[2.100s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[2.100s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/csilab/yolo_ws/install/local_setup.ps1'
+[2.101s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/csilab/yolo_ws/install/_local_setup_util_ps1.py'
+[2.101s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/csilab/yolo_ws/install/setup.ps1'
+[2.102s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/csilab/yolo_ws/install/local_setup.sh'
+[2.103s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/csilab/yolo_ws/install/_local_setup_util_sh.py'
+[2.103s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/csilab/yolo_ws/install/setup.sh'
+[2.104s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/csilab/yolo_ws/install/local_setup.bash'
+[2.104s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/csilab/yolo_ws/install/setup.bash'
+[2.106s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/csilab/yolo_ws/install/local_setup.zsh'
+[2.106s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/csilab/yolo_ws/install/setup.zsh'

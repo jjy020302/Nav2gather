@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing bottle_behavior.egg-info/PKG-INFO
+writing dependency_links to bottle_behavior.egg-info/dependency_links.txt
+writing entry points to bottle_behavior.egg-info/entry_points.txt
+writing requirements to bottle_behavior.egg-info/requires.txt
+writing top-level names to bottle_behavior.egg-info/top_level.txt
+reading manifest file 'bottle_behavior.egg-info/SOURCES.txt'
+writing manifest file 'bottle_behavior.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/csilab/yolo_ws/install/bottle_behavior/lib/python3.12/site-packages/bottle-behavior.egg-link (link to .)
+Installing bottle_stop script to /home/csilab/yolo_ws/install/bottle_behavior/lib/bottle_behavior
+
+Installed /home/csilab/yolo_ws/build/bottle_behavior
+running symlink_data

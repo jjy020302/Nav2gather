@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "frontier_exploration_ros2__rs",
+		"source" : "/home/csilab/yolo_ws/build/frontier_exploration_ros2/frontier_exploration_ros2__rs"
+	}
+}

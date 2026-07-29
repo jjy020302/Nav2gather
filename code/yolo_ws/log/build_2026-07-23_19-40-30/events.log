@@ -1,0 +1,170 @@
+[0.000000] (-) TimerEvent: {}
+[0.003881] (-) JobUnselected: {'identifier': 'bottle_behavior'}
+[0.004053] (-) JobUnselected: {'identifier': 'yolo_behavior'}
+[0.004151] (-) JobUnselected: {'identifier': 'yolo_bringup'}
+[0.004231] (-) JobUnselected: {'identifier': 'yolo_msgs'}
+[0.004303] (-) JobUnselected: {'identifier': 'yolo_ros'}
+[0.004368] (nav2_behavior) JobQueued: {'identifier': 'nav2_behavior', 'dependencies': OrderedDict({'yolo_msgs': '/home/csilab/yolo_ws/install/yolo_msgs'})}
+[0.004453] (nav2_behavior) JobStarted: {'identifier': 'nav2_behavior'}
+[0.099822] (-) TimerEvent: {}
+[0.200406] (-) TimerEvent: {}
+[0.300908] (-) TimerEvent: {}
+[0.401309] (-) TimerEvent: {}
+[0.502727] (-) TimerEvent: {}
+[0.603297] (-) TimerEvent: {}
+[0.705991] (-) TimerEvent: {}
+[0.807777] (-) TimerEvent: {}
+[0.908418] (-) TimerEvent: {}
+[1.008997] (-) TimerEvent: {}
+[1.109526] (-) TimerEvent: {}
+[1.210246] (-) TimerEvent: {}
+[1.314017] (-) TimerEvent: {}
+[1.414606] (-) TimerEvent: {}
+[1.515565] (-) TimerEvent: {}
+[1.616169] (-) TimerEvent: {}
+[1.721772] (-) TimerEvent: {}
+[1.822483] (-) TimerEvent: {}
+[1.922969] (-) TimerEvent: {}
+[2.023804] (-) TimerEvent: {}
+[2.124641] (-) TimerEvent: {}
+[2.225291] (-) TimerEvent: {}
+[2.326779] (-) TimerEvent: {}
+[2.427336] (-) TimerEvent: {}
+[2.528748] (-) TimerEvent: {}
+[2.630722] (-) TimerEvent: {}
+[2.731178] (-) TimerEvent: {}
+[2.831720] (-) TimerEvent: {}
+[2.932783] (-) TimerEvent: {}
+[3.036064] (-) TimerEvent: {}
+[3.136631] (-) TimerEvent: {}
+[3.237237] (-) TimerEvent: {}
+[3.337839] (-) TimerEvent: {}
+[3.438786] (-) TimerEvent: {}
+[3.539640] (-) TimerEvent: {}
+[3.640789] (-) TimerEvent: {}
+[3.741830] (-) TimerEvent: {}
+[3.843756] (-) TimerEvent: {}
+[3.944958] (-) TimerEvent: {}
+[4.045784] (-) TimerEvent: {}
+[4.146802] (-) TimerEvent: {}
+[4.247809] (-) TimerEvent: {}
+[4.348424] (-) TimerEvent: {}
+[4.449160] (-) TimerEvent: {}
+[4.549784] (-) TimerEvent: {}
+[4.650768] (-) TimerEvent: {}
+[4.753798] (-) TimerEvent: {}
+[4.854555] (-) TimerEvent: {}
+[4.955204] (-) TimerEvent: {}
+[5.055774] (-) TimerEvent: {}
+[5.156347] (-) TimerEvent: {}
+[5.256891] (-) TimerEvent: {}
+[5.357492] (-) TimerEvent: {}
+[5.458781] (-) TimerEvent: {}
+[5.563596] (-) TimerEvent: {}
+[5.665639] (-) TimerEvent: {}
+[5.766259] (-) TimerEvent: {}
+[5.867226] (-) TimerEvent: {}
+[5.972802] (-) TimerEvent: {}
+[6.075278] (-) TimerEvent: {}
+[6.176899] (-) TimerEvent: {}
+[6.281476] (-) TimerEvent: {}
+[6.385738] (-) TimerEvent: {}
+[6.486580] (-) TimerEvent: {}
+[6.589488] (-) TimerEvent: {}
+[6.694534] (-) TimerEvent: {}
+[6.814212] (-) TimerEvent: {}
+[6.925381] (-) TimerEvent: {}
+[7.032117] (-) TimerEvent: {}
+[7.132823] (-) TimerEvent: {}
+[7.235768] (-) TimerEvent: {}
+[7.336423] (-) TimerEvent: {}
+[7.436956] (-) TimerEvent: {}
+[7.537535] (-) TimerEvent: {}
+[7.638122] (-) TimerEvent: {}
+[7.739782] (-) TimerEvent: {}
+[7.840357] (-) TimerEvent: {}
+[7.941819] (-) TimerEvent: {}
+[8.042845] (-) TimerEvent: {}
+[8.144046] (-) TimerEvent: {}
+[8.244557] (-) TimerEvent: {}
+[8.345766] (-) TimerEvent: {}
+[8.446428] (-) TimerEvent: {}
+[8.548238] (-) TimerEvent: {}
+[8.652918] (-) TimerEvent: {}
+[8.755480] (-) TimerEvent: {}
+[8.859566] (-) TimerEvent: {}
+[8.962189] (-) TimerEvent: {}
+[9.068765] (-) TimerEvent: {}
+[9.123021] (nav2_behavior) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/csilab/yolo_ws/build/nav2_behavior/build', '--no-deps', 'symlink_data'], 'cwd': '/home/csilab/yolo_ws/build/nav2_behavior', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'ko:en', 'USER': 'csilab', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/csilab/yolo_ws/install/yolo_msgs/lib:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/csilab', 'OLDPWD': '/home/csilab', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'en_US.UTF-8', 'MANAGERPID': '2940', 'ROS_STATIC_PEERS': '10.8.141.23', 'SYSTEMD_EXEC_PID': '3312', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '589085', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/csilab/yolo_ws/install:/home/csilab/turtlebot3_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'csilab', 'JOURNAL_STREAM': '10:18129', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'csilab', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/csilab/.local/bin:/home/csilab/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/turtle-jeong-pc:@/tmp/.ICE-unix/3114,unix/turtle-jeong-pc:/tmp/.ICE-unix/3114', 'INVOCATION_ID': '778c6c84af22441f97ad69c3b85bffd3', 'PAPERSIZE': 'letter', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'en_US.UTF-8', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'ko_KR.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'en_US.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.PFK4S3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/csilab/yolo_ws/install/yolo_bringup:/home/csilab/yolo_ws/install/yolo_ros:/home/csilab/yolo_ws/install/nav2_behavior:/home/csilab/yolo_ws/install/bottle_behavior:/home/csilab/yolo_ws/install/yolo_msgs:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_examples:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/csilab/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'TERMINATOR_UUID': 'urn:uuid:f501bbfc-9b52-47ce-9348-e77a9c5bf515', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/csilab/yolo_ws/build/nav2_behavior', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'LDS_MODEL': 'LDS-02', 'PYTHONPATH': '/home/csilab/yolo_ws/build/nav2_behavior/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:/home/csilab/yolo_ws/install/yolo_msgs/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/yolo_ros:/home/csilab/yolo_ws/install/yolo_ros/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/nav2_behavior:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:/home/csilab/yolo_ws/build/bottle_behavior:/home/csilab/yolo_ws/install/bottle_behavior/lib/python3.12/site-packages:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib/python3.12/site-packages:/home/csilab/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/csilab/yolo_ws/install/yolo_msgs:/home/csilab/yolo_ws/install/yolo_bringup:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_examples:/home/csilab/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/csilab/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[9.168898] (-) TimerEvent: {}
+[9.272814] (-) TimerEvent: {}
+[9.375066] (-) TimerEvent: {}
+[9.475632] (-) TimerEvent: {}
+[9.577988] (-) TimerEvent: {}
+[9.680733] (-) TimerEvent: {}
+[9.783711] (-) TimerEvent: {}
+[9.884181] (-) TimerEvent: {}
+[9.987786] (-) TimerEvent: {}
+[10.090017] (-) TimerEvent: {}
+[10.190816] (-) TimerEvent: {}
+[10.314767] (-) TimerEvent: {}
+[10.415533] (-) TimerEvent: {}
+[10.518911] (-) TimerEvent: {}
+[10.619347] (-) TimerEvent: {}
+[10.719903] (-) TimerEvent: {}
+[10.820761] (-) TimerEvent: {}
+[10.921451] (-) TimerEvent: {}
+[11.022765] (-) TimerEvent: {}
+[11.123388] (-) TimerEvent: {}
+[11.226783] (-) TimerEvent: {}
+[11.327359] (-) TimerEvent: {}
+[11.427810] (-) TimerEvent: {}
+[11.464932] (nav2_behavior) StdoutLine: {'line': b'running develop\n'}
+[11.528008] (-) TimerEvent: {}
+[11.628670] (-) TimerEvent: {}
+[11.729120] (-) TimerEvent: {}
+[11.829670] (-) TimerEvent: {}
+[11.936900] (-) TimerEvent: {}
+[12.040870] (-) TimerEvent: {}
+[12.141766] (-) TimerEvent: {}
+[12.242368] (-) TimerEvent: {}
+[12.343785] (-) TimerEvent: {}
+[12.446759] (-) TimerEvent: {}
+[12.547372] (-) TimerEvent: {}
+[12.648238] (-) TimerEvent: {}
+[12.750551] (-) TimerEvent: {}
+[12.851937] (-) TimerEvent: {}
+[12.952800] (-) TimerEvent: {}
+[13.053770] (-) TimerEvent: {}
+[13.074983] (nav2_behavior) StdoutLine: {'line': b'running egg_info\n'}
+[13.156101] (-) TimerEvent: {}
+[13.225411] (nav2_behavior) StdoutLine: {'line': b'writing nav2_behavior.egg-info/PKG-INFO\n'}
+[13.230948] (nav2_behavior) StdoutLine: {'line': b'writing dependency_links to nav2_behavior.egg-info/dependency_links.txt\n'}
+[13.234948] (nav2_behavior) StdoutLine: {'line': b'writing entry points to nav2_behavior.egg-info/entry_points.txt\n'}
+[13.235437] (nav2_behavior) StdoutLine: {'line': b'writing requirements to nav2_behavior.egg-info/requires.txt\n'}
+[13.239943] (nav2_behavior) StdoutLine: {'line': b'writing top-level names to nav2_behavior.egg-info/top_level.txt\n'}
+[13.256279] (-) TimerEvent: {}
+[13.357263] (-) TimerEvent: {}
+[13.458739] (-) TimerEvent: {}
+[13.559245] (-) TimerEvent: {}
+[13.604958] (nav2_behavior) StdoutLine: {'line': b"reading manifest file 'nav2_behavior.egg-info/SOURCES.txt'\n"}
+[13.609875] (nav2_behavior) StdoutLine: {'line': b"writing manifest file 'nav2_behavior.egg-info/SOURCES.txt'\n"}
+[13.659402] (-) TimerEvent: {}
+[13.760795] (-) TimerEvent: {}
+[13.781906] (nav2_behavior) StdoutLine: {'line': b'running build_ext\n'}
+[13.782586] (nav2_behavior) StdoutLine: {'line': b'Creating /home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages/nav2-behavior.egg-link (link to .)\n'}
+[13.786196] (nav2_behavior) StdoutLine: {'line': b'Installing bottle_nav script to /home/csilab/yolo_ws/install/nav2_behavior/lib/nav2_behavior\n'}
+[13.787958] (nav2_behavior) StdoutLine: {'line': b'Installing cup_go_multi script to /home/csilab/yolo_ws/install/nav2_behavior/lib/nav2_behavior\n'}
+[13.788297] (nav2_behavior) StdoutLine: {'line': b'Installing cup_go_once script to /home/csilab/yolo_ws/install/nav2_behavior/lib/nav2_behavior\n'}
+[13.788782] (nav2_behavior) StdoutLine: {'line': b'Installing cup_localizer script to /home/csilab/yolo_ws/install/nav2_behavior/lib/nav2_behavior\n'}
+[13.789135] (nav2_behavior) StdoutLine: {'line': b'Installing follow_waypoints script to /home/csilab/yolo_ws/install/nav2_behavior/lib/nav2_behavior\n'}
+[13.789547] (nav2_behavior) StdoutLine: {'line': b'Installing go_to_pose script to /home/csilab/yolo_ws/install/nav2_behavior/lib/nav2_behavior\n'}
+[13.789944] (nav2_behavior) StdoutLine: {'line': b'Installing yolo_reaction script to /home/csilab/yolo_ws/install/nav2_behavior/lib/nav2_behavior\n'}
+[13.790816] (nav2_behavior) StdoutLine: {'line': b'\n'}
+[13.791049] (nav2_behavior) StdoutLine: {'line': b'Installed /home/csilab/yolo_ws/build/nav2_behavior\n'}
+[13.791228] (nav2_behavior) StdoutLine: {'line': b'running symlink_data\n'}
+[13.861749] (-) TimerEvent: {}
+[13.959203] (nav2_behavior) CommandEnded: {'returncode': 0}
+[13.962178] (-) TimerEvent: {}
+[14.022141] (nav2_behavior) JobEnded: {'identifier': 'nav2_behavior', 'rc': 0}
+[14.027120] (-) EventReactorShutdown: {}

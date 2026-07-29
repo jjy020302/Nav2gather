@@ -1,0 +1,1 @@
+/home/csilab/Nav2gather/code/yolo_ws/src/yolo_ros/yolo_msgs/msg/BoundingBox2D.msg

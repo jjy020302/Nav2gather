@@ -1,0 +1,2 @@
+[console_scripts]
+bottle_stop = bottle_behavior.bottle_stop:main

@@ -1,0 +1,17 @@
+[1.253s] Invoking command in '/home/csilab/yolo_ws/build/nav2_behavior': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/csilab/yolo_ws/build/nav2_behavior/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/csilab/yolo_ws/build/nav2_behavior/build --no-deps symlink_data
+[1.546s] running develop
+[1.737s] running egg_info
+[1.756s] writing nav2_behavior.egg-info/PKG-INFO
+[1.756s] writing dependency_links to nav2_behavior.egg-info/dependency_links.txt
+[1.756s] writing entry points to nav2_behavior.egg-info/entry_points.txt
+[1.756s] writing requirements to nav2_behavior.egg-info/requires.txt
+[1.756s] writing top-level names to nav2_behavior.egg-info/top_level.txt
+[1.793s] reading manifest file 'nav2_behavior.egg-info/SOURCES.txt'
+[1.794s] writing manifest file 'nav2_behavior.egg-info/SOURCES.txt'
+[1.813s] running build_ext
+[1.814s] Creating /home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages/nav2-behavior.egg-link (link to .)
+[1.815s] Installing go_to_pose script to /home/csilab/yolo_ws/install/nav2_behavior/lib/nav2_behavior
+[1.815s] 
+[1.815s] Installed /home/csilab/yolo_ws/build/nav2_behavior
+[1.815s] running symlink_data
+[1.847s] Invoked command in '/home/csilab/yolo_ws/build/nav2_behavior' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/csilab/yolo_ws/build/nav2_behavior/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/csilab/yolo_ws/install/nav2_behavior/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/csilab/yolo_ws/build/nav2_behavior/build --no-deps symlink_data
