@@ -5,7 +5,9 @@
 ### Toward Cooperative Multi-Robot Navigation
 
 Navigation2 기반 객체 인식 자율주행 시스템을 구현하고, 이후 다중 로봇 협력 주행(Multi-Robot Navigation)으로 확장하기 위한 프로젝트이다.
+
 </div>
+
 <br>
 
 <div align="center">
@@ -14,7 +16,7 @@ Navigation2 기반 객체 인식 자율주행 시스템을 구현하고, 이후 
 데모 영상: <a href="videos/Behavior%20Demo.mp4">Behavior Demo.mp4</a>
 </video>
 
-<sub><i>Object Detection → Localization → Behavior → Navigation2로 이어지는 전체 동작</i></sub>
+<sub><i>SLAM · Navigation2 · Object Detection · Localization · Behavior가 결합된 전체 시스템 동작</i></sub>
 
 </div>
 
@@ -23,16 +25,15 @@ Navigation2 기반 객체 인식 자율주행 시스템을 구현하고, 이후 
 ## 목차
 
 - [프로젝트 개요](#프로젝트-개요)
-- [핵심 기능](#핵심-기능)
 - [시스템 아키텍처](#시스템-아키텍처)
-- [전체 동작 흐름](#전체-동작-흐름)
+- [개발 환경](#개발-환경)
+- [SLAM](#slam)
+- [Navigation2](#navigation2)
+- [YOLO Object Detection](#yolo-object-detection)
+- [Object Localization](#object-localization)
 - [Behavior 상태 머신](#behavior-상태-머신)
-- [SLAM & Navigation2](#slam--navigation2)
-- [기술 스택](#기술-스택)
-- [프로젝트 구조](#프로젝트-구조)
-- [구현 현황](#구현-현황)
+- [구현 결과](#구현-결과)
 - [향후 계획](#향후-계획)
-- [문서](#문서)
 
 ---
 
@@ -45,15 +46,6 @@ Navigation2 기반 객체 인식 자율주행 시스템을 구현하고, 이후 
 TurtleBot3 Burger는 Raspberry Pi 4·LiDAR·USB 웹캠으로 센서 수집과 구동만 담당하고, SLAM·Navigation2·YOLO 추론처럼 연산량이 큰 작업은 Remote PC에서 처리하는 Offloading 구조를 채택했다.
 
 현재는 단일 로봇을 대상으로 인식 기반 자율주행 파이프라인을 구현했으며, 이후 여러 대의 로봇이 역할을 나누어 함께 주행하는 **Multi-Robot Navigation**으로 확장하는 것을 목표로 한다.
-
-## 핵심 기능
-
-| 구성 요소 | 설명 |
-|---|---|
-| **Object Detection** | USB 웹캠 영상을 `yolo_ros`로 실시간 추론해 목표 물체를 탐지한다. 신뢰도 임계값과 bounding box 크기 필터로 오검출을 제거한다. |
-| **Object Localization** | Bounding Box 폭과 카메라 초점거리를 이용한 Pinhole 카메라 모델로 물체의 3D 위치를 추정한다. LiDAR 클러스터링과 YOLO 방위각을 융합해 위치를 보정하는 방식도 함께 구현되어 있다. |
-| **Navigation2** | Cartographer SLAM으로 생성한 지도 위에서 AMCL로 위치를 추정하고, `nav2_simple_commander`로 전역/지역 경로 계획과 장애물 회피를 수행한다. |
-| **Behavior** | 탐색·정렬·좌표 안정화·이동·재탐색을 상태 머신으로 관리해, 인식된 객체를 목표로 자율주행을 반복 수행한다. |
 
 ## 시스템 아키텍처
 
@@ -84,7 +76,7 @@ flowchart LR
     TB3 <-->|ROS 2 DDS| PC
 ```
 
-## 전체 동작 흐름
+전체 파이프라인은 아래와 같은 순서로 이어진다.
 
 ```text
 USB Camera
@@ -108,6 +100,62 @@ Navigation2
 Robot Motion
 ```
 
+## 개발 환경
+
+| 구분 | 내용 |
+|---|---|
+| **OS** | Ubuntu 24.04 LTS |
+| **Middleware** | ROS 2 Jazzy |
+| **Robot Platform** | TurtleBot3 Burger (Raspberry Pi 4 · OpenCR · LDS-02 LiDAR) |
+| **Perception** | USB Webcam · [`yolo_ros`](code/yolo_ws/src/yolo_ros) (Ultralytics YOLO) |
+| **Navigation** | Navigation2 · Cartographer SLAM · `nav2_simple_commander` |
+| **Simulation / Viz** | Gazebo Harmonic · RViz2 |
+| **Language** | Python · C++ |
+| **Build System** | colcon |
+
+## SLAM
+
+Cartographer로 LiDAR 스캔을 이용해 실시간 점유 격자 지도(occupancy grid map)를 생성한다. TurtleBot3를 원격 조작해 매핑 대상 공간을 주행시키고, 완성된 지도를 저장해 이후 Navigation2에서 사용한다.
+
+<table>
+<tr>
+<td width="45%">
+
+<img src="images/map.png" alt="Cartographer SLAM으로 생성한 점유 격자 지도" width="100%">
+
+<sub><i>Cartographer SLAM으로 생성한 점유 격자 지도</i></sub>
+
+</td>
+<td width="55%">
+
+<video src="videos/slam.MP4" controls width="100%">
+데모 영상: <a href="videos/slam.MP4">slam.MP4</a>
+</video>
+
+<sub><i>LiDAR 기반 실시간 지도 생성 과정</i></sub>
+
+</td>
+</tr>
+</table>
+
+## Navigation2
+
+저장된 지도 위에서 AMCL로 현재 위치를 추정하고, `nav2_simple_commander`(BasicNavigator)를 통해 전역/지역 경로 계획, 장애물 회피, 목표 지점 이동을 수행한다. 뒤에서 다루는 Behavior 노드는 이 인터페이스를 그대로 사용해 인식된 객체 앞 지점을 Nav2 목표로 전달한다.
+
+<div align="center">
+
+<video src="videos/navigation.mp4" controls width="640">
+데모 영상: <a href="videos/navigation.mp4">navigation.mp4</a>
+</video>
+
+<sub><i>AMCL 위치 추정과 Navigation2 목표 지점 자율 이동</i></sub>
+
+</div>
+
+## YOLO Object Detection
+
+Raspberry Pi에 연결된 USB 웹캠 영상을 GStreamer로 Remote PC에 전송해 ROS 2 Image Topic으로 변환하고, `yolo_ros`(Ultralytics YOLO 기반)로 실시간 추론한다. 신뢰도(score) 임계값과 bounding box 크기 필터를 적용해 목표 클래스만 선별한다.
+
 <div align="center">
 
 <video src="videos/yolo_detection.mp4" controls width="640">
@@ -118,11 +166,19 @@ Robot Motion
 
 </div>
 
-좌표계는 `camera_optical_frame → camera_link → base_link → odom → map` 순서로 정적/동적 TF 변환을 거쳐 연결되며, 카메라 장착 위치는 정적 TF로 보정되어 있다.
+## Object Localization
+
+검출된 bounding box의 폭과 카메라 초점거리를 이용한 Pinhole 카메라 모델로 카메라 기준 물체의 3D 좌표(거리·각도)를 추정한다.
+
+```text
+distance = (real_object_width × focal_length_px) / bbox_width_px
+```
+
+별도 구현에서는 YOLO 검출 방위각과 LiDAR 스캔 클러스터링을 결합해 더 강건하게 위치를 보정한다. 추정된 좌표는 `camera_optical_frame → camera_link → base_link → odom → map` TF 체인을 거쳐 map 좌표계로 변환되고, Behavior 노드의 목표 지점으로 전달된다.
 
 ## Behavior 상태 머신
 
-Behavior 노드는 아래 상태를 순환하며 인식된 객체를 향해 자율주행을 수행한다.
+Behavior 노드는 Navigation2와 Object Localization의 결과를 입력받아, 아래 상태를 순환하며 인식된 객체를 향해 자율주행을 수행하는 상위 로직이다.
 
 ```text
 Searching
@@ -157,74 +213,17 @@ Cooldown
 
 이미 도착한 목표의 map 좌표는 계속 유지되어 다음 탐색 루프에서 자동으로 제외되며, 이는 이후 여러 로봇이 좌표를 공유하며 협력 주행하는 구조로 확장될 수 있는 기반이 된다.
 
-## SLAM & Navigation2
-
-<table>
-<tr>
-<td width="45%">
-
-<img src="images/map.png" alt="Cartographer SLAM으로 생성한 점유 격자 지도" width="100%">
-
-<sub><i>Cartographer SLAM으로 생성한 점유 격자 지도(occupancy grid map)</i></sub>
-
-</td>
-<td width="55%">
-
-<video src="videos/slam.MP4" controls width="100%">
-데모 영상: <a href="videos/slam.MP4">slam.MP4</a>
-</video>
-
-<sub><i>LiDAR 기반 실시간 지도 생성 과정</i></sub>
-
-</td>
-</tr>
-</table>
-
 <div align="center">
 
-<video src="videos/navigation.mp4" controls width="640">
-데모 영상: <a href="videos/navigation.mp4">navigation.mp4</a>
+<video src="videos/Behavior%20Demo.mp4" controls width="640">
+데모 영상: <a href="videos/Behavior%20Demo.mp4">Behavior Demo.mp4</a>
 </video>
 
-<sub><i>저장된 지도 위에서 AMCL 위치 추정과 Navigation2 목표 지점 이동</i></sub>
+<sub><i>Searching → Aligning → Collecting → Navigating → Cooldown 전체 루프</i></sub>
 
 </div>
 
-## 기술 스택
-
-| 구분 | 내용 |
-|---|---|
-| **OS** | Ubuntu 24.04 LTS |
-| **Middleware** | ROS 2 Jazzy |
-| **Robot Platform** | TurtleBot3 Burger (Raspberry Pi 4 · OpenCR · LDS-02 LiDAR) |
-| **Perception** | USB Webcam · [`yolo_ros`](code/yolo_ws/src/yolo_ros) (Ultralytics YOLO) |
-| **Navigation** | Navigation2 · Cartographer SLAM · `nav2_simple_commander` |
-| **Simulation / Viz** | Gazebo Harmonic · RViz2 |
-| **Language** | Python · C++ |
-| **Build System** | colcon |
-
-## 프로젝트 구조
-
-```text
-Nav2gather/
-├── code/
-│   ├── turtlebot3_ws/                  Raspberry Pi - 센서 · 구동
-│   └── yolo_ws/                        Remote PC - 인식 · 자율주행
-│       └── src/
-│           ├── yolo_ros/                    YOLO 추론 (외부 오픈소스 패키지)
-│           ├── nav2_behavior/                Object Localization · TF · Behavior 상태 머신
-│           ├── frontier_exploration_ros2/    Frontier Exploration (외부 패키지, 연동 중)
-│           ├── yolo_behavior/                 Behavior 초기 실험 노드
-│           └── bottle_behavior/              탐지 후 정지 실험 노드
-├── docs/                                설치 · 실행 가이드북
-├── images/                              스크린샷 · 다이어그램
-├── videos/                              시연 영상
-└── presentation/                        발표 자료
-```
-
-`yolo_ros`, `frontier_exploration_ros2`는 각각 [mgonzs13](https://github.com/mgonzs13/yolo_ros), [mertgulerx](https://github.com/mertgulerx/frontier-exploration-ros2)의 오픈소스 패키지를 워크스페이스에 통합해 사용한다.
-
-## 구현 현황
+## 구현 결과
 
 | 항목 | 상태 |
 |---|---|
