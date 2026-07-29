@@ -2,11 +2,17 @@
 
 # Nav2gather
 
-### Toward Cooperative Multi-Robot Navigation
+### ROS 2 Navigation2 기반 객체 인식 자율주행 시스템
 
-Navigation2 기반 객체 인식 자율주행 시스템을 구현하고, 이후 다중 로봇 협력 주행(Multi-Robot Navigation)으로 확장하기 위한 프로젝트이다.
+<sub>Toward Cooperative Multi-Robot Navigation</sub>
 
 </div>
+
+<br>
+
+- **ROS 2 Navigation2** 기반 객체 인식 자율주행 시스템
+- **TurtleBot3**가 카메라로 물체를 인식하고 스스로 목표 지점까지 접근
+- SLAM·YOLO·Navigation2 연산을 Remote PC가 전담하는 **Offloading Architecture**
 
 <br>
 
@@ -39,13 +45,13 @@ Navigation2 기반 객체 인식 자율주행 시스템을 구현하고, 이후 
 
 ## 프로젝트 개요
 
-**Nav2gather**는 TurtleBot3 Burger를 기반으로 Navigation2, Object Detection, Object Localization, Behavior를 통합한 **객체 인식 자율주행 시스템**이다.
+**Nav2gather**는 TurtleBot3 Burger 한 대에 Navigation2, YOLO Object Detection, Object Localization, Behavior를 통합해 구현한 **객체 인식 자율주행 시스템**이다.
 
 로봇은 카메라 영상에서 YOLO로 목표 물체를 인식하고, 인식된 위치를 카메라 좌표계에서 map 좌표계로 변환해 Navigation2의 목표 지점으로 사용한다. 사람이 RViz에서 목적지를 직접 지정하는 방식 대신, **인식된 객체를 스스로 목적지로 삼아 이동**하는 것이 이 시스템의 핵심 구조다.
 
-TurtleBot3 Burger는 Raspberry Pi 4·LiDAR·USB 웹캠으로 센서 수집과 구동만 담당하고, SLAM·Navigation2·YOLO 추론처럼 연산량이 큰 작업은 Remote PC에서 처리하는 Offloading 구조를 채택했다.
+TurtleBot3 Burger는 Raspberry Pi 4·LiDAR·USB 웹캠으로 센서 수집과 구동만 담당하고, SLAM·Navigation2·YOLO 추론처럼 연산량이 큰 작업은 Remote PC에서 처리하는 **Offloading Architecture**를 채택했다.
 
-현재는 단일 로봇을 대상으로 인식 기반 자율주행 파이프라인을 구현했으며, 이후 여러 대의 로봇이 역할을 나누어 함께 주행하는 **Multi-Robot Navigation**으로 확장하는 것을 목표로 한다.
+현재 구현은 단일 로봇을 대상으로 하며, 이 인식 기반 자율주행 구조는 [향후 계획](#향후-계획)에서 다루는 여러 대의 로봇이 협력 주행하는 **Multi-Robot Navigation**으로 확장될 수 있는 기반이 된다.
 
 ## 시스템 아키텍처
 
@@ -107,11 +113,49 @@ Robot Motion
 | **OS** | Ubuntu 24.04 LTS |
 | **Middleware** | ROS 2 Jazzy |
 | **Robot Platform** | TurtleBot3 Burger (Raspberry Pi 4 · OpenCR · LDS-02 LiDAR) |
-| **Perception** | USB Webcam · [`yolo_ros`](code/yolo_ws/src/yolo_ros) (Ultralytics YOLO) |
-| **Navigation** | Navigation2 · Cartographer SLAM · `nav2_simple_commander` |
 | **Simulation / Viz** | Gazebo Harmonic · RViz2 |
 | **Language** | Python · C++ |
 | **Build System** | colcon |
+
+**Technology Stack**
+
+<table>
+<tr>
+<td valign="top" width="50%">
+
+**Navigation**
+- Navigation2
+- Cartographer SLAM
+- `nav2_simple_commander`
+
+</td>
+<td valign="top" width="50%">
+
+**Perception**
+- YOLO ROS ([`yolo_ros`](code/yolo_ws/src/yolo_ros), Ultralytics)
+- USB Webcam
+- GStreamer
+
+</td>
+</tr>
+<tr>
+<td valign="top">
+
+**Localization**
+- TF2
+- `PointStamped` (Pinhole Camera Model)
+- LiDAR Clustering
+
+</td>
+<td valign="top">
+
+**Behavior**
+- `nav2_simple_commander` (BasicNavigator)
+- Python State Machine
+
+</td>
+</tr>
+</table>
 
 ## SLAM
 
@@ -181,34 +225,41 @@ distance = (real_object_width × focal_length_px) / bbox_width_px
 Behavior 노드는 Navigation2와 Object Localization의 결과를 입력받아, 아래 상태를 순환하며 인식된 객체를 향해 자율주행을 수행하는 상위 로직이다.
 
 ```text
-Searching
-    │   Object Detected
-    ▼
-Aligning
-    │   Centered in Frame
-    ▼
-Collecting
-    │   Coordinate Samples Stabilized
-    ▼
-Navigating
-    │   Goal Reached
-    ▼
-Cooldown
-    │   Next Target
-    └────────────────────┐
-                         ▼
-                    Searching
+ ┌──────────────────────────────────────────────────┐
+ │                                                    │
+ ▼                                                    │
+Searching                                             │
+ │   Object Detected                                  │
+ ▼                                                    │
+Aligning                                               │
+ │   Centered in Frame                                │
+ ▼                                                    │
+Coordinate Averaging                                   │
+ │   Samples Stabilized                               │
+ ▼                                                    │
+Navigation Goal                                        │
+ │   Goal Generated                                   │
+ ▼                                                    │
+Navigate to Target                                     │
+ │   Goal Reached                                     │
+ ▼                                                    │
+Cooldown                                               │
+ │   Next Bottle                                      │
+ ▼                                                    │
+Search Next Bottle ────────────────────────────────────┘
 ```
 
-탐색 또는 이동이 반복적으로 실패하면 `Navigating`, `Searching` 단계에서 `Stopped` 상태로 안전하게 종료된다.
+탐색 또는 이동이 반복적으로 실패하면 `Navigate to Target`, `Searching` 단계에서 `Stopped` 상태로 안전하게 종료된다.
 
 | 단계 | 코드 상태(enum) | 설명 |
 |---|---|---|
 | Searching | `SEARCHING` | 제자리 회전하며 목표 물체를 탐색 |
 | Aligning | `ALIGNING` | 각도 오차를 계산해 물체가 화면 중앙에 오도록 정렬 |
-| Collecting | `PREPARING_GOAL` | 여러 프레임의 좌표 샘플을 모아 중앙값으로 안정화 |
-| Navigating | `NAVIGATING` | 안정화된 좌표 앞 정지 지점을 목표로 생성해 Nav2로 이동 |
+| Coordinate Averaging | `PREPARING_GOAL` | 여러 프레임의 좌표 샘플을 모아 중앙값으로 안정화 |
+| Navigation Goal | `PREPARING_GOAL` | 안정화된 좌표 앞 정지 지점을 Nav2 목표로 생성 |
+| Navigate to Target | `NAVIGATING` | 생성된 목표까지 Nav2로 자율 이동 |
 | Cooldown | `COOLDOWN` | 도착 후 대기하며 동일 목표 재탐색을 방지 |
+| Search Next Bottle | `SEARCHING`(복귀) | 다음 목표를 찾기 위해 탐색 상태로 순환 |
 | — | `STOPPED` | 재시도·탐색 한계 초과 시 안전 종료 |
 
 이미 도착한 목표의 map 좌표는 계속 유지되어 다음 탐색 루프에서 자동으로 제외되며, 이는 이후 여러 로봇이 좌표를 공유하며 협력 주행하는 구조로 확장될 수 있는 기반이 된다.
@@ -219,11 +270,42 @@ Cooldown
 데모 영상: <a href="videos/Behavior%20Demo.mp4">Behavior Demo.mp4</a>
 </video>
 
-<sub><i>Searching → Aligning → Collecting → Navigating → Cooldown 전체 루프</i></sub>
+<sub><i>Searching → Aligning → Coordinate Averaging → Navigation Goal → Navigate to Target → Cooldown 전체 루프</i></sub>
 
 </div>
 
 ## 구현 결과
+
+<table>
+<tr>
+<td width="50%">
+
+<video src="videos/slam.MP4" controls width="100%"></video>
+<sub><i>SLAM</i></sub>
+
+</td>
+<td width="50%">
+
+<video src="videos/navigation.mp4" controls width="100%"></video>
+<sub><i>Navigation2</i></sub>
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+<video src="videos/yolo_detection.mp4" controls width="100%"></video>
+<sub><i>YOLO Object Detection</i></sub>
+
+</td>
+<td width="50%">
+
+<video src="videos/Behavior%20Demo.mp4" controls width="100%"></video>
+<sub><i>Behavior (전체 루프)</i></sub>
+
+</td>
+</tr>
+</table>
 
 | 항목 | 상태 |
 |---|---|
@@ -240,11 +322,19 @@ Cooldown
 
 ## 향후 계획
 
-- **Multi-Robot Navigation** — Burger·Waffle 동시 자율주행, Namespace 기반 다중 로봇 환경 구성
-- **Costmap 기반 Robot-to-Robot Avoidance** — 로봇 간 자연스러운 회피
-- **MAPF (Multi-Agent Path Finding)** — 다중 로봇 충돌 없는 경로 계획
-- **Autonomous Exploration** — Frontier Exploration 실환경 검증, 목적지 자동 탐색
-- **Navigation Behavior 고도화** — 재시도 전략 · Recovery Behavior · Behavior Tree 분석
+**Current**
+
+- ✓ Object-aware Autonomous Navigation — YOLO 인식 결과를 Navigation2 목표로 변환해 자율 이동
+- ✓ SLAM 기반 지도 생성 및 AMCL Localization
+- ✓ Camera-LiDAR 융합 Object Localization
+- ✓ Behavior 상태 머신 기반 자율 탐색·접근
+
+**Next**
+
+- → Frontier Exploration 실환경 검증, 목적지 자동 탐색
+- → Multi-Robot Coordination — Burger·Waffle 동시 자율주행, Namespace 기반 다중 로봇 환경 구성
+- → Cooperative Navigation — Costmap 기반 로봇 간 회피, MAPF(Multi-Agent Path Finding) 기반 경로 조율
+- → Navigation Behavior 고도화 — 재시도 전략 · Recovery Behavior · Behavior Tree 분석
 
 ## 문서
 
