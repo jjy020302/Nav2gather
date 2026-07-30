@@ -72,3 +72,71 @@ ros2 run image_view image_view \
 
 [배터리 확인 코드]
 ros2 topic echo /battery_state
+
+
+------------------------------------------
+카메라 실행 코드
+
+카메라 실행
+
+[Raspberry Pi 터미널 1 — TurtleBot3 Bringup]
+ssh csilab@10.8.141.23
+
+ros2 launch turtlebot3_bringup robot.launch.py
+
+[Raspberry Pi 터미널 2 — 카메라 송출]
+ssh csilab@10.8.141.23
+
+gst-launch-1.0 -v \_
+v4l2src device=/dev/video0 ! \
+image/jpeg,width=640,height=480,framerate=15/1 ! \
+jpegparse ! \
+rtpjpegpay ! \
+udpsink host=10.8.132.182 port=5000
+
+[노트북 터미널 1 — gscam]
+export GSCAM_CONFIG='udpsrc port=5000 caps="application/x-rtp,media=video,encoding-name=JPEG,payload=26" ! rtpjpegdepay ! jpegdec ! videoconvert ! video/x-raw,format=RGB'
+
+ros2 run gscam gscam_node \
+  --ros-args \
+  -p camera_name:=robot_camera \
+  -p frame_id:=camera_link \
+  -p sync_sink:=false \
+  -r image_raw:=/camera/image_raw
+  
+[노트북 터미널 2 — YOLO]
+ros2 launch yolo_bringup yolo.launch.py \
+model:=yolov8n.pt \
+device:=cpu \
+input_image_topic:=/camera/image_raw \
+image_reliability:=1 \
+use_tracking:=False \
+use_3d:=False \
+use_debug:=True \
+imgsz_width:=640 \
+imgsz_height:=480 \
+threshold:=0.5
+
+[노트북 터미널 3 — TF]
+source /opt/ros/jazzy/setup.bash
+source ~/turtlebot3_ws/install/setup.bash
+source ~/yolo_ws/install/setup.bash
+
+ros2 launch nav2_behavior camera_tf.launch.py
+
+[노트북 터미널 4 — Cup Localizer]
+ros2 run nav2_behavior cup_localizer
+
+[노트북 터미널 5 — Navigation2]
+ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=$HOME/map.yaml
+
+[노트북 터미널 6 — Bottle Behavior]
+ros2 run nav2_behavior bottle_behavior
+
+ros2 topic pub --once /cmd_vel geometry_msgs/msg/TwistStamped \
+"{header: {frame_id: 'base_link'}, twist: {linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}}"
+
+[노트북 영상 확인]
+ros2 run image_view image_view \
+  --ros-args \
+  -r image:=/yolo/dbg_image

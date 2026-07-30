@@ -18,8 +18,8 @@
 
 <div align="center">
 
-<video src="videos/Behavior%20Demo.mp4" controls width="720">
-데모 영상: <a href="videos/Behavior%20Demo.mp4">Behavior Demo.mp4</a>
+<video src="videos/demo.MP4" controls autoplay loop muted playsinline width="720">
+데모 영상: <a href="videos/demo.MP4">demo.mp4</a>
 </video>
 
 <sub><i>SLAM · Navigation2 · Object Detection · Localization · Behavior가 결합된 전체 시스템 동작</i></sub>
@@ -200,15 +200,26 @@ Cartographer로 LiDAR 스캔을 이용해 실시간 점유 격자 지도(occupan
 
 Raspberry Pi에 연결된 USB 웹캠 영상을 GStreamer로 Remote PC에 전송해 ROS 2 Image Topic으로 변환하고, `yolo_ros`(Ultralytics YOLO 기반)로 실시간 추론한다. 신뢰도(score) 임계값과 bounding box 크기 필터를 적용해 목표 클래스만 선별한다.
 
-<div align="center">
+<table>
+<tr>
+<td width="45%">
 
-<video src="videos/yolo_detection.mp4" controls width="640">
+<img src="images/yolo_detection.png" alt="YOLO가 Bounding Box와 Class Name으로 물체를 인식한 결과" width="100%">
+
+<sub><i>YOLO Detection 결과 (Bounding Box · Class · Confidence Score)</i></sub>
+
+</td>
+<td width="55%">
+
+<video src="videos/yolo_detection.mp4" controls width="100%">
 데모 영상: <a href="videos/yolo_detection.mp4">yolo_detection.mp4</a>
 </video>
 
 <sub><i>USB 웹캠 영상에서 YOLO가 목표 물체를 실시간으로 탐지하는 모습</i></sub>
 
-</div>
+</td>
+</tr>
+</table>
 
 ## Object Localization
 
@@ -276,36 +287,7 @@ Search Next Bottle ────────────────────�
 
 ## 구현 결과
 
-<table>
-<tr>
-<td width="50%">
-
-<video src="videos/slam.MP4" controls width="100%"></video>
-<sub><i>SLAM</i></sub>
-
-</td>
-<td width="50%">
-
-<video src="videos/navigation.mp4" controls width="100%"></video>
-<sub><i>Navigation2</i></sub>
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-<video src="videos/yolo_detection.mp4" controls width="100%"></video>
-<sub><i>YOLO Object Detection</i></sub>
-
-</td>
-<td width="50%">
-
-<video src="videos/Behavior%20Demo.mp4" controls width="100%"></video>
-<sub><i>Behavior (전체 루프)</i></sub>
-
-</td>
-</tr>
-</table>
+각 기능별 데모 영상은 위 해당 섹션에서 확인할 수 있으며, 전체 구현 현황은 다음과 같다.
 
 | 항목 | 상태 |
 |---|---|
@@ -342,7 +324,7 @@ Search Next Bottle ────────────────────�
 
 | 문서 | 내용 |
 |---|---|
-| [01. Guidebook — Part 1](docs/01_Guidebook_Part1) | 개발 환경 구축 · TurtleBot3 Bringup |
-| [02. Guidebook — Part 2](docs/02_Guidebook_Part2) | SLAM · Navigation2 |
-| [03. Webcam Setup](docs/03_Webcam_Setup) | USB Webcam · YOLO 연동 |
-| [04. Troubleshooting](docs/04_Troubleshooting) | 개발 중 발생한 문제와 해결 기록 |
+| [01. Guidebook — Part 1](docs/01_Guidebook_Part1.md) | 개발 환경 구축 · TurtleBot3 Bringup |
+| [02. Guidebook — Part 2](docs/02_Guidebook_Part2.md) | SLAM · Navigation2 |
+| [03. Webcam Setup](docs/03_Webcam_Setup.md) | USB Webcam · YOLO 연동 |
+| [04. Troubleshooting](docs/04_Troubleshooting.md) | 개발 중 발생한 문제와 해결 기록 |

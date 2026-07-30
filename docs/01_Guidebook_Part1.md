@@ -437,7 +437,13 @@ Raspberry Pi에서 사용할 **Ubuntu Server 24.04 LTS** 이미지를 microSD �
 2. **Raspberry Pi Imager**를 선택한다.
 3. 운영체제에 맞는 **Download for Linux (x86_64)** 를 선택하여 다운로드한다.
 
-> **Figure 5-1. Raspberry Pi Imager 다운로드**
+<p align="center">
+  <img src="../images/rpi_imager_download.png" width="700">
+</p>
+
+<p align="center">
+<b>Figure 5-1.</b> Raspberry Pi 공식 홈페이지의 Imager 다운로드 페이지
+</p>
 
 ### 5.2 Raspberry Pi Imager 설치
 
@@ -756,7 +762,13 @@ OpenCR은 TurtleBot3의 Dynamixel 모터와 각종 센서를 제어하는 컨트
 
 OpenCR Firmware 업로드는 **OpenCR을 USB로 Remote PC에 연결한 상태**에서 진행한다.
 
-> **Figure 9-1. OpenCR과 Remote PC 연결**
+<p align="center">
+  <img src="../images/opencr_connection.png" width="400">
+</p>
+
+<p align="center">
+<b>Figure 9-1.</b> OpenCR과 Raspberry Pi 보드 연결부
+</p>
 
 ### 9.1 OpenCR 환경 변수 설정
 

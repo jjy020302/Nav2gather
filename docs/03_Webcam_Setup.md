@@ -1,0 +1,296 @@
+# 03_Webcam_Setup
+
+## Webcam 영상 송출 및 YOLO 객체 인식
+
+본 문서에서는 Raspberry Pi에 연결된 USB 웹캠 영상을 GStreamer를 이용하여 Remote PC로 전송하고, ROS 2 Image Topic을 생성한 뒤 YOLO를 이용하여 객체를 인식하는 과정을 설명한다.
+
+## 목차
+
+1. Raspberry Pi에서 웹캠 영상 송출
+2. Remote PC에서 ROS2 Image Topic 생성
+3. 카메라 Topic 확인
+4. YOLO ROS 설치
+5. YOLO 실행
+6. 객체 인식 확인
+7. 실행 구조
+
+---
+
+# 1. Raspberry Pi에서 웹캠 영상 송출
+
+### SSH 접속
+
+**실행 위치:** 💻 Remote PC
+
+```bash
+ssh csilab@10.8.141.26
+```
+
+### GStreamer로 USB 웹캠 송출
+
+**실행 위치:** 🍓 Raspberry Pi (SSH 접속 후)
+
+> **주의**
+>
+> `host`는 현재 Remote PC의 IP 주소로 변경하여 사용한다.
+
+```bash
+gst-launch-1.0 -v \
+v4l2src device=/dev/video0 ! \
+image/jpeg,width=640,height=480,framerate=15/1 ! \
+jpegparse ! \
+rtpjpegpay ! \
+udpsink host=10.8.133.189 port=5000
+```
+
+이 터미널은 계속 실행한다.
+
+---
+
+# 2. Remote PC에서 ROS2 Image Topic 생성
+
+### GStreamer 파이프라인 설정
+
+**실행 위치:** 💻 Remote PC
+
+```bash
+export GSCAM_CONFIG='udpsrc port=5000 caps="application/x-rtp,media=video,encoding-name=JPEG,payload=26" ! rtpjpegdepay ! jpegdec ! videoconvert ! video/x-raw,format=RGB'
+```
+
+### gscam 실행
+
+```bash
+ros2 run gscam gscam_node \
+  --ros-args \
+  -p camera_name:=robot_camera \
+  -p frame_id:=camera_link \
+  -p sync_sink:=false \
+  -r image_raw:=/camera/image_raw
+```
+
+이 터미널도 계속 실행한다.
+
+---
+
+# 3. 카메라 Topic 확인
+
+새 터미널에서 Topic을 확인한다.
+
+**실행 위치:** 💻 Remote PC
+
+```bash
+ros2 topic list | grep camera
+```
+
+정상적으로 실행되면 다음과 같이 출력된다.
+
+```text
+/camera/image_raw
+/camera/camera_info
+```
+
+카메라 영상을 확인한다.
+
+```bash
+ros2 run image_view image_view \
+  --ros-args \
+  -r image:=/camera/image_raw
+```
+
+영상이 정상적으로 출력되면 `Ctrl+C`로 종료한다.
+
+---
+
+# 4. YOLO ROS 설치
+
+## 4.1 Workspace 생성
+
+**실행 위치:** 💻 Remote PC
+
+```bash
+mkdir -p ~/yolo_ws/src
+
+cd ~/yolo_ws/src
+```
+
+## 4.2 저장소 다운로드
+
+```bash
+git clone https://github.com/mgonzs13/yolo_ros.git
+```
+
+## 4.3 uv 설치
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+source ~/.bashrc
+```
+
+설치 여부를 확인한다.
+
+```bash
+uv --version
+```
+
+## 4.4 Python 의존성 설치
+
+```bash
+cd ~/yolo_ws/src/yolo_ros
+
+uv sync
+```
+
+## 4.5 ROS 의존성 설치
+
+```bash
+cd ~/yolo_ws
+
+source /opt/ros/jazzy/setup.bash
+
+rosdep install --from-paths src --ignore-src -r -y
+```
+
+## 4.6 Build
+
+```bash
+colcon build --symlink-install
+```
+
+환경을 적용한다.
+
+```bash
+source ~/yolo_ws/install/setup.bash
+```
+
+패키지가 정상적으로 설치되었는지 확인한다.
+
+```bash
+ros2 pkg list | grep yolo
+```
+
+---
+
+# 5. YOLO 실행
+
+**실행 위치:** 💻 Remote PC
+
+```bash
+ros2 launch yolo_bringup yolo.launch.py \
+model:=yolov8n.pt \
+device:=cpu \
+input_image_topic:=/camera/image_raw \
+image_reliability:=1 \
+use_tracking:=False \
+use_3d:=False \
+use_debug:=True \
+imgsz_width:=640 \
+imgsz_height:=480 \
+threshold:=0.5
+```
+
+첫 실행 시 YOLO 모델(`yolov8n.pt`)이 자동으로 다운로드된다.
+
+이 터미널은 계속 실행한다.
+
+---
+
+# 6. 객체 인식 확인
+
+### YOLO Topic 확인
+
+새 터미널에서 Topic을 확인한다.
+
+```bash
+ros2 topic list | grep yolo
+```
+
+정상적으로 실행되면 다음과 같이 출력된다.
+
+```text
+/yolo/dbg_image
+/yolo/detections
+```
+
+### Detection 결과 확인
+
+```bash
+ros2 topic echo /yolo/detections
+```
+
+컵, 사람 등의 객체를 카메라에 비추면 Detection 결과가 출력된다.
+
+### Debug 영상 확인
+
+```bash
+ros2 run image_view image_view \
+  --ros-args \
+  -r image:=/yolo/dbg_image
+```
+
+객체가 인식되면 Bounding Box와 Class Name이 함께 표시된다.
+
+<p align="center">
+  <img src="../images/yolo_detection.png" width="700">
+</p>
+
+<p align="center">
+YOLO Detection 결과 — Bounding Box · Class Name · Confidence Score
+</p>
+
+---
+
+# 7. 실행 구조
+
+```text
+Logitech C920
+        │
+        ▼
+ Raspberry Pi
+(GStreamer UDP 송출)
+        │
+      Wi-Fi
+        │
+        ▼
+ Remote PC
+    (gscam)
+        │
+        ▼
+/camera/image_raw
+        │
+        ▼
+mgonzs13/yolo_ros
+        │
+        ▼
+/yolo/detections
+```
+
+---
+
+# 유지해야 하는 터미널
+
+```text
+[🍓 Raspberry Pi]
+
+① GStreamer 영상 송출
+
+--------------------------------
+
+[💻 Remote PC]
+
+② gscam (/camera/image_raw 생성)
+
+③ yolo_ros 실행
+```
+
+`image_view`, `ros2 topic echo`, `ros2 topic hz`는 확인용이므로 실행 후 종료해도 된다.
+
+---
+
+# 실행 결과 확인
+
+- ✅ Raspberry Pi에서 USB 웹캠 영상이 UDP로 정상 송출된다.
+- ✅ `/camera/image_raw` Topic이 생성된다.
+- ✅ YOLO가 `/camera/image_raw`를 정상적으로 구독한다.
+- ✅ `/yolo/detections` Topic에서 객체 검출 결과를 확인할 수 있다.
+- ✅ `/yolo/dbg_image`에서 Bounding Box가 포함된 영상을 확인할 수 있다.

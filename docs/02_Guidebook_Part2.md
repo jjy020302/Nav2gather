@@ -66,11 +66,11 @@ ros2 run turtlebot3_teleop teleop_keyboard
 로봇을 벽과 장애물을 따라 천천히 이동시키면 LiDAR 데이터를 기반으로 지도가 생성된다. 시작 위치와 탐색이 끝난 위치가 최대한 일치하도록 이동하면 보다 정확한 지도를 생성할 수 있다.
 
 <p align="center">
-  <img src="../images/part2/slam_mapping.png" width="700">
+  <img src="../images/map.png" width="700">
 </p>
 
 <p align="center">
-그림 2-1. RViz에서 Cartographer를 이용하여 환경 지도를 생성한 결과
+그림 2-1. Cartographer로 생성한 환경 지도
 </p>
 
 ### 1.4 지도 저장
@@ -129,7 +129,7 @@ RViz 상단 메뉴에서 **2D Pose Estimate**를 선택한다.
 초기 위치가 정상적으로 설정되면 LiDAR Scan과 저장된 지도가 서로 일치하며, 현재 위치가 안정적으로 추정된다.
 
 <p align="center">
-  <img src="images/part2/figure2-2.png" width="700">
+  <img src="../images/navigation_initial_pose.png" width="700">
 </p>
 
 <p align="center">
@@ -151,7 +151,7 @@ RViz 상단 메뉴에서 **Nav2 Goal**을 선택한다.
 목표가 설정되면 Navigation2가 자동으로 경로를 생성하며 TurtleBot3가 목표 지점까지 자율주행을 시작한다.
 
 <p align="center">
-  <img src="images/part2/figure2-3.png" width="700">
+  <img src="../images/navigation_goal_setting.png" width="700">
 </p>
 
 <p align="center">
@@ -166,14 +166,6 @@ RViz 상단 메뉴에서 **Nav2 Goal**을 선택한다.
 - 목표 지점까지의 이동 경로(Path)가 생성된다.
 - 장애물을 회피하며 생성된 경로를 따라 이동한다.
 - 목표 지점에 도착하면 Navigation이 종료된다.
-
-<p align="center">
-  <img src="../images/part2/navigation_result.png" width="700">
-</p>
-
-<p align="center">
-그림 2-4. Navigation2를 이용한 자율주행 결과
-</p>
 
 이상으로 Cartographer를 이용한 지도 생성부터 Localization, Navigation2를 이용한 자율주행까지의 전체 과정을 완료하였다. 생성한 지도는 이후 카메라 및 YOLO 기반 객체 인식과 Behavior Tree를 이용한 자율주행에서 활용된다.
 
