@@ -2,31 +2,55 @@
 
 # Nav2gather
 
-### ROS 2 Navigation2 기반 객체 인식 자율주행 시스템
+### Object-Aware Autonomous Navigation using ROS 2 Navigation2
 
-<sub>Toward Cooperative Multi-Robot Navigation</sub>
-
-</div>
+**ROS 2 Navigation2 · YOLO · Object Localization · Behavior State Machine**
 
 <br>
 
-- **ROS 2 Navigation2** 기반 객체 인식 자율주행 시스템
-- **TurtleBot3**가 카메라로 물체를 인식하고 스스로 목표 지점까지 접근
-- SLAM·YOLO·Navigation2 연산을 Remote PC가 전담하는 **Offloading Architecture**
-
-<br>
-
-<div align="center">
-
-<video src="videos/demo.MP4" controls autoplay loop muted playsinline width="720">
-데모 영상: <a href="videos/demo.MP4">demo.mp4</a>
+<video src="videos/demo.MP4" controls autoplay muted loop playsinline width="850">
+데모 영상: <a href="videos/demo.MP4">demo.MP4</a>
 </video>
 
-<sub><i>SLAM · Navigation2 · Object Detection · Localization · Behavior가 결합된 전체 시스템 동작</i></sub>
+<br>
+
+> **TurtleBot3가 객체를 인식하고 스스로 목표 지점까지 이동하는 ROS 2 기반 자율주행 시스템**
 
 </div>
 
-<br>
+---
+
+## Overview
+
+**Nav2gather**는 **ROS 2 Navigation2** 기반의 객체 인식 자율주행 시스템이다.
+
+TurtleBot3는 카메라 영상에서 YOLO로 목표 객체를 인식하고, 인식된 객체의 위치를 `map` 좌표계로 변환하여 **Navigation2의 목표 지점으로 사용**한다. 기존처럼 사용자가 RViz에서 목적지를 지정하지 않아도 **객체를 스스로 목적지로 선택하여 이동**할 수 있다.
+
+연산량이 큰 **SLAM**, **Navigation2**, **YOLO**, **Behavior**는 모두 **Remote PC**에서 수행하고, TurtleBot3는 센서 데이터 수집과 모터 제어만 담당하는 **Offloading Architecture**를 적용하였다.
+
+### Key Features
+
+- ROS 2 Navigation2 기반 자율주행
+- YOLO 기반 객체 인식
+- Object Localization (Camera → Map)
+- TF 기반 좌표 변환
+- Behavior State Machine
+- Remote PC Offloading Architecture
+
+---
+
+## Demo
+
+| Feature | Status |
+|----------|--------|
+| Cartographer SLAM | ✅ |
+| Navigation2 | ✅ |
+| YOLO Object Detection | ✅ |
+| Object Localization | ✅ |
+| Behavior State Machine | ✅ |
+| Object-aware Navigation | ✅ |
+
+---
 
 ## 목차
 
@@ -40,18 +64,19 @@
 - [Behavior 상태 머신](#behavior-상태-머신)
 - [구현 결과](#구현-결과)
 - [향후 계획](#향후-계획)
+- [문서](#문서)
 
 ---
 
 ## 프로젝트 개요
 
-**Nav2gather**는 TurtleBot3 Burger 한 대에 Navigation2, YOLO Object Detection, Object Localization, Behavior를 통합해 구현한 **객체 인식 자율주행 시스템**이다.
+**Nav2gather**는 TurtleBot3 Burger를 기반으로 **Navigation2**, **YOLO Object Detection**, **Object Localization**, **Behavior**를 통합하여 구현한 객체 인식 자율주행 시스템이다.
 
-로봇은 카메라 영상에서 YOLO로 목표 물체를 인식하고, 인식된 위치를 카메라 좌표계에서 map 좌표계로 변환해 Navigation2의 목표 지점으로 사용한다. 사람이 RViz에서 목적지를 직접 지정하는 방식 대신, **인식된 객체를 스스로 목적지로 삼아 이동**하는 것이 이 시스템의 핵심 구조다.
+카메라로 목표 객체를 인식한 후, 객체의 위치를 카메라 좌표계에서 `map` 좌표계로 변환하여 Navigation2의 목표 지점으로 생성한다. 이를 통해 사용자가 직접 목적지를 지정하지 않아도 TurtleBot3가 **객체를 스스로 탐색하고 접근**할 수 있다.
 
-TurtleBot3 Burger는 Raspberry Pi 4·LiDAR·USB 웹캠으로 센서 수집과 구동만 담당하고, SLAM·Navigation2·YOLO 추론처럼 연산량이 큰 작업은 Remote PC에서 처리하는 **Offloading Architecture**를 채택했다.
+본 프로젝트는 **Offloading Architecture**를 적용하여 Raspberry Pi에서는 센서 수집과 모터 제어만 수행하고, SLAM, Navigation2, YOLO 추론, Behavior 등 연산량이 큰 작업은 Remote PC에서 처리한다.
 
-현재 구현은 단일 로봇을 대상으로 하며, 이 인식 기반 자율주행 구조는 [향후 계획](#향후-계획)에서 다루는 여러 대의 로봇이 협력 주행하는 **Multi-Robot Navigation**으로 확장될 수 있는 기반이 된다.
+현재는 단일 TurtleBot3를 대상으로 구현하였으며, 향후 Frontier Exploration과 Multi-Robot Navigation으로 확장할 수 있도록 설계하였다.
 
 ## 시스템 아키텍처
 
