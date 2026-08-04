@@ -1,134 +1,112 @@
-<div align="center">
-
 # Nav2gather
 
-### Object-Aware Autonomous Navigation using ROS 2 Navigation2
+**ROS 2 Navigation2와 YOLO를 결합한 TurtleBot3 객체 인식 자율주행 시스템**
 
-**ROS 2 Navigation2 · YOLO · Object Localization · Behavior State Machine**
+TurtleBot3가 카메라로 목표 객체를 인식하고, 객체의 위치를 `map` 좌표계로 변환한 뒤 Navigation2 목표로 설정하여 스스로 접근한다.
 
-<br>
-
-<video src="videos/demo.MP4" controls autoplay muted loop playsinline width="850">
+<video src="videos/demo.MP4" controls autoplay loop muted playsinline width="900">
 데모 영상: <a href="videos/demo.MP4">demo.MP4</a>
 </video>
 
-<br>
+<sub><i>SLAM · Navigation2 · Object Detection · Object Localization · Behavior가 결합된 전체 시스템 동작</i></sub>
 
-> **TurtleBot3가 객체를 인식하고 스스로 목표 지점까지 이동하는 ROS 2 기반 자율주행 시스템**
+## 핵심 기능
 
-</div>
-
----
-
-## Overview
-
-**Nav2gather**는 **ROS 2 Navigation2** 기반의 객체 인식 자율주행 시스템이다.
-
-TurtleBot3는 카메라 영상에서 YOLO로 목표 객체를 인식하고, 인식된 객체의 위치를 `map` 좌표계로 변환하여 **Navigation2의 목표 지점으로 사용**한다. 기존처럼 사용자가 RViz에서 목적지를 지정하지 않아도 **객체를 스스로 목적지로 선택하여 이동**할 수 있다.
-
-연산량이 큰 **SLAM**, **Navigation2**, **YOLO**, **Behavior**는 모두 **Remote PC**에서 수행하고, TurtleBot3는 센서 데이터 수집과 모터 제어만 담당하는 **Offloading Architecture**를 적용하였다.
-
-### Key Features
-
-- ROS 2 Navigation2 기반 자율주행
-- YOLO 기반 객체 인식
-- Object Localization (Camera → Map)
-- TF 기반 좌표 변환
-- Behavior State Machine
-- Remote PC Offloading Architecture
-
----
-
-## Demo
-
-| Feature | Status |
-|----------|--------|
-| Cartographer SLAM | ✅ |
-| Navigation2 | ✅ |
-| YOLO Object Detection | ✅ |
-| Object Localization | ✅ |
-| Behavior State Machine | ✅ |
-| Object-aware Navigation | ✅ |
-
----
+- **Cartographer SLAM**을 이용한 지도 생성
+- **AMCL 및 Navigation2** 기반 위치 추정과 자율주행
+- **YOLO** 기반 실시간 객체 인식
+- 카메라 좌표를 `map` 좌표로 변환하는 **Object Localization**
+- 객체 탐색부터 접근까지 제어하는 **Behavior State Machine**
+- 고부하 연산을 Remote PC에서 수행하는 **Offloading Architecture**
 
 ## 목차
 
 - [프로젝트 개요](#프로젝트-개요)
-- [시스템 아키텍처](#시스템-아키텍처)
+- [시스템 구성](#시스템-구성)
+- [전체 동작 흐름](#전체-동작-흐름)
 - [개발 환경](#개발-환경)
-- [SLAM](#slam)
-- [Navigation2](#navigation2)
-- [YOLO Object Detection](#yolo-object-detection)
-- [Object Localization](#object-localization)
-- [Behavior 상태 머신](#behavior-상태-머신)
+- [주요 구현](#주요-구현)
+  - [SLAM](#slam)
+  - [Navigation2](#navigation2)
+  - [YOLO Object Detection](#yolo-object-detection)
+  - [Object Localization](#object-localization)
+  - [Behavior State Machine](#behavior-state-machine)
 - [구현 결과](#구현-결과)
 - [향후 계획](#향후-계획)
 - [문서](#문서)
 
----
-
 ## 프로젝트 개요
 
-**Nav2gather**는 TurtleBot3 Burger를 기반으로 **Navigation2**, **YOLO Object Detection**, **Object Localization**, **Behavior**를 통합하여 구현한 객체 인식 자율주행 시스템이다.
+**Nav2gather**는 TurtleBot3 Burger 한 대에 Navigation2, YOLO Object Detection, Object Localization, Behavior를 통합한 객체 인식 자율주행 시스템이다.
 
-카메라로 목표 객체를 인식한 후, 객체의 위치를 카메라 좌표계에서 `map` 좌표계로 변환하여 Navigation2의 목표 지점으로 생성한다. 이를 통해 사용자가 직접 목적지를 지정하지 않아도 TurtleBot3가 **객체를 스스로 탐색하고 접근**할 수 있다.
+기존 Navigation2 예제에서는 사용자가 RViz에서 직접 목적지를 지정한다. 본 프로젝트에서는 카메라 영상에서 인식한 객체를 목적지로 사용한다. YOLO가 목표 객체를 검출하면 Object Localization 노드가 객체의 위치를 추정하고, TF 변환을 통해 해당 좌표를 `map` 좌표계로 변환한다. Behavior 노드는 변환된 좌표를 바탕으로 객체 앞 접근 지점을 생성하여 Navigation2에 전달한다.
 
-본 프로젝트는 **Offloading Architecture**를 적용하여 Raspberry Pi에서는 센서 수집과 모터 제어만 수행하고, SLAM, Navigation2, YOLO 추론, Behavior 등 연산량이 큰 작업은 Remote PC에서 처리한다.
+TurtleBot3의 Raspberry Pi는 LiDAR, IMU, 웹캠 등 센서 데이터 수집과 모터 제어를 담당한다. SLAM, Navigation2, YOLO 추론, Object Localization, Behavior와 같이 연산량이 큰 작업은 Remote PC에서 실행하는 **Offloading Architecture**를 적용하였다.
 
-현재는 단일 TurtleBot3를 대상으로 구현하였으며, 향후 Frontier Exploration과 Multi-Robot Navigation으로 확장할 수 있도록 설계하였다.
+현재 시스템은 단일 TurtleBot3를 대상으로 구현되었으며, 이후 Frontier Exploration과 Multi-Robot Navigation으로 확장할 수 있는 구조를 목표로 한다.
 
-## 시스템 아키텍처
+## 시스템 구성
 
-로봇은 센서·구동만 담당하고, 연산이 무거운 SLAM·Navigation2·YOLO·Behavior는 Remote PC에서 실행되며 두 장치는 ROS 2 DDS로 통신한다.
+로봇은 센서 데이터 수집과 구동을 담당하고, Remote PC는 지도 생성, 객체 인식, 위치 추정, 경로 계획 및 상위 행동 결정을 수행한다. 두 장치는 ROS 2 DDS를 통해 통신한다.
 
 ```mermaid
 flowchart LR
+    subgraph TB3[TurtleBot3 Burger]
+        direction TB
+        CAM[USB Webcam]
+        LIDAR[LDS-02 LiDAR]
+        IMU[IMU]
+        PI[Raspberry Pi 4]
+        OPENCR[OpenCR / Motors]
+
+        CAM --> PI
+        LIDAR --> PI
+        IMU --> PI
+        PI --> OPENCR
+    end
+
     subgraph PC[Remote PC]
         direction TB
         CARTO[Cartographer SLAM]
-        NAV2[Navigation2]
+        NAV2[Navigation2 / AMCL]
         YOLO[YOLO Detection]
         LOC[Object Localization]
+        TF[TF Transformation]
         BHV[Behavior State Machine]
 
-        YOLO --> LOC --> BHV
-        CARTO --> NAV2 --> BHV
+        YOLO --> LOC --> TF --> BHV
+        CARTO --> NAV2
+        NAV2 <--> BHV
     end
 
-    subgraph TB3[TurtleBot3 Burger]
-        direction TB
-        PI[Raspberry Pi 4]
-        OPENCR[OpenCR]
-        LIDAR[LDS LiDAR]
-        CAM[USB Webcam]
-    end
-
-    TB3 <-->|ROS 2 DDS| PC
+    TB3 <-->|ROS 2 DDS / Wi-Fi| PC
 ```
 
-전체 파이프라인은 아래와 같은 순서로 이어진다.
+## 전체 동작 흐름
 
 ```text
-USB Camera
+USB Webcam
      │
      ▼
-YOLO Detection
+YOLO Object Detection
      │
      ▼
 Object Localization
      │
      ▼
-TF Transformation
+camera_optical_frame → base_link → odom → map
      │
      ▼
-Behavior Decision
+Behavior State Machine
      │
      ▼
-Navigation2
+Navigation2 Goal 생성
      │
      ▼
-Robot Motion
+경로 계획 및 장애물 회피
+     │
+     ▼
+목표 객체 앞까지 이동
 ```
 
 ## 개발 환경
@@ -137,60 +115,36 @@ Robot Motion
 |---|---|
 | **OS** | Ubuntu 24.04 LTS |
 | **Middleware** | ROS 2 Jazzy |
-| **Robot Platform** | TurtleBot3 Burger (Raspberry Pi 4 · OpenCR · LDS-02 LiDAR) |
-| **Simulation / Viz** | Gazebo Harmonic · RViz2 |
-| **Language** | Python · C++ |
+| **Robot Platform** | TurtleBot3 Burger |
+| **SBC** | Raspberry Pi 4 |
+| **Controller** | OpenCR |
+| **LiDAR** | LDS-02 |
+| **Camera** | Logitech C920 USB Webcam |
+| **Visualization** | RViz2 |
+| **Simulation** | Gazebo Harmonic |
+| **Language** | Python, C++ |
 | **Build System** | colcon |
 
-**Technology Stack**
+### 기술 스택
 
-<table>
-<tr>
-<td valign="top" width="50%">
+| 영역 | 구성 |
+|---|---|
+| **Navigation** | Navigation2, AMCL, Cartographer SLAM, `nav2_simple_commander` |
+| **Perception** | `yolo_ros`, Ultralytics YOLO, USB Webcam, GStreamer |
+| **Localization** | TF2, `PointStamped`, Pinhole Camera Model, LiDAR Clustering |
+| **Behavior** | Python State Machine, `BasicNavigator` |
 
-**Navigation**
-- Navigation2
-- Cartographer SLAM
-- `nav2_simple_commander`
+## 주요 구현
 
-</td>
-<td valign="top" width="50%">
+### SLAM
 
-**Perception**
-- YOLO ROS ([`yolo_ros`](code/yolo_ws/src/yolo_ros), Ultralytics)
-- USB Webcam
-- GStreamer
-
-</td>
-</tr>
-<tr>
-<td valign="top">
-
-**Localization**
-- TF2
-- `PointStamped` (Pinhole Camera Model)
-- LiDAR Clustering
-
-</td>
-<td valign="top">
-
-**Behavior**
-- `nav2_simple_commander` (BasicNavigator)
-- Python State Machine
-
-</td>
-</tr>
-</table>
-
-## SLAM
-
-Cartographer로 LiDAR 스캔을 이용해 실시간 점유 격자 지도(occupancy grid map)를 생성한다. TurtleBot3를 원격 조작해 매핑 대상 공간을 주행시키고, 완성된 지도를 저장해 이후 Navigation2에서 사용한다.
+Cartographer와 LiDAR 스캔을 이용하여 실시간 점유 격자 지도(occupancy grid map)를 생성한다. TurtleBot3를 Teleoperation으로 이동시키며 주변 환경을 스캔하고, 완성된 지도는 Navigation2에서 사용할 수 있도록 `map.yaml`과 `map.pgm`으로 저장한다.
 
 <table>
 <tr>
 <td width="45%">
 
-<img src="images/map.png" alt="Cartographer SLAM으로 생성한 점유 격자 지도" width="100%">
+<img src="images/map.png" alt="Cartographer SLAM으로 생성한 지도" width="100%">
 
 <sub><i>Cartographer SLAM으로 생성한 점유 격자 지도</i></sub>
 
@@ -207,31 +161,31 @@ Cartographer로 LiDAR 스캔을 이용해 실시간 점유 격자 지도(occupan
 </tr>
 </table>
 
-## Navigation2
+### Navigation2
 
-저장된 지도 위에서 AMCL로 현재 위치를 추정하고, `nav2_simple_commander`(BasicNavigator)를 통해 전역/지역 경로 계획, 장애물 회피, 목표 지점 이동을 수행한다. 뒤에서 다루는 Behavior 노드는 이 인터페이스를 그대로 사용해 인식된 객체 앞 지점을 Nav2 목표로 전달한다.
+저장한 지도에서 AMCL로 TurtleBot3의 현재 위치를 추정한다. Navigation2는 전역 경로와 지역 경로를 생성하고, 장애물을 회피하며 목표 지점까지 이동한다.
 
-<div align="center">
+Behavior 노드는 `nav2_simple_commander`의 `BasicNavigator`를 사용하여 객체 앞 접근 지점을 Navigation2 목표로 전달한다.
 
-<video src="videos/navigation.mp4" controls width="640">
+<video src="videos/navigation.mp4" controls width="720">
 데모 영상: <a href="videos/navigation.mp4">navigation.mp4</a>
 </video>
 
 <sub><i>AMCL 위치 추정과 Navigation2 목표 지점 자율 이동</i></sub>
 
-</div>
+### YOLO Object Detection
 
-## YOLO Object Detection
+Raspberry Pi에 연결된 USB 웹캠 영상을 GStreamer UDP로 Remote PC에 전송한다. Remote PC의 `gscam`은 수신한 영상을 `/camera/image_raw` Topic으로 변환하고, `yolo_ros`가 해당 영상을 구독하여 실시간 객체 인식을 수행한다.
 
-Raspberry Pi에 연결된 USB 웹캠 영상을 GStreamer로 Remote PC에 전송해 ROS 2 Image Topic으로 변환하고, `yolo_ros`(Ultralytics YOLO 기반)로 실시간 추론한다. 신뢰도(score) 임계값과 bounding box 크기 필터를 적용해 목표 클래스만 선별한다.
+목표 클래스와 신뢰도 임계값을 적용해 필요한 객체만 선별하고, Bounding Box 중심과 크기를 Object Localization에 전달한다.
 
 <table>
 <tr>
 <td width="45%">
 
-<img src="images/yolo_detection.png" alt="YOLO가 Bounding Box와 Class Name으로 물체를 인식한 결과" width="100%">
+<img src="images/yolo_detection.png" alt="YOLO 객체 인식 결과" width="100%">
 
-<sub><i>YOLO Detection 결과 (Bounding Box · Class · Confidence Score)</i></sub>
+<sub><i>Bounding Box, Class Name, Confidence Score가 표시된 YOLO Detection 결과</i></sub>
 
 </td>
 <td width="55%">
@@ -240,116 +194,126 @@ Raspberry Pi에 연결된 USB 웹캠 영상을 GStreamer로 Remote PC에 전송�
 데모 영상: <a href="videos/yolo_detection.mp4">yolo_detection.mp4</a>
 </video>
 
-<sub><i>USB 웹캠 영상에서 YOLO가 목표 물체를 실시간으로 탐지하는 모습</i></sub>
+<sub><i>USB 웹캠 영상에서 목표 객체를 실시간으로 탐지하는 모습</i></sub>
 
 </td>
 </tr>
 </table>
 
-## Object Localization
+### Object Localization
 
-검출된 bounding box의 폭과 카메라 초점거리를 이용한 Pinhole 카메라 모델로 카메라 기준 물체의 3D 좌표(거리·각도)를 추정한다.
+검출된 Bounding Box의 폭과 실제 객체 너비, 카메라 초점거리를 이용하여 객체까지의 거리를 추정한다.
 
 ```text
 distance = (real_object_width × focal_length_px) / bbox_width_px
 ```
 
-별도 구현에서는 YOLO 검출 방위각과 LiDAR 스캔 클러스터링을 결합해 더 강건하게 위치를 보정한다. 추정된 좌표는 `camera_optical_frame → camera_link → base_link → odom → map` TF 체인을 거쳐 map 좌표계로 변환되고, Behavior 노드의 목표 지점으로 전달된다.
+객체의 영상 중심 위치를 이용해 방위각을 계산하고, 필요에 따라 LiDAR 스캔 클러스터링을 결합하여 위치를 보정한다.
 
-## Behavior 상태 머신
-
-Behavior 노드는 Navigation2와 Object Localization의 결과를 입력받아, 아래 상태를 순환하며 인식된 객체를 향해 자율주행을 수행하는 상위 로직이다.
+추정된 좌표는 다음 TF 체인을 통해 `map` 좌표계로 변환된다.
 
 ```text
- ┌──────────────────────────────────────────────────┐
- │                                                    │
- ▼                                                    │
-Searching                                             │
- │   Object Detected                                  │
- ▼                                                    │
-Aligning                                               │
- │   Centered in Frame                                │
- ▼                                                    │
-Coordinate Averaging                                   │
- │   Samples Stabilized                               │
- ▼                                                    │
-Navigation Goal                                        │
- │   Goal Generated                                   │
- ▼                                                    │
-Navigate to Target                                     │
- │   Goal Reached                                     │
- ▼                                                    │
-Cooldown                                               │
- │   Next Bottle                                      │
- ▼                                                    │
-Search Next Bottle ────────────────────────────────────┘
+camera_optical_frame
+        │
+        ▼
+camera_link
+        │
+        ▼
+base_link
+        │
+        ▼
+odom
+        │
+        ▼
+map
 ```
 
-탐색 또는 이동이 반복적으로 실패하면 `Navigate to Target`, `Searching` 단계에서 `Stopped` 상태로 안전하게 종료된다.
+Behavior 노드는 최종적으로 변환된 `map` 좌표를 이용하여 객체 앞 접근 목표를 생성한다.
 
-| 단계 | 코드 상태(enum) | 설명 |
-|---|---|---|
-| Searching | `SEARCHING` | 제자리 회전하며 목표 물체를 탐색 |
-| Aligning | `ALIGNING` | 각도 오차를 계산해 물체가 화면 중앙에 오도록 정렬 |
-| Coordinate Averaging | `PREPARING_GOAL` | 여러 프레임의 좌표 샘플을 모아 중앙값으로 안정화 |
-| Navigation Goal | `PREPARING_GOAL` | 안정화된 좌표 앞 정지 지점을 Nav2 목표로 생성 |
-| Navigate to Target | `NAVIGATING` | 생성된 목표까지 Nav2로 자율 이동 |
-| Cooldown | `COOLDOWN` | 도착 후 대기하며 동일 목표 재탐색을 방지 |
-| Search Next Bottle | `SEARCHING`(복귀) | 다음 목표를 찾기 위해 탐색 상태로 순환 |
-| — | `STOPPED` | 재시도·탐색 한계 초과 시 안전 종료 |
+### Behavior State Machine
 
-이미 도착한 목표의 map 좌표는 계속 유지되어 다음 탐색 루프에서 자동으로 제외되며, 이는 이후 여러 로봇이 좌표를 공유하며 협력 주행하는 구조로 확장될 수 있는 기반이 된다.
+Behavior 노드는 객체 탐색, 정렬, 좌표 수집, 목표 생성, Navigation2 이동, 재탐색을 하나의 상태 머신으로 관리한다.
 
-<div align="center">
+```mermaid
+stateDiagram-v2
+    [*] --> SEARCHING
 
-<video src="videos/Behavior%20Demo.mp4" controls width="640">
+    SEARCHING --> ALIGNING: 객체 검출
+    SEARCHING --> STOPPED: 탐색 횟수 초과
+
+    ALIGNING --> COLLECTING: 화면 중앙 정렬
+    ALIGNING --> SEARCHING: 객체 유실
+
+    COLLECTING --> NAVIGATING: 좌표 샘플 안정화
+    COLLECTING --> SEARCHING: 좌표 수집 실패
+
+    NAVIGATING --> COOLDOWN: 목표 도착
+    NAVIGATING --> SEARCHING: 이동 재시도
+    NAVIGATING --> STOPPED: 재시도 한계 초과
+
+    COOLDOWN --> SEARCHING: 다음 객체 탐색
+    STOPPED --> [*]
+```
+
+| 상태 | 설명 |
+|---|---|
+| `SEARCHING` | 제자리 회전하며 목표 객체 탐색 |
+| `ALIGNING` | 객체가 영상 중앙에 오도록 방향 정렬 |
+| `COLLECTING` | 여러 프레임의 객체 좌표를 수집하고 평균화 |
+| `NAVIGATING` | 객체 앞 접근 지점을 Nav2 목표로 설정하여 이동 |
+| `COOLDOWN` | 도착 후 일정 시간 정지하고 방문 좌표 기록 |
+| `STOPPED` | 탐색 또는 이동 재시도 한계 초과 시 안전 종료 |
+
+이미 방문한 객체의 `map` 좌표는 방문 목록에 저장되며, 다음 탐색에서 동일 객체를 다시 목표로 선택하지 않도록 제외한다.
+
+<video src="videos/Behavior%20Demo.mp4" controls width="720">
 데모 영상: <a href="videos/Behavior%20Demo.mp4">Behavior Demo.mp4</a>
 </video>
 
-<sub><i>Searching → Aligning → Coordinate Averaging → Navigation Goal → Navigate to Target → Cooldown 전체 루프</i></sub>
-
-</div>
+<sub><i>Searching → Aligning → Collecting → Navigating → Cooldown으로 이어지는 전체 Behavior 루프</i></sub>
 
 ## 구현 결과
 
-각 기능별 데모 영상은 위 해당 섹션에서 확인할 수 있으며, 전체 구현 현황은 다음과 같다.
-
 | 항목 | 상태 |
-|---|---|
-| TurtleBot3 Bringup | Done |
-| Cartographer 기반 SLAM | Done |
-| Navigation2 기반 자율주행 | Done |
-| YOLO 기반 객체 인식 | Done |
-| Object Localization (Pinhole 모델 3D 위치 추정) | Done |
-| Camera-LiDAR 융합 위치 보정 | Done |
-| TF 좌표 변환 (camera → map) | Done |
-| Behavior 상태 머신 기반 자율 탐색·접근 | Done |
-| Frontier Exploration 자율 탐색 | 연동 구조 구성, 실환경 검증 진행 중 |
+|---|:---:|
+| TurtleBot3 Bringup | 완료 |
+| Cartographer 기반 SLAM | 완료 |
+| AMCL Localization | 완료 |
+| Navigation2 기반 자율주행 | 완료 |
+| GStreamer 기반 웹캠 영상 전송 | 완료 |
+| YOLO 기반 객체 인식 | 완료 |
+| Pinhole Camera Model 기반 거리 추정 | 완료 |
+| Camera-LiDAR 융합 위치 보정 | 완료 |
+| TF 좌표 변환 (`camera` → `map`) | 완료 |
+| Behavior 상태 머신 기반 객체 탐색 및 접근 | 완료 |
+| 동일 객체 재방문 방지 | 완료 |
+| 탐색 횟수 제한 및 안전 종료 | 완료 |
+| Frontier Exploration | 연동 구조 구성, 실환경 검증 진행 중 |
 | Multi-Robot Navigation | 계획 단계 |
 
 ## 향후 계획
 
-**Current**
+- **Frontier Exploration**
+  - 목적지가 주어지지 않은 상황에서 미탐색 영역을 자동 선택
+  - Frontier 기반 자율 탐색 실환경 검증
 
-- ✓ Object-aware Autonomous Navigation — YOLO 인식 결과를 Navigation2 목표로 변환해 자율 이동
-- ✓ SLAM 기반 지도 생성 및 AMCL Localization
-- ✓ Camera-LiDAR 융합 Object Localization
-- ✓ Behavior 상태 머신 기반 자율 탐색·접근
+- **Navigation Recovery**
+  - 이동 실패 시 재시도 횟수 관리
+  - 후진, 회전, Costmap 초기화 등의 Recovery Behavior 연동
+  - Navigation2 Behavior Tree 분석 및 개선
 
-**Next**
-
-- → Frontier Exploration 실환경 검증, 목적지 자동 탐색
-- → Multi-Robot Coordination — Burger·Waffle 동시 자율주행, Namespace 기반 다중 로봇 환경 구성
-- → Cooperative Navigation — Costmap 기반 로봇 간 회피, MAPF(Multi-Agent Path Finding) 기반 경로 조율
-- → Navigation Behavior 고도화 — 재시도 전략 · Recovery Behavior · Behavior Tree 분석
+- **Multi-Robot Navigation**
+  - TurtleBot3 Burger와 Waffle의 Namespace 기반 다중 로봇 환경 구성
+  - 로봇 간 지도 및 목표 좌표 공유
+  - Costmap 기반 상호 회피와 MAPF 기반 경로 조율
 
 ## 문서
 
-프로젝트를 처음부터 재현하기 위한 상세 가이드는 `docs/` 폴더에 정리되어 있다.
+프로젝트 재현을 위한 설치 및 실행 가이드는 `docs/` 폴더에 정리되어 있다.
 
 | 문서 | 내용 |
 |---|---|
-| [01. Guidebook — Part 1](docs/01_Guidebook_Part1.md) | 개발 환경 구축 · TurtleBot3 Bringup |
-| [02. Guidebook — Part 2](docs/02_Guidebook_Part2.md) | SLAM · Navigation2 |
-| [03. Webcam Setup](docs/03_Webcam_Setup.md) | USB Webcam · YOLO 연동 |
-| [04. Troubleshooting](docs/04_Troubleshooting.md) | 개발 중 발생한 문제와 해결 기록 |
+| [01. Guidebook — Part 1](docs/01_Guidebook_Part1.md) | 개발 환경 구축, Raspberry Pi 설정, TurtleBot3 Bringup |
+| [02. Guidebook — Part 2](docs/02_Guidebook_Part2.md) | SLAM, 지도 저장, AMCL, Navigation2 |
+| [03. Webcam Setup](docs/03_Webcam_Setup.md) | USB Webcam, GStreamer, `gscam`, YOLO 연동 |
+| [04. Troubleshooting](docs/04_Troubleshooting.md) | 개발 중 발생한 주요 오류와 해결 방법 |
