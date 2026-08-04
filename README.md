@@ -179,26 +179,15 @@ Raspberry Pi에 연결된 USB 웹캠 영상을 GStreamer UDP로 Remote PC에 전
 
 목표 클래스와 신뢰도 임계값을 적용해 필요한 객체만 선별하고, Bounding Box 중심과 크기를 Object Localization에 전달한다.
 
-<table>
-<tr>
-<td width="45%">
+<div align="center">
 
-<img src="images/yolo_detection.png" alt="YOLO 객체 인식 결과" width="100%">
-
-<sub><i>Bounding Box, Class Name, Confidence Score가 표시된 YOLO Detection 결과</i></sub>
-
-</td>
-<td width="55%">
-
-<video src="videos/yolo_detection.mp4" controls width="100%">
+<video src="videos/yolo_detection.mp4" controls width="720">
 데모 영상: <a href="videos/yolo_detection.mp4">yolo_detection.mp4</a>
 </video>
 
 <sub><i>USB 웹캠 영상에서 목표 객체를 실시간으로 탐지하는 모습</i></sub>
 
-</td>
-</tr>
-</table>
+</div>
 
 ### Object Localization
 
